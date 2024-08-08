@@ -1,6 +1,7 @@
 <script lang="ts">
   import { invoke } from "@tauri-apps/api/tauri";
   import Button from "../components/Button.svelte";
+  import { goto } from "$app/navigation";
 
   let name = "";
   let greetMsg = "";
@@ -8,6 +9,10 @@
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
     greetMsg = await invoke("greet", { name });
+  }
+
+  const handleHiButton = () => {
+    goto("/home");
   }
 </script>
 
@@ -32,7 +37,7 @@
     <input id="greet-input" placeholder="Enter a name..." bind:value={name} />
     <button type="submit">Greet</button>
   </form>
-  <Button text="Hi"/>
+  <Button onClick={() => handleHiButton()} text="Go Home"/>
 
   <p>{greetMsg}</p>
 </div>

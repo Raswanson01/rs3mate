@@ -1,8 +1,9 @@
 <script>
     export let text;
+    export let onClick;
 </script>
 
-<div class="
+<button class="
     rounded-lg
     shadow-md 
     bg-blue-500 
@@ -15,6 +16,7 @@
      active:bg-blue-700 
      transition-colors 
      duration-150"
+    on:click={() => onClick()}
 >
     <h3>{text}</h3>
-</div>
+</button>
