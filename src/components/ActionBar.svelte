@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onDestroy } from "svelte";
     import { activeAbility, selectedIndex } from "../barStore";
     import type { BarAbility } from "../models/abilities";
 
@@ -10,7 +9,7 @@
                 defaultAbilities[i] = propAbilities[i];
             }
             else {
-                defaultAbilities[i] = { keybind: null, abilityName: "None", imagePath: "favicon.png" }
+                defaultAbilities[i] = { keybind: null, abilityName: "None", imagePath: "empty.png" }
             }
         }
         return defaultAbilities;
@@ -22,28 +21,38 @@
     let abilityArray: BarAbility[] = initAbilities(abilities);
     let keybind: string[] = [];
     let hasModifier = false;
+    let shouldListen = false;
 
     const handleKeydown  = (event: KeyboardEvent) => {
-        const key = event.key;
-        keybind.push(key)
-        if (['Alt', 'Control', 'Shift'].includes(key)) {
-            if (hasModifier) {
+        if (!shouldListen) {
+            return;
+        }
+        const key = event.key.toUpperCase();
+        console.log("Keybind: ", keybind);
+        if (['ALT', 'CONTROL', 'SHIFT'].includes(key)) {
+            const keyToUse = key === 'CONTROL' ? "CTL" : key;
+            if (!hasModifier) {
+                keybind.push(keyToUse);
+                hasModifier = true;
+            }
+            else {
                 return;
             }
-            hasModifier = true;
         } else {
+            keybind.push(key);
             $activeAbility.keybind = keybind.join('+');
-            keybind = [];
-            window.removeEventListener('keydown', handleKeydown);
             abilityArray[$selectedIndex!] = $activeAbility;
-            return;
+            //reset state
+            keybind = [];
+            shouldListen = false;
+            hasModifier = false;
         }
     }
 
     const handleClick = (ability: BarAbility, index: number) => {
         $activeAbility = ability;
         $selectedIndex = index;
-        window.addEventListener('keydown', handleKeydown)
+        shouldListen = true;
     }
 
     
@@ -54,16 +63,15 @@
     {#each abilityArray as ability, index}
     <div class="image" 
         on:click={() => handleClick(ability, index)} 
-        on:keyup={() => handleClick(ability, index)} 
+        on:keydown={(event) => handleKeydown(event)} 
         tabindex={index} 
         role="button"
     >
-        <img src="/ImagesOrigin/{ability.imagePath}" alt="The {ability.abilityName} ability"/>
+        <img src="ImagesOrigin/{ability.imagePath}" alt="The {ability.abilityName} ability"/>
         <h7 class="text">{ability.keybind ? ability.keybind : "None"}</h7>
     </div>
     {/each}
 </div>
-
 
 <style>
     .image {
@@ -71,10 +79,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 3em;
-        height: 3em;
+        width: 4em;
+        height: 4em;
         border-style: solid;
         border-width: 2px;
+        border-color: rgb(70, 70, 70);
         margin-left: 10px;
         margin-top: 8px;
     }

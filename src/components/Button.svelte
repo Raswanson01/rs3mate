@@ -13,9 +13,9 @@
     m-5
     cursor-pointer
     hover:bg-blue-600
-     active:bg-blue-700 
-     transition-colors 
-     duration-150"
+    active:bg-blue-700 
+    transition-colors 
+    duration-150"
     on:click={() => onClick()}
 >
     <h3>{text}</h3>
