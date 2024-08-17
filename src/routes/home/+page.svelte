@@ -1,20 +1,24 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-  	import type { ComboBoxItem } from "carbon-components-svelte/src/ComboBox/ComboBox.svelte";
+  	import type { PageData } from "../$types";
   	import { activeAbility, selectedIndex } from "../../barStore";
   	import ActionBar from "../../components/ActionBar.svelte";
 	import Button from "../../components/Button.svelte";
-  import AbilitySelection from "./AbilitySelection.svelte";
+  import type { AbilityMap } from "../../data/abilities";
+	import AbilitySelection from "./AbilitySelection.svelte";
 
 	const bar1 = [
-		{ keybind: "Q", imagePath: "Anticipation.png", abilityName: "Anticipation" },
+		{ keybind: "Q", img: "Anticipation.png", abilityName: "Anticipation", id: 0 },
 		null,
 		null,
-		{ keybind: null, imagePath: "Assault.png", abilityName: "Assault" }
+		{ keybind: null, img: "Assault.png", abilityName: "Assault", id: 1 }
 	]
 
-	let selectedCategory: 'melee' | 'ranged' | 'magic' | 'necromancy' | 'defence' = 'melee';
-		
+	let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' = 'melee';
+	export let data: AbilityMap;
+	export let abilities: AbilityMap = data;
+	
+	console.log("Abilities: ", abilities);
 </script>
 
 <div class="container">
@@ -37,7 +41,7 @@
 		<button class="type-selector" on:click={() => selectedCategory = 'melee'}>
 			<img src="AbilityCategories/Melee.png" alt="Melee abilities" />
 		</button>
-		<button class="type-selector "on:click={() => selectedCategory = 'ranged'}>
+		<button class="type-selector "on:click={() => selectedCategory = 'range'}>
 			<img src="AbilityCategories/Ranged.png" alt="Ranged abilities" />
 		</button>
 		<button class="type-selector" on:click={() => selectedCategory = 'magic'}>
@@ -46,12 +50,12 @@
 		<button class="type-selector" on:click={() => selectedCategory = 'necromancy'}>
 			<img src="AbilityCategories/Necromancy.png" alt="Necromancy abilities" />
 		</button>
-		<button class="type-selector" on:click={() => selectedCategory = 'defence'}>
+		<button class="type-selector" on:click={() => selectedCategory = 'defense'}>
 			<img src="AbilityCategories/Defence.png" alt="Defensive abilities" />
 		</button>
 	</div>
 	<div class="ability-select">
-		<AbilitySelection {selectedCategory} />
+		<AbilitySelection items={!!abilities ? abilities[selectedCategory] : []} />
 	</div>
 </div>
 
@@ -62,10 +66,11 @@
 	}
 	.column {
 		display: flex;
-		flex-direction: column;
+		flex: 1;
+		flex-direction: row;
 		margin-top: 20px;
-		margin-left: 30px;
-		margin-right: 30px;
+		margin-left: 15px;
+		margin-right: 15px;
 	}
 	.type-selector {
 		border-style: solid;
@@ -78,6 +83,10 @@
 		padding: 4px;
 	}
 	.ability-select {
+		flex: 2;
 		margin-top: 30px;
+	}
+	.vert {
+		flex: 7
 	}
 </style>

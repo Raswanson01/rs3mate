@@ -1,0 +1,2866 @@
+{
+    "constitution": [
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0
+        },
+        {
+            "name": "Balanced Stance",
+            "cooldown": 0.0,
+            "img": "Balanced_Stance.png",
+            "id": 1
+        },
+        {
+            "name": "Defensive Stance",
+            "cooldown": 0.0,
+            "img": "Defensive_Stance.png",
+            "id": 2
+        },
+        {
+            "name": "Demon Slayer",
+            "cooldown": 0.0,
+            "img": "Demon_Slayer.png",
+            "id": 3
+        },
+        {
+            "name": "Dragon Slayer",
+            "cooldown": 0.0,
+            "img": "Dragon_Slayer.png",
+            "id": 4
+        },
+        {
+            "name": "Eat Food",
+            "cooldown": 0.0,
+            "img": "Eat_Food.png",
+            "id": 5
+        },
+        {
+            "name": "Essence of Finality",
+            "cooldown": 0.0,
+            "img": "Essence_of_Finality.png",
+            "id": 6
+        },
+        {
+            "name": "Guthix's Blessing",
+            "cooldown": 0.0,
+            "img": "Guthix's_Blessing.png",
+            "id": 7
+        },
+        {
+            "name": "Ice Asylum",
+            "cooldown": 0.0,
+            "img": "Ice_Asylum.png",
+            "id": 8
+        },
+        {
+            "name": "Incite",
+            "cooldown": 0.0,
+            "img": "Incite.png",
+            "id": 9
+        },
+        {
+            "name": "Ingenuity of the Humans",
+            "cooldown": 0.0,
+            "img": "Ingenuity_of_the_Humans.png",
+            "id": 10
+        },
+        {
+            "name": "Kuradal's Favour",
+            "cooldown": 0.0,
+            "img": "Kuradal's_Favour.png",
+            "id": 11
+        },
+        {
+            "name": "Limitless",
+            "cooldown": 0.0,
+            "img": "Limitless.png",
+            "id": 12
+        },
+        {
+            "name": "Onslaught",
+            "cooldown": 0.0,
+            "img": "Onslaught.png",
+            "id": 13
+        },
+        {
+            "name": "Regenerate",
+            "cooldown": 0.0,
+            "img": "Regenerate.png",
+            "id": 14
+        },
+        {
+            "name": "Reprisal",
+            "cooldown": 0.0,
+            "img": "Reprisal.png",
+            "id": 15
+        },
+        {
+            "name": "Sacrifice",
+            "cooldown": 0.0,
+            "img": "Sacrifice.png",
+            "id": 16
+        },
+        {
+            "name": "Shatter",
+            "cooldown": 0.0,
+            "img": "Shatter.png",
+            "id": 17
+        },
+        {
+            "name": "Shout - Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Shout_-_Aggressive_Stance.png",
+            "id": 18
+        },
+        {
+            "name": "Shout - Balanced Stance",
+            "cooldown": 0.0,
+            "img": "Shout_-_Balanced_Stance.png",
+            "id": 19
+        },
+        {
+            "name": "Shout - Blue Egg",
+            "cooldown": 0.0,
+            "img": "Shout_-_Blue_Egg.png",
+            "id": 20
+        },
+        {
+            "name": "Shout - Crackers",
+            "cooldown": 0.0,
+            "img": "Shout_-_Crackers.png",
+            "id": 21
+        },
+        {
+            "name": "Shout - Defensive Stance",
+            "cooldown": 0.0,
+            "img": "Shout_-_Defensive_Stance.png",
+            "id": 22
+        },
+        {
+            "name": "Shout - Green Egg",
+            "cooldown": 0.0,
+            "img": "Shout_-_Green_Egg.png",
+            "id": 23
+        },
+        {
+            "name": "Shout - Poisoned Meat",
+            "cooldown": 0.0,
+            "img": "Shout_-_Poisoned_Meat.png",
+            "id": 24
+        },
+        {
+            "name": "Shout - Poisoned Tofu",
+            "cooldown": 0.0,
+            "img": "Shout_-_Poisoned_Tofu.png",
+            "id": 25
+        },
+        {
+            "name": "Shout - Poisoned Worms",
+            "cooldown": 0.0,
+            "img": "Shout_-_Poisoned_Worms.png",
+            "id": 26
+        },
+        {
+            "name": "Shout - Red Egg",
+            "cooldown": 0.0,
+            "img": "Shout_-_Red_Egg.png",
+            "id": 27
+        },
+        {
+            "name": "Shout - Tofu",
+            "cooldown": 0.0,
+            "img": "Shout_-_Tofu.png",
+            "id": 28
+        },
+        {
+            "name": "Shout - Worms",
+            "cooldown": 0.0,
+            "img": "Shout_-_Worms.png",
+            "id": 29
+        },
+        {
+            "name": "Siphon",
+            "cooldown": 0.0,
+            "img": "Siphon.png",
+            "id": 30
+        },
+        {
+            "name": "Slayer's Insight",
+            "cooldown": 0.0,
+            "img": "Slayer's_Insight.png",
+            "id": 31
+        },
+        {
+            "name": "Storm Shards",
+            "cooldown": 0.0,
+            "img": "Storm_Shards.png",
+            "id": 32
+        },
+        {
+            "name": "Transfigure",
+            "cooldown": 0.0,
+            "img": "Transfigure.png",
+            "id": 33
+        },
+        {
+            "name": "Tuska's Wrath",
+            "cooldown": 0.0,
+            "img": "Tuska's_Wrath.png",
+            "id": 34
+        },
+        {
+            "name": "Undead Slayer",
+            "cooldown": 0.0,
+            "img": "Undead_Slayer.png",
+            "id": 35
+        },
+        {
+            "name": "Weapon Special Attack",
+            "cooldown": 0.0,
+            "img": "Weapon_Special_Attack.png",
+            "id": 36
+        }
+    ],
+    "curses": [
+        {
+            "name": "Affliction",
+            "cooldown": 0.0,
+            "img": "Affliction.png",
+            "id": 37
+        },
+        {
+            "name": "Anguish",
+            "cooldown": 0.0,
+            "img": "Anguish.png",
+            "id": 38
+        },
+        {
+            "name": "Berserker",
+            "cooldown": 0.0,
+            "img": "Berserker.png",
+            "id": 39
+        },
+        {
+            "name": "Chronicle Attraction",
+            "cooldown": 0.0,
+            "img": "Chronicle_Attraction.png",
+            "id": 40
+        },
+        {
+            "name": "Chronicle Attraction",
+            "cooldown": 0.0,
+            "img": "Chronicle_Attraction.png",
+            "id": 41
+        },
+        {
+            "name": "Dark Form",
+            "cooldown": 0.0,
+            "img": "Dark_Form.png",
+            "id": 42
+        },
+        {
+            "name": "Dark Form",
+            "cooldown": 0.0,
+            "img": "Dark_Form.png",
+            "id": 43
+        },
+        {
+            "name": "Deflect Magic",
+            "cooldown": 0.0,
+            "img": "Deflect_Magic.png",
+            "id": 44
+        },
+        {
+            "name": "Deflect Melee",
+            "cooldown": 0.0,
+            "img": "Deflect_Melee.png",
+            "id": 45
+        },
+        {
+            "name": "Deflect Necromancy",
+            "cooldown": 0.0,
+            "img": "Deflect_Necromancy.png",
+            "id": 46
+        },
+        {
+            "name": "Deflect Ranged",
+            "cooldown": 0.0,
+            "img": "Deflect_Ranged.png",
+            "id": 47
+        },
+        {
+            "name": "Deflect Summoning",
+            "cooldown": 0.0,
+            "img": "Deflect_Summoning.png",
+            "id": 48
+        },
+        {
+            "name": "Desolation",
+            "cooldown": 0.0,
+            "img": "Desolation.png",
+            "id": 49
+        },
+        {
+            "name": "Fortitude",
+            "cooldown": 0.0,
+            "img": "Fortitude.png",
+            "id": 50
+        },
+        {
+            "name": "Fortitude",
+            "cooldown": 0.0,
+            "img": "Fortitude.png",
+            "id": 51
+        },
+        {
+            "name": "Leech Adrenaline",
+            "cooldown": 0.0,
+            "img": "Leech_Adrenaline.png",
+            "id": 52
+        },
+        {
+            "name": "Leech Defence",
+            "cooldown": 0.0,
+            "img": "Leech_Defence.png",
+            "id": 53
+        },
+        {
+            "name": "Leech Magic Attack",
+            "cooldown": 0.0,
+            "img": "Leech_Magic_Attack.png",
+            "id": 54
+        },
+        {
+            "name": "Leech Magic Strength",
+            "cooldown": 0.0,
+            "img": "Leech_Magic_Strength.png",
+            "id": 55
+        },
+        {
+            "name": "Leech Melee Attack",
+            "cooldown": 0.0,
+            "img": "Leech_Melee_Attack.png",
+            "id": 56
+        },
+        {
+            "name": "Leech Melee Strength",
+            "cooldown": 0.0,
+            "img": "Leech_Melee_Strength.png",
+            "id": 57
+        },
+        {
+            "name": "Leech Necromancy Attack",
+            "cooldown": 0.0,
+            "img": "Leech_Necromancy_Attack.png",
+            "id": 58
+        },
+        {
+            "name": "Leech Necromancy Strength",
+            "cooldown": 0.0,
+            "img": "Leech_Necromancy_Strength.png",
+            "id": 59
+        },
+        {
+            "name": "Leech Ranged Attack",
+            "cooldown": 0.0,
+            "img": "Leech_Ranged_Attack.png",
+            "id": 60
+        },
+        {
+            "name": "Leech Ranged Strength",
+            "cooldown": 0.0,
+            "img": "Leech_Ranged_Strength.png",
+            "id": 61
+        },
+        {
+            "name": "Leech Run Energy",
+            "cooldown": 0.0,
+            "img": "Leech_Run_Energy.png",
+            "id": 62
+        },
+        {
+            "name": "Light Form",
+            "cooldown": 0.0,
+            "img": "Light_Form.png",
+            "id": 63
+        },
+        {
+            "name": "Malevolence",
+            "cooldown": 0.0,
+            "img": "Malevolence.png",
+            "id": 64
+        },
+        {
+            "name": "Protect Item",
+            "cooldown": 0.0,
+            "img": "Protect_Item.png",
+            "id": 65
+        },
+        {
+            "name": "Ruination",
+            "cooldown": 0.0,
+            "img": "Ruination.png",
+            "id": 66
+        },
+        {
+            "name": "Sap Adrenaline",
+            "cooldown": 0.0,
+            "img": "Sap_Adrenaline.png",
+            "id": 67
+        },
+        {
+            "name": "Sap Defence",
+            "cooldown": 0.0,
+            "img": "Sap_Defence.png",
+            "id": 68
+        },
+        {
+            "name": "Sap Magic Attack",
+            "cooldown": 0.0,
+            "img": "Sap_Magic_Attack.png",
+            "id": 69
+        },
+        {
+            "name": "Sap Magic Strength",
+            "cooldown": 0.0,
+            "img": "Sap_Magic_Strength.png",
+            "id": 70
+        },
+        {
+            "name": "Sap Melee Attack",
+            "cooldown": 0.0,
+            "img": "Sap_Melee_Attack.png",
+            "id": 71
+        },
+        {
+            "name": "Sap Melee Strength",
+            "cooldown": 0.0,
+            "img": "Sap_Melee_Strength.png",
+            "id": 72
+        },
+        {
+            "name": "Sap Necromancy Attack",
+            "cooldown": 0.0,
+            "img": "Sap_Necromancy_Attack.png",
+            "id": 73
+        },
+        {
+            "name": "Sap Necromancy Strength",
+            "cooldown": 0.0,
+            "img": "Sap_Necromancy_Strength.png",
+            "id": 74
+        },
+        {
+            "name": "Sap Ranged Attack",
+            "cooldown": 0.0,
+            "img": "Sap_Ranged_Attack.png",
+            "id": 75
+        },
+        {
+            "name": "Sap Ranged Strength",
+            "cooldown": 0.0,
+            "img": "Sap_Ranged_Strength.png",
+            "id": 76
+        },
+        {
+            "name": "Sorrow",
+            "cooldown": 0.0,
+            "img": "Sorrow.png",
+            "id": 77
+        },
+        {
+            "name": "Soul Link",
+            "cooldown": 0.0,
+            "img": "Soul_Link.png",
+            "id": 78
+        },
+        {
+            "name": "Soul Link",
+            "cooldown": 0.0,
+            "img": "Soul_Link.png",
+            "id": 79
+        },
+        {
+            "name": "Soul Split",
+            "cooldown": 0.0,
+            "img": "Soul_Split.png",
+            "id": 80
+        },
+        {
+            "name": "Superheat Form",
+            "cooldown": 0.0,
+            "img": "Superheat_Form.png",
+            "id": 81
+        },
+        {
+            "name": "Superheat Form",
+            "cooldown": 0.0,
+            "img": "Superheat_Form.png",
+            "id": 82
+        },
+        {
+            "name": "Teamwork Protection",
+            "cooldown": 0.0,
+            "img": "Teamwork_Protection.png",
+            "id": 83
+        },
+        {
+            "name": "Teamwork Protection",
+            "cooldown": 0.0,
+            "img": "Teamwork_Protection.png",
+            "id": 84
+        },
+        {
+            "name": "Torment",
+            "cooldown": 0.0,
+            "img": "Torment.png",
+            "id": 85
+        },
+        {
+            "name": "Turmoil",
+            "cooldown": 0.0,
+            "img": "Turmoil.png",
+            "id": 86
+        },
+        {
+            "name": "Wrath",
+            "cooldown": 0.0,
+            "img": "Wrath.png",
+            "id": 87
+        }
+    ],
+    "defense": [
+        {
+            "name": "Aggression",
+            "cooldown": 90.0,
+            "img": "Aggression.png",
+            "id": 88
+        },
+        {
+            "name": "Anticipation",
+            "cooldown": 24.6,
+            "img": "Anticipation.png",
+            "id": 89
+        },
+        {
+            "name": "Barricade",
+            "cooldown": 60.0,
+            "img": "Barricade.png",
+            "id": 90
+        },
+        {
+            "name": "Bash",
+            "cooldown": 15.0,
+            "img": "Bash.png",
+            "id": 91
+        },
+        {
+            "name": "Cease",
+            "cooldown": 0.0,
+            "img": "Cease.png",
+            "id": 92
+        },
+        {
+            "name": "Debilitate",
+            "cooldown": 30.0,
+            "img": "Debilitate.png",
+            "id": 93
+        },
+        {
+            "name": "Devotion",
+            "cooldown": 60.0,
+            "img": "Devotion.png",
+            "id": 94
+        },
+        {
+            "name": "Divert",
+            "cooldown": 30.0,
+            "img": "Divert.png",
+            "id": 95
+        },
+        {
+            "name": "Freedom",
+            "cooldown": 30.0,
+            "img": "Freedom.png",
+            "id": 96
+        },
+        {
+            "name": "Immortality",
+            "cooldown": 120.0,
+            "img": "Immortality.png",
+            "id": 97
+        },
+        {
+            "name": "Natural Instinct",
+            "cooldown": 120.0,
+            "img": "Natural_Instinct.png",
+            "id": 98
+        },
+        {
+            "name": "Preparation",
+            "cooldown": 20.4,
+            "img": "Preparation.png",
+            "id": 99
+        },
+        {
+            "name": "Provoke",
+            "cooldown": 10.2,
+            "img": "Provoke.png",
+            "id": 100
+        },
+        {
+            "name": "Reflect",
+            "cooldown": 30.0,
+            "img": "Reflect.png",
+            "id": 101
+        },
+        {
+            "name": "Rejuvenate",
+            "cooldown": 300.0,
+            "img": "Rejuvenate.png",
+            "id": 102
+        },
+        {
+            "name": "Resonance",
+            "cooldown": 30.0,
+            "img": "Resonance.png",
+            "id": 103
+        },
+        {
+            "name": "Revenge",
+            "cooldown": 45.0,
+            "img": "Revenge.png",
+            "id": 104
+        },
+        {
+            "name": "Unsullied",
+            "cooldown": 60.0,
+            "img": "Unsullied.png",
+            "id": 105
+        }
+    ],
+    "dive": [
+        {
+            "name": "Import",
+            "cooldown": 0.0,
+            "img": "Dive.png",
+            "id": 106
+        }
+    ],
+    "escape": [
+        {
+            "name": "Import",
+            "cooldown": 0.0,
+            "img": "Escape.png",
+            "id": 107
+        }
+    ],
+    "magic": [
+        {
+            "name": "Asphyxiate",
+            "cooldown": 20.4,
+            "img": "Asphyxiate.png",
+            "id": 108
+        },
+        {
+            "name": "Chain",
+            "cooldown": 10.2,
+            "img": "Chain.png",
+            "id": 109
+        },
+        {
+            "name": "Combust",
+            "cooldown": 15.0,
+            "img": "Combust.png",
+            "id": 110
+        },
+        {
+            "name": "Concentrated Blast",
+            "cooldown": 5.4,
+            "img": "Concentrated_Blast.png",
+            "id": 111
+        },
+        {
+            "name": "Corruption Blast",
+            "cooldown": 15.0,
+            "img": "Corruption_Blast.png",
+            "id": 112
+        },
+        {
+            "name": "Deep Impact",
+            "cooldown": 15.0,
+            "img": "Deep_Impact.png",
+            "id": 113
+        },
+        {
+            "name": "Detonate",
+            "cooldown": 30.0,
+            "img": "Detonate.png",
+            "id": 114
+        },
+        {
+            "name": "Dragon Breath",
+            "cooldown": 10.2,
+            "img": "Dragon_Breath.png",
+            "id": 115
+        },
+        {
+            "name": "Golden Touch",
+            "cooldown": 120.0,
+            "img": "Golden_Touch.png",
+            "id": 116
+        },
+        {
+            "name": "Greater Chain",
+            "cooldown": 10.2,
+            "img": "Greater_Chain.png",
+            "id": 117
+        },
+        {
+            "name": "Greater Concentrated Blast",
+            "cooldown": 5.4,
+            "img": "Greater_Concentrated_Blast.png",
+            "id": 118
+        },
+        {
+            "name": "Greater Sonic Wave",
+            "cooldown": 5.4,
+            "img": "Greater_Sonic_Wave.png",
+            "id": 119
+        },
+        {
+            "name": "Greater Sunshine",
+            "cooldown": 60.0,
+            "img": "Greater_Sunshine.png",
+            "id": 120
+        },
+        {
+            "name": "Horror",
+            "cooldown": 15.0,
+            "img": "Horror.png",
+            "id": 121
+        },
+        {
+            "name": "Impact",
+            "cooldown": 15.0,
+            "img": "Impact.png",
+            "id": 122
+        },
+        {
+            "name": "Lesser Combust",
+            "cooldown": 15.0,
+            "img": "Lesser_Combust.png",
+            "id": 123
+        },
+        {
+            "name": "Lesser Concentrated Blast",
+            "cooldown": 5.4,
+            "img": "Lesser_Concentrated_Blast.png",
+            "id": 124
+        },
+        {
+            "name": "Lesser Dragon Breath",
+            "cooldown": 10.2,
+            "img": "Lesser_Dragon_Breath.png",
+            "id": 125
+        },
+        {
+            "name": "Lesser Sonic Wave",
+            "cooldown": 5.4,
+            "img": "Lesser_Sonic_Wave.png",
+            "id": 126
+        },
+        {
+            "name": "Magma Tempest (Targeted)",
+            "cooldown": 15.0,
+            "img": "Magma_Tempest_(Targeted).png",
+            "id": 127
+        },
+        {
+            "name": "Magma Tempest",
+            "cooldown": 15.0,
+            "img": "Magma_Tempest.png",
+            "id": 128
+        },
+        {
+            "name": "Metamorphosis",
+            "cooldown": 60.0,
+            "img": "Metamorphosis.png",
+            "id": 129
+        },
+        {
+            "name": "Omnipower",
+            "cooldown": 30.0,
+            "img": "Omnipower.png",
+            "id": 130
+        },
+        {
+            "name": "Omnipower",
+            "cooldown": 30.0,
+            "img": "Omnipower.png",
+            "id": 131
+        },
+        {
+            "name": "Shock",
+            "cooldown": 15.0,
+            "img": "Shock.png",
+            "id": 132
+        },
+        {
+            "name": "Smoke Tendrils",
+            "cooldown": 45.0,
+            "img": "Smoke_Tendrils.png",
+            "id": 133
+        },
+        {
+            "name": "Sonic Wave",
+            "cooldown": 5.4,
+            "img": "Sonic_Wave.png",
+            "id": 134
+        },
+        {
+            "name": "Sunshine",
+            "cooldown": 60.0,
+            "img": "Sunshine.png",
+            "id": 135
+        },
+        {
+            "name": "Tsunami",
+            "cooldown": 60.0,
+            "img": "Tsunami.png",
+            "id": 136
+        },
+        {
+            "name": "Wild Magic",
+            "cooldown": 20.4,
+            "img": "Wild_Magic.png",
+            "id": 137
+        },
+        {
+            "name": "Wrack and Ruin",
+            "cooldown": 3.0,
+            "img": "Wrack_and_Ruin.png",
+            "id": 138
+        },
+        {
+            "name": "Wrack",
+            "cooldown": 3.0,
+            "img": "Wrack.png",
+            "id": 139
+        }
+    ],
+    "melee": [
+        {
+            "name": "Assault",
+            "cooldown": 30.0,
+            "img": "Assault.png",
+            "id": 140
+        },
+        {
+            "name": "Backhand",
+            "cooldown": 15.0,
+            "img": "Backhand.png",
+            "id": 141
+        },
+        {
+            "name": "Balanced Strike",
+            "cooldown": 120.0,
+            "img": "Balanced_Strike.png",
+            "id": 142
+        },
+        {
+            "name": "Barge",
+            "cooldown": 20.4,
+            "img": "Barge.png",
+            "id": 143
+        },
+        {
+            "name": "Berserk",
+            "cooldown": 60.0,
+            "img": "Berserk.png",
+            "id": 144
+        },
+        {
+            "name": "Bladed Dive",
+            "cooldown": 20.4,
+            "img": "Bladed_Dive.png",
+            "id": 145
+        },
+        {
+            "name": "Blood Tendrils",
+            "cooldown": 45.0,
+            "img": "Blood_Tendrils.png",
+            "id": 146
+        },
+        {
+            "name": "Chaos Roar",
+            "cooldown": 60.0,
+            "img": "Chaos_Roar.png",
+            "id": 147
+        },
+        {
+            "name": "Cleave",
+            "cooldown": 7.2,
+            "img": "Cleave.png",
+            "id": 148
+        },
+        {
+            "name": "Decimate",
+            "cooldown": 7.2,
+            "img": "Decimate.png",
+            "id": 149
+        },
+        {
+            "name": "Destroy",
+            "cooldown": 20.4,
+            "img": "Destroy.png",
+            "id": 150
+        },
+        {
+            "name": "Dismember",
+            "cooldown": 15.0,
+            "img": "Dismember.png",
+            "id": 151
+        },
+        {
+            "name": "Flurry",
+            "cooldown": 20.4,
+            "img": "Flurry.png",
+            "id": 152
+        },
+        {
+            "name": "Forceful Backhand",
+            "cooldown": 15.0,
+            "img": "Forceful_Backhand.png",
+            "id": 153
+        },
+        {
+            "name": "Frenzy",
+            "cooldown": 60.0,
+            "img": "Frenzy.png",
+            "id": 154
+        },
+        {
+            "name": "Fury",
+            "cooldown": 5.4,
+            "img": "Fury.png",
+            "id": 155
+        },
+        {
+            "name": "Greater Barge",
+            "cooldown": 20.4,
+            "img": "Greater_Barge.png",
+            "id": 156
+        },
+        {
+            "name": "Greater Flurry",
+            "cooldown": 20.4,
+            "img": "Greater_Flurry.png",
+            "id": 157
+        },
+        {
+            "name": "Greater Fury",
+            "cooldown": 5.4,
+            "img": "Greater_Fury.png",
+            "id": 158
+        },
+        {
+            "name": "Havoc",
+            "cooldown": 10.2,
+            "img": "Havoc.png",
+            "id": 159
+        },
+        {
+            "name": "Hurricane",
+            "cooldown": 20.4,
+            "img": "Hurricane.png",
+            "id": 160
+        },
+        {
+            "name": "Kick",
+            "cooldown": 15.0,
+            "img": "Kick.png",
+            "id": 161
+        },
+        {
+            "name": "Lesser Dismember",
+            "cooldown": 15.0,
+            "img": "Lesser_Dismember.png",
+            "id": 162
+        },
+        {
+            "name": "Lesser Havoc",
+            "cooldown": 10.2,
+            "img": "Lesser_Havoc.png",
+            "id": 163
+        },
+        {
+            "name": "Lesser Sever",
+            "cooldown": 15.0,
+            "img": "Lesser_Sever.png",
+            "id": 164
+        },
+        {
+            "name": "Lesser Smash",
+            "cooldown": 10.2,
+            "img": "Lesser_Smash.png",
+            "id": 165
+        },
+        {
+            "name": "Massacre",
+            "cooldown": 60.0,
+            "img": "Massacre.png",
+            "id": 166
+        },
+        {
+            "name": "Meteor Strike",
+            "cooldown": 60.0,
+            "img": "Meteor_Strike.png",
+            "id": 167
+        },
+        {
+            "name": "Overpower",
+            "cooldown": 30.0,
+            "img": "Overpower.png",
+            "id": 168
+        },
+        {
+            "name": "Overpower",
+            "cooldown": 30.0,
+            "img": "Overpower.png",
+            "id": 169
+        },
+        {
+            "name": "Pulverise",
+            "cooldown": 60.0,
+            "img": "Pulverise.png",
+            "id": 170
+        },
+        {
+            "name": "Punish",
+            "cooldown": 24.0,
+            "img": "Punish.png",
+            "id": 171
+        },
+        {
+            "name": "Quake",
+            "cooldown": 20.4,
+            "img": "Quake.png",
+            "id": 172
+        },
+        {
+            "name": "Sever",
+            "cooldown": 15.0,
+            "img": "Sever.png",
+            "id": 173
+        },
+        {
+            "name": "Slaughter",
+            "cooldown": 30.0,
+            "img": "Slaughter.png",
+            "id": 174
+        },
+        {
+            "name": "Slice",
+            "cooldown": 3.0,
+            "img": "Slice.png",
+            "id": 175
+        },
+        {
+            "name": "Smash",
+            "cooldown": 10.2,
+            "img": "Smash.png",
+            "id": 176
+        },
+        {
+            "name": "Stomp",
+            "cooldown": 15.0,
+            "img": "Stomp.png",
+            "id": 177
+        }
+    ],
+    "necromancy": [
+        {
+            "name": "Bloat",
+            "cooldown": 0.0,
+            "img": "Bloat.png",
+            "id": 178
+        },
+        {
+            "name": "Blood Siphon",
+            "cooldown": 45.0,
+            "img": "Blood_Siphon.png",
+            "id": 179
+        },
+        {
+            "name": "Command Putrid Zombie",
+            "cooldown": 0.0,
+            "img": "Command_Putrid_Zombie.png",
+            "id": 180
+        },
+        {
+            "name": "Command Skeleton Warrior",
+            "cooldown": 15.0,
+            "img": "Command_Skeleton_Warrior.png",
+            "id": 181
+        },
+        {
+            "name": "Command Vengeful Ghost",
+            "cooldown": 0.0,
+            "img": "Command_Vengeful_Ghost.png",
+            "id": 182
+        },
+        {
+            "name": "Conjure Putrid Zombie",
+            "cooldown": 30.0,
+            "img": "Conjure_Putrid_Zombie.png",
+            "id": 183
+        },
+        {
+            "name": "Conjure Skeleton Warrior",
+            "cooldown": 0.0,
+            "img": "Conjure_Skeleton_Warrior.png",
+            "id": 184
+        },
+        {
+            "name": "Conjure Undead Army",
+            "cooldown": 0.0,
+            "img": "Conjure_Undead_Army.png",
+            "id": 185
+        },
+        {
+            "name": "Conjure Vengeful Ghost",
+            "cooldown": 0.0,
+            "img": "Conjure_Vengeful_Ghost.png",
+            "id": 186
+        },
+        {
+            "name": "Death Skulls",
+            "cooldown": 60.0,
+            "img": "Death_Skulls.png",
+            "id": 187
+        },
+        {
+            "name": "Death Skulls",
+            "cooldown": 60.0,
+            "img": "Death_Skulls.png",
+            "id": 188
+        },
+        {
+            "name": "Finger of Death",
+            "cooldown": 0.0,
+            "img": "Finger_of_Death.png",
+            "id": 189
+        },
+        {
+            "name": "Living Death",
+            "cooldown": 90.0,
+            "img": "Living_Death.png",
+            "id": 190
+        },
+        {
+            "name": "Necromancy",
+            "cooldown": 0.0,
+            "img": "Necromancy_Auto.png",
+            "id": 191
+        },
+        {
+            "name": "Soul Sap",
+            "cooldown": 5.4,
+            "img": "Soul_Sap.png",
+            "id": 192
+        },
+        {
+            "name": "Soul Strike",
+            "cooldown": 0.0,
+            "img": "Soul_Strike.png",
+            "id": 193
+        },
+        {
+            "name": "Spectral Scythe",
+            "cooldown": 0.0,
+            "img": "Spectral_Scythe.png",
+            "id": 194
+        },
+        {
+            "name": "Spectral Scythe",
+            "cooldown": 0.0,
+            "img": "Spectral_Scythe.png",
+            "id": 195
+        },
+        {
+            "name": "Spectral Scythe",
+            "cooldown": 15.0,
+            "img": "Spectral_Scythe.png",
+            "id": 196
+        },
+        {
+            "name": "Touch of Death",
+            "cooldown": 14.4,
+            "img": "Touch_of_Death.png",
+            "id": 197
+        },
+        {
+            "name": "Volley of Souls",
+            "cooldown": 0.0,
+            "img": "Volley_of_Souls.png",
+            "id": 198
+        }
+    ],
+    "prayer": [
+        {
+            "name": "Accelerated Decay",
+            "cooldown": 0.0,
+            "img": "Accelerated_Decay.png",
+            "id": 199
+        },
+        {
+            "name": "Augury",
+            "cooldown": 0.0,
+            "img": "Augury.png",
+            "id": 200
+        },
+        {
+            "name": "Burst of Strength",
+            "cooldown": 0.0,
+            "img": "Burst_of_Strength.png",
+            "id": 201
+        },
+        {
+            "name": "Charge",
+            "cooldown": 0.0,
+            "img": "Charge.png",
+            "id": 202
+        },
+        {
+            "name": "Chivalry",
+            "cooldown": 0.0,
+            "img": "Chivalry.png",
+            "id": 203
+        },
+        {
+            "name": "Clarity of Thought",
+            "cooldown": 0.0,
+            "img": "Clarity_of_Thought.png",
+            "id": 204
+        },
+        {
+            "name": "Decay",
+            "cooldown": 0.0,
+            "img": "Decay.png",
+            "id": 205
+        },
+        {
+            "name": "Eagle Eye",
+            "cooldown": 0.0,
+            "img": "Eagle_Eye.png",
+            "id": 206
+        },
+        {
+            "name": "Hand of Doom",
+            "cooldown": 0.0,
+            "img": "Hand_of_Doom.png",
+            "id": 207
+        },
+        {
+            "name": "Hand of Fate",
+            "cooldown": 0.0,
+            "img": "Hand_of_Fate.png",
+            "id": 208
+        },
+        {
+            "name": "Hand of Judgement",
+            "cooldown": 0.0,
+            "img": "Hand_of_Judgement.png",
+            "id": 209
+        },
+        {
+            "name": "Hastened Decay",
+            "cooldown": 0.0,
+            "img": "Hastened_Decay.png",
+            "id": 210
+        },
+        {
+            "name": "Hawk Eye",
+            "cooldown": 0.0,
+            "img": "Hawk_Eye.png",
+            "id": 211
+        },
+        {
+            "name": "Improved Reflexes",
+            "cooldown": 0.0,
+            "img": "Improved_Reflexes.png",
+            "id": 212
+        },
+        {
+            "name": "Incredible Reflexes",
+            "cooldown": 0.0,
+            "img": "Incredible_Reflexes.png",
+            "id": 213
+        },
+        {
+            "name": "Mystic Lore",
+            "cooldown": 0.0,
+            "img": "Mystic_Lore.png",
+            "id": 214
+        },
+        {
+            "name": "Mystic Might",
+            "cooldown": 0.0,
+            "img": "Mystic_Might.png",
+            "id": 215
+        },
+        {
+            "name": "Mystic Will",
+            "cooldown": 0.0,
+            "img": "Mystic_Will.png",
+            "id": 216
+        },
+        {
+            "name": "Overcharge",
+            "cooldown": 0.0,
+            "img": "Overcharge.png",
+            "id": 217
+        },
+        {
+            "name": "Overpowering Force",
+            "cooldown": 0.0,
+            "img": "Overpowering_Force.png",
+            "id": 218
+        },
+        {
+            "name": "Piety",
+            "cooldown": 0.0,
+            "img": "Piety.png",
+            "id": 219
+        },
+        {
+            "name": "Protect from Magic",
+            "cooldown": 0.0,
+            "img": "Protect_from_Magic.png",
+            "id": 220
+        },
+        {
+            "name": "Protect from Melee",
+            "cooldown": 0.0,
+            "img": "Protect_from_Melee.png",
+            "id": 221
+        },
+        {
+            "name": "Protect from Necromancy",
+            "cooldown": 0.0,
+            "img": "Protect_from_Necromancy.png",
+            "id": 222
+        },
+        {
+            "name": "Protect from Ranged",
+            "cooldown": 0.0,
+            "img": "Protect_from_Ranged.png",
+            "id": 223
+        },
+        {
+            "name": "Protect from Summoning",
+            "cooldown": 0.0,
+            "img": "Protect_from_Summoning.png",
+            "id": 224
+        },
+        {
+            "name": "Protect Item",
+            "cooldown": 0.0,
+            "img": "Protect_Item.png",
+            "id": 225
+        },
+        {
+            "name": "Rapid Heal",
+            "cooldown": 0.0,
+            "img": "Rapid_Heal.png",
+            "id": 226
+        },
+        {
+            "name": "Rapid Renewal",
+            "cooldown": 0.0,
+            "img": "Rapid_Renewal.png",
+            "id": 227
+        },
+        {
+            "name": "Rapid Restore",
+            "cooldown": 0.0,
+            "img": "Rapid_Restore.png",
+            "id": 228
+        },
+        {
+            "name": "Redemption",
+            "cooldown": 0.0,
+            "img": "Redemption.png",
+            "id": 229
+        },
+        {
+            "name": "Retribution",
+            "cooldown": 0.0,
+            "img": "Retribution.png",
+            "id": 230
+        },
+        {
+            "name": "Rigour",
+            "cooldown": 0.0,
+            "img": "Rigour.png",
+            "id": 231
+        },
+        {
+            "name": "Rock Skin",
+            "cooldown": 0.0,
+            "img": "Rock_Skin.png",
+            "id": 232
+        },
+        {
+            "name": "Sanctity",
+            "cooldown": 0.0,
+            "img": "Sanctity.png",
+            "id": 233
+        },
+        {
+            "name": "Sharp Eye",
+            "cooldown": 0.0,
+            "img": "Sharp_Eye.png",
+            "id": 234
+        },
+        {
+            "name": "Smite",
+            "cooldown": 0.0,
+            "img": "Smite.png",
+            "id": 235
+        },
+        {
+            "name": "Steel Skin",
+            "cooldown": 0.0,
+            "img": "Steel_Skin.png",
+            "id": 236
+        },
+        {
+            "name": "Super Charge",
+            "cooldown": 0.0,
+            "img": "Super_Charge.png",
+            "id": 237
+        },
+        {
+            "name": "Superhuman Strength",
+            "cooldown": 0.0,
+            "img": "Superhuman_Strength.png",
+            "id": 238
+        },
+        {
+            "name": "Thick Skin",
+            "cooldown": 0.0,
+            "img": "Thick_Skin.png",
+            "id": 239
+        },
+        {
+            "name": "Ultimate Strength",
+            "cooldown": 0.0,
+            "img": "Ultimate_Strength.png",
+            "id": 240
+        },
+        {
+            "name": "Unrelenting Force",
+            "cooldown": 0.0,
+            "img": "Unrelenting_Force.png",
+            "id": 241
+        },
+        {
+            "name": "Unstoppable Force",
+            "cooldown": 0.0,
+            "img": "Unstoppable_Force.png",
+            "id": 242
+        }
+    ],
+    "range": [
+        {
+            "name": "Binding Shot",
+            "cooldown": 15.0,
+            "img": "Binding_Shot.png",
+            "id": 243
+        },
+        {
+            "name": "Bombardment",
+            "cooldown": 30.0,
+            "img": "Bombardment.png",
+            "id": 244
+        },
+        {
+            "name": "Corruption Shot",
+            "cooldown": 15.0,
+            "img": "Corruption_Shot.png",
+            "id": 245
+        },
+        {
+            "name": "Dazing Shot",
+            "cooldown": 5.4,
+            "img": "Dazing_Shot.png",
+            "id": 246
+        },
+        {
+            "name": "Deadshot",
+            "cooldown": 30.0,
+            "img": "Deadshot.png",
+            "id": 247
+        },
+        {
+            "name": "Death's Swiftness",
+            "cooldown": 60.0,
+            "img": "Death's_Swiftness.png",
+            "id": 249
+        },
+        {
+            "name": "Demoralise",
+            "cooldown": 15.0,
+            "img": "Demoralise.png",
+            "id": 250
+        },
+        {
+            "name": "Fragmentation Shot",
+            "cooldown": 15.0,
+            "img": "Fragmentation_Shot.png",
+            "id": 251
+        },
+        {
+            "name": "Greater Dazing Shot",
+            "cooldown": 5.4,
+            "img": "Greater_Dazing_Shot.png",
+            "id": 252
+        },
+        {
+            "name": "Greater Death's Swiftness",
+            "cooldown": 60.0,
+            "img": "Greater_Death's_Swiftness.png",
+            "id": 253
+        },
+        {
+            "name": "Greater Ricochet",
+            "cooldown": 10.2,
+            "img": "Greater_Ricochet.png",
+            "id": 254
+        },
+        {
+            "name": "Incendiary Shot",
+            "cooldown": 60.0,
+            "img": "Incendiary_Shot.png",
+            "id": 255
+        },
+        {
+            "name": "Lesser Dazing Shot",
+            "cooldown": 5.4,
+            "img": "Lesser_Dazing_Shot.png",
+            "id": 256
+        },
+        {
+            "name": "Lesser Fragmentation Shot",
+            "cooldown": 15.0,
+            "img": "Lesser_Fragmentation_Shot.png",
+            "id": 257
+        },
+        {
+            "name": "Lesser Needle Strike",
+            "cooldown": 5.4,
+            "img": "Lesser_Needle_Strike.png",
+            "id": 258
+        },
+        {
+            "name": "Lesser Snipe",
+            "cooldown": 10.2,
+            "img": "Lesser_Snipe.png",
+            "id": 259
+        },
+        {
+            "name": "Needle Strike",
+            "cooldown": 5.4,
+            "img": "Needle_Strike.png",
+            "id": 260
+        },
+        {
+            "name": "Piercing Shot",
+            "cooldown": 3.0,
+            "img": "Piercing_Shot.png",
+            "id": 261
+        },
+        {
+            "name": "Quiver ammo slot 1",
+            "cooldown": 0.0,
+            "img": "Quiver_ammo_slot_1.png",
+            "id": 262
+        },
+        {
+            "name": "Quiver ammo slot 2",
+            "cooldown": 0.0,
+            "img": "Quiver_ammo_slot_2.png",
+            "id": 263
+        },
+        {
+            "name": "Rapid Fire",
+            "cooldown": 20.4,
+            "img": "Rapid_Fire.png",
+            "id": 264
+        },
+        {
+            "name": "Ricochet",
+            "cooldown": 10.2,
+            "img": "Ricochet.png",
+            "id": 265
+        },
+        {
+            "name": "Rout",
+            "cooldown": 15.0,
+            "img": "Rout.png",
+            "id": 266
+        },
+        {
+            "name": "Salt the Wound",
+            "cooldown": 15.0,
+            "img": "Salt_the_Wound.png",
+            "id": 267
+        },
+        {
+            "name": "Shadow Tendrils",
+            "cooldown": 45.0,
+            "img": "Shadow_Tendrils.png",
+            "id": 268
+        },
+        {
+            "name": "Snap Shot",
+            "cooldown": 20.4,
+            "img": "Snap_Shot.png",
+            "id": 269
+        },
+        {
+            "name": "Snipe",
+            "cooldown": 10.2,
+            "img": "Snipe.png",
+            "id": 270
+        },
+        {
+            "name": "Tight Bindings",
+            "cooldown": 15.0,
+            "img": "Tight_Bindings.png",
+            "id": 271
+        },
+        {
+            "name": "Unload",
+            "cooldown": 60.0,
+            "img": "Unload.png",
+            "id": 272
+        }
+    ],
+    "unknown": [
+        {
+            "name": "Deadshot",
+            "cooldown": 30.0,
+            "img": "Deadshot.png",
+            "id": 248
+        }
+    ],
+    "spells": [
+        {
+            "name": "Air Blast",
+            "cooldown": 0.0,
+            "img": "Air_Blast.png",
+            "id": 273
+        },
+        {
+            "name": "Air Bolt",
+            "cooldown": 0.0,
+            "img": "Air_Bolt.png",
+            "id": 274
+        },
+        {
+            "name": "Air Strike",
+            "cooldown": 0.0,
+            "img": "Air_Strike.png",
+            "id": 275
+        },
+        {
+            "name": "Air Surge",
+            "cooldown": 0.0,
+            "img": "Air_Surge.png",
+            "id": 276
+        },
+        {
+            "name": "Air Wave",
+            "cooldown": 0.0,
+            "img": "Air_Wave.png",
+            "id": 277
+        },
+        {
+            "name": "Anachronia Teleport",
+            "cooldown": 0.0,
+            "img": "Anachronia_Teleport.png",
+            "id": 278
+        },
+        {
+            "name": "Animate Dead",
+            "cooldown": 0.0,
+            "img": "Animate_Dead.png",
+            "id": 279
+        },
+        {
+            "name": "Annakarl Teleport",
+            "cooldown": 0.0,
+            "img": "Annakarl_Teleport.png",
+            "id": 280
+        },
+        {
+            "name": "Ape Atoll Teleport",
+            "cooldown": 0.0,
+            "img": "Ape_Atoll_Teleport.png",
+            "id": 281
+        },
+        {
+            "name": "Ardougne Teleport",
+            "cooldown": 0.0,
+            "img": "Ardougne_Teleport.png",
+            "id": 282
+        },
+        {
+            "name": "Bake Pie",
+            "cooldown": 0.0,
+            "img": "Bake_Pie.png",
+            "id": 283
+        },
+        {
+            "name": "Barbarian Teleport",
+            "cooldown": 0.0,
+            "img": "Barbarian_Teleport.png",
+            "id": 284
+        },
+        {
+            "name": "Bind",
+            "cooldown": 0.0,
+            "img": "Bind.png",
+            "id": 285
+        },
+        {
+            "name": "Blood Barrage",
+            "cooldown": 0.0,
+            "img": "Blood_Barrage.png",
+            "id": 286
+        },
+        {
+            "name": "Blood Blitz",
+            "cooldown": 0.0,
+            "img": "Blood_Blitz.png",
+            "id": 287
+        },
+        {
+            "name": "Blood Burst",
+            "cooldown": 0.0,
+            "img": "Blood_Burst.png",
+            "id": 288
+        },
+        {
+            "name": "Blood Rush",
+            "cooldown": 0.0,
+            "img": "Blood_Rush.png",
+            "id": 289
+        },
+        {
+            "name": "Bones to Bananas",
+            "cooldown": 0.0,
+            "img": "Bones_to_Bananas.png",
+            "id": 290
+        },
+        {
+            "name": "Bones to Peaches",
+            "cooldown": 0.0,
+            "img": "Bones_to_Peaches.png",
+            "id": 291
+        },
+        {
+            "name": "Borrowed Power",
+            "cooldown": 0.0,
+            "img": "Borrowed_Power.png",
+            "id": 292
+        },
+        {
+            "name": "Camelot Teleport",
+            "cooldown": 0.0,
+            "img": "Camelot_Teleport.png",
+            "id": 293
+        },
+        {
+            "name": "Carrallanger Teleport",
+            "cooldown": 0.0,
+            "img": "Carrallanger_Teleport.png",
+            "id": 294
+        },
+        {
+            "name": "Catherby Teleport",
+            "cooldown": 0.0,
+            "img": "Catherby_Teleport.png",
+            "id": 295
+        },
+        {
+            "name": "Charge Air Orb",
+            "cooldown": 0.0,
+            "img": "Charge_Air_Orb.png",
+            "id": 296
+        },
+        {
+            "name": "Charge Earth Orb",
+            "cooldown": 0.0,
+            "img": "Charge_Earth_Orb.png",
+            "id": 297
+        },
+        {
+            "name": "Charge Fire Orb",
+            "cooldown": 0.0,
+            "img": "Charge_Fire_Orb.png",
+            "id": 298
+        },
+        {
+            "name": "Charge Water Orb",
+            "cooldown": 0.0,
+            "img": "Charge_Water_Orb.png",
+            "id": 299
+        },
+        {
+            "name": "City of Um Teleport",
+            "cooldown": 0.0,
+            "img": "City_of_Um_Teleport.png",
+            "id": 300
+        },
+        {
+            "name": "Confuse",
+            "cooldown": 0.0,
+            "img": "Confuse.png",
+            "id": 301
+        },
+        {
+            "name": "Crystal Mask",
+            "cooldown": 0.0,
+            "img": "Crystal_Mask.png",
+            "id": 302
+        },
+        {
+            "name": "Crystallise",
+            "cooldown": 0.0,
+            "img": "Crystallise.png",
+            "id": 303
+        },
+        {
+            "name": "Cure Group",
+            "cooldown": 0.0,
+            "img": "Cure_Group.png",
+            "id": 304
+        },
+        {
+            "name": "Cure Me",
+            "cooldown": 0.0,
+            "img": "Cure_Me.png",
+            "id": 305
+        },
+        {
+            "name": "Cure Other",
+            "cooldown": 0.0,
+            "img": "Cure_Other.png",
+            "id": 306
+        },
+        {
+            "name": "Cure Plant",
+            "cooldown": 0.0,
+            "img": "Cure_Plant.png",
+            "id": 307
+        },
+        {
+            "name": "Curse",
+            "cooldown": 0.0,
+            "img": "Curse.png",
+            "id": 308
+        },
+        {
+            "name": "Dareeyak Teleport",
+            "cooldown": 0.0,
+            "img": "Dareeyak_Teleport.png",
+            "id": 309
+        },
+        {
+            "name": "Darkness",
+            "cooldown": 1.8,
+            "img": "Darkness.png",
+            "id": 310
+        },
+        {
+            "name": "Disruption Shield",
+            "cooldown": 0.0,
+            "img": "Disruption_Shield.png",
+            "id": 311
+        },
+        {
+            "name": "Divine Storm",
+            "cooldown": 0.0,
+            "img": "Divine_Storm.png",
+            "id": 312
+        },
+        {
+            "name": "Dream",
+            "cooldown": 0.0,
+            "img": "Dream.png",
+            "id": 313
+        },
+        {
+            "name": "Earth Blast",
+            "cooldown": 0.0,
+            "img": "Earth_Blast.png",
+            "id": 314
+        },
+        {
+            "name": "Earth Bolt",
+            "cooldown": 0.0,
+            "img": "Earth_Bolt.png",
+            "id": 315
+        },
+        {
+            "name": "Earth Strike",
+            "cooldown": 0.0,
+            "img": "Earth_Strike.png",
+            "id": 316
+        },
+        {
+            "name": "Earth Surge",
+            "cooldown": 0.0,
+            "img": "Earth_Surge.png",
+            "id": 317
+        },
+        {
+            "name": "Earth Wave",
+            "cooldown": 0.0,
+            "img": "Earth_Wave.png",
+            "id": 318
+        },
+        {
+            "name": "Emerald Aurora",
+            "cooldown": 0.0,
+            "img": "Emerald_Aurora.png",
+            "id": 319
+        },
+        {
+            "name": "Enchant Crossbow Bolt",
+            "cooldown": 0.0,
+            "img": "Enchant_Crossbow_Bolt.png",
+            "id": 320
+        },
+        {
+            "name": "Enfeeble",
+            "cooldown": 0.0,
+            "img": "Enfeeble.png",
+            "id": 321
+        },
+        {
+            "name": "Entangle",
+            "cooldown": 0.0,
+            "img": "Entangle.png",
+            "id": 322
+        },
+        {
+            "name": "Exsanguinate",
+            "cooldown": 0.0,
+            "img": "Exsanguinate.png",
+            "id": 323
+        },
+        {
+            "name": "Falador Teleport",
+            "cooldown": 0.0,
+            "img": "Falador_Teleport.png",
+            "id": 324
+        },
+        {
+            "name": "Fertile Soil",
+            "cooldown": 0.0,
+            "img": "Fertile_Soil.png",
+            "id": 325
+        },
+        {
+            "name": "Fire Blast",
+            "cooldown": 0.0,
+            "img": "Fire_Blast.png",
+            "id": 326
+        },
+        {
+            "name": "Fire Bolt",
+            "cooldown": 0.0,
+            "img": "Fire_Bolt.png",
+            "id": 327
+        },
+        {
+            "name": "Fire Strike",
+            "cooldown": 0.0,
+            "img": "Fire_Strike.png",
+            "id": 328
+        },
+        {
+            "name": "Fire Surge",
+            "cooldown": 0.0,
+            "img": "Fire_Surge.png",
+            "id": 329
+        },
+        {
+            "name": "Fire Urn",
+            "cooldown": 0.0,
+            "img": "Fire_Urn.png",
+            "id": 330
+        },
+        {
+            "name": "Fire Wave",
+            "cooldown": 0.0,
+            "img": "Fire_Wave.png",
+            "id": 331
+        },
+        {
+            "name": "Fishing Guild Teleport",
+            "cooldown": 0.0,
+            "img": "Fishing_Guild_Teleport.png",
+            "id": 332
+        },
+        {
+            "name": "Fixate",
+            "cooldown": 0.0,
+            "img": "Fixate.png",
+            "id": 333
+        },
+        {
+            "name": "Fixate",
+            "cooldown": 0.0,
+            "img": "Fixate.png",
+            "id": 334
+        },
+        {
+            "name": "Ghorrock Teleport",
+            "cooldown": 0.0,
+            "img": "Ghorrock_Teleport.png",
+            "id": 335
+        },
+        {
+            "name": "God Wars Dungeon Teleport",
+            "cooldown": 0.0,
+            "img": "God_Wars_Dungeon_Teleport.png",
+            "id": 336
+        },
+        {
+            "name": "Greater Bone Shield",
+            "cooldown": 0.0,
+            "img": "Greater_Bone_Shield.png",
+            "id": 337
+        },
+        {
+            "name": "Heal Group",
+            "cooldown": 0.0,
+            "img": "Heal_Group.png",
+            "id": 338
+        },
+        {
+            "name": "Heal Other",
+            "cooldown": 0.0,
+            "img": "Heal_Other.png",
+            "id": 339
+        },
+        {
+            "name": "High Level Alchemy",
+            "cooldown": 0.0,
+            "img": "High_Level_Alchemy.png",
+            "id": 340
+        },
+        {
+            "name": "Home Teleport",
+            "cooldown": 0.0,
+            "img": "Home_Teleport.png",
+            "id": 341
+        },
+        {
+            "name": "Home Teleport",
+            "cooldown": 0.0,
+            "img": "Home_Teleport.png",
+            "id": 342
+        },
+        {
+            "name": "Home Teleport",
+            "cooldown": 0.0,
+            "img": "Home_Teleport.png",
+            "id": 343
+        },
+        {
+            "name": "House Teleport",
+            "cooldown": 0.0,
+            "img": "House_Teleport.png",
+            "id": 344
+        },
+        {
+            "name": "Humidify",
+            "cooldown": 0.0,
+            "img": "Humidify.png",
+            "id": 345
+        },
+        {
+            "name": "Hunter Kit (spell)",
+            "cooldown": 0.0,
+            "img": "Hunter_Kit_(spell).png",
+            "id": 346
+        },
+        {
+            "name": "Ice Barrage",
+            "cooldown": 0.0,
+            "img": "Ice_Barrage.png",
+            "id": 347
+        },
+        {
+            "name": "Ice Blitz",
+            "cooldown": 0.0,
+            "img": "Ice_Blitz.png",
+            "id": 348
+        },
+        {
+            "name": "Ice Burst",
+            "cooldown": 0.0,
+            "img": "Ice_Burst.png",
+            "id": 349
+        },
+        {
+            "name": "Ice Plateau Teleport",
+            "cooldown": 0.0,
+            "img": "Ice_Plateau_Teleport.png",
+            "id": 350
+        },
+        {
+            "name": "Ice Rush",
+            "cooldown": 0.0,
+            "img": "Ice_Rush.png",
+            "id": 351
+        },
+        {
+            "name": "Incite Fear",
+            "cooldown": 0.0,
+            "img": "Incite_Fear.png",
+            "id": 352
+        },
+        {
+            "name": "Intercept",
+            "cooldown": 0.0,
+            "img": "Intercept.png",
+            "id": 353
+        },
+        {
+            "name": "Invoke Death",
+            "cooldown": 3.6,
+            "img": "Invoke_Death.png",
+            "id": 354
+        },
+        {
+            "name": "Invoke Lord of Bones",
+            "cooldown": 0.0,
+            "img": "Invoke_Lord_of_Bones.png",
+            "id": 355
+        },
+        {
+            "name": "Kandarin monastery Teleport",
+            "cooldown": 0.0,
+            "img": "Kandarin_monastery_Teleport.png",
+            "id": 356
+        },
+        {
+            "name": "Kandarin monastery Teleport",
+            "cooldown": 0.0,
+            "img": "Kandarin_monastery_Teleport.png",
+            "id": 357
+        },
+        {
+            "name": "Kandarin monastery Teleport",
+            "cooldown": 0.0,
+            "img": "Kandarin_monastery_Teleport.png",
+            "id": 358
+        },
+        {
+            "name": "Kharyrll Teleport",
+            "cooldown": 0.0,
+            "img": "Kharyrll_Teleport.png",
+            "id": 359
+        },
+        {
+            "name": "Khazard Teleport",
+            "cooldown": 0.0,
+            "img": "Khazard_Teleport.png",
+            "id": 360
+        },
+        {
+            "name": "Lassar Teleport",
+            "cooldown": 0.0,
+            "img": "Lassar_Teleport.png",
+            "id": 361
+        },
+        {
+            "name": "Lesser Bone Shield",
+            "cooldown": 0.0,
+            "img": "Lesser_Bone_Shield.png",
+            "id": 362
+        },
+        {
+            "name": "Life Transfer",
+            "cooldown": 45.0,
+            "img": "Life_Transfer.png",
+            "id": 363
+        },
+        {
+            "name": "Low Level Alchemy",
+            "cooldown": 0.0,
+            "img": "Low_Level_Alchemy.png",
+            "id": 364
+        },
+        {
+            "name": "Lumbridge Teleport",
+            "cooldown": 0.0,
+            "img": "Lumbridge_Teleport.png",
+            "id": 365
+        },
+        {
+            "name": "Lvl-1 Enchant",
+            "cooldown": 0.0,
+            "img": "Lvl-1_Enchant.png",
+            "id": 366
+        },
+        {
+            "name": "Lvl-2 Enchant",
+            "cooldown": 0.0,
+            "img": "Lvl-2_Enchant.png",
+            "id": 367
+        },
+        {
+            "name": "Lvl-3 Enchant",
+            "cooldown": 0.0,
+            "img": "Lvl-3_Enchant.png",
+            "id": 368
+        },
+        {
+            "name": "Lvl-4 Enchant",
+            "cooldown": 0.0,
+            "img": "Lvl-4_Enchant.png",
+            "id": 369
+        },
+        {
+            "name": "Lvl-5 Enchant",
+            "cooldown": 0.0,
+            "img": "Lvl-5_Enchant.png",
+            "id": 370
+        },
+        {
+            "name": "Lvl-6 Enchant",
+            "cooldown": 0.0,
+            "img": "Lvl-6_Enchant.png",
+            "id": 371
+        },
+        {
+            "name": "Magic Imbue",
+            "cooldown": 0.0,
+            "img": "Magic_Imbue.png",
+            "id": 372
+        },
+        {
+            "name": "Make Leather",
+            "cooldown": 0.0,
+            "img": "Make_Leather.png",
+            "id": 373
+        },
+        {
+            "name": "Manor farm Teleport",
+            "cooldown": 0.0,
+            "img": "Manor_farm_Teleport.png",
+            "id": 374
+        },
+        {
+            "name": "Manor farm Teleport",
+            "cooldown": 0.0,
+            "img": "Manor_farm_Teleport.png",
+            "id": 375
+        },
+        {
+            "name": "Manor farm Teleport",
+            "cooldown": 0.0,
+            "img": "Manor_farm_Teleport.png",
+            "id": 376
+        },
+        {
+            "name": "Max guild Teleport",
+            "cooldown": 0.0,
+            "img": "Max_guild_Teleport.png",
+            "id": 377
+        },
+        {
+            "name": "Max guild Teleport",
+            "cooldown": 0.0,
+            "img": "Max_guild_Teleport.png",
+            "id": 378
+        },
+        {
+            "name": "Max guild Teleport",
+            "cooldown": 0.0,
+            "img": "Max_guild_Teleport.png",
+            "id": 379
+        },
+        {
+            "name": "Mazcab Teleport",
+            "cooldown": 0.0,
+            "img": "Mazcab_Teleport.png",
+            "id": 380
+        },
+        {
+            "name": "Monster Examine",
+            "cooldown": 0.0,
+            "img": "Monster_Examine.png",
+            "id": 381
+        },
+        {
+            "name": "Moonclan Teleport",
+            "cooldown": 0.0,
+            "img": "Moonclan_Teleport.png",
+            "id": 382
+        },
+        {
+            "name": "North Ardougne Teleport",
+            "cooldown": 0.0,
+            "img": "North_Ardougne_Teleport.png",
+            "id": 383
+        },
+        {
+            "name": "NPC Contact",
+            "cooldown": 0.0,
+            "img": "NPC_Contact.png",
+            "id": 384
+        },
+        {
+            "name": "Opal Aurora",
+            "cooldown": 0.0,
+            "img": "Opal_Aurora.png",
+            "id": 385
+        },
+        {
+            "name": "Ourania Teleport",
+            "cooldown": 0.0,
+            "img": "Ourania_Teleport.png",
+            "id": 386
+        },
+        {
+            "name": "Paddewwa Teleport",
+            "cooldown": 0.0,
+            "img": "Paddewwa_Teleport.png",
+            "id": 387
+        },
+        {
+            "name": "Plank Make",
+            "cooldown": 0.0,
+            "img": "Plank_Make.png",
+            "id": 388
+        },
+        {
+            "name": "Polypore Strike",
+            "cooldown": 0.0,
+            "img": "Polypore_Strike.png",
+            "id": 389
+        },
+        {
+            "name": "Polypore Strike",
+            "cooldown": 0.0,
+            "img": "Polypore_Strike.png",
+            "id": 390
+        },
+        {
+            "name": "Polypore Strike",
+            "cooldown": 0.0,
+            "img": "Polypore_Strike.png",
+            "id": 391
+        },
+        {
+            "name": "Potion Share",
+            "cooldown": 0.0,
+            "img": "Potion_Share.png",
+            "id": 392
+        },
+        {
+            "name": "Prism of Dowsing",
+            "cooldown": 0.0,
+            "img": "Prism_of_Dowsing.png",
+            "id": 393
+        },
+        {
+            "name": "Prism of Loyalty",
+            "cooldown": 0.0,
+            "img": "Prism_of_Loyalty.png",
+            "id": 394
+        },
+        {
+            "name": "Prism of Restoration",
+            "cooldown": 0.0,
+            "img": "Prism_of_Restoration.png",
+            "id": 395
+        },
+        {
+            "name": "Prism of Salvation",
+            "cooldown": 0.0,
+            "img": "Prism_of_Salvation.png",
+            "id": 396
+        },
+        {
+            "name": "Rapid Growth",
+            "cooldown": 0.0,
+            "img": "Rapid_Growth.png",
+            "id": 397
+        },
+        {
+            "name": "Remote Farm",
+            "cooldown": 0.0,
+            "img": "Remote_Farm.png",
+            "id": 398
+        },
+        {
+            "name": "Repair Rune Pouch",
+            "cooldown": 0.0,
+            "img": "Repair_Rune_Pouch.png",
+            "id": 399
+        },
+        {
+            "name": "Ruby Aurora",
+            "cooldown": 0.0,
+            "img": "Ruby_Aurora.png",
+            "id": 400
+        },
+        {
+            "name": "Sapphire Aurora",
+            "cooldown": 0.0,
+            "img": "Sapphire_Aurora.png",
+            "id": 401
+        },
+        {
+            "name": "Senntisten Teleport",
+            "cooldown": 0.0,
+            "img": "Senntisten_Teleport.png",
+            "id": 402
+        },
+        {
+            "name": "Shadow Barrage",
+            "cooldown": 0.0,
+            "img": "Shadow_Barrage.png",
+            "id": 403
+        },
+        {
+            "name": "Shadow Blitz",
+            "cooldown": 0.0,
+            "img": "Shadow_Blitz.png",
+            "id": 404
+        },
+        {
+            "name": "Shadow Burst",
+            "cooldown": 0.0,
+            "img": "Shadow_Burst.png",
+            "id": 405
+        },
+        {
+            "name": "Shadow Rush",
+            "cooldown": 0.0,
+            "img": "Shadow_Rush.png",
+            "id": 406
+        },
+        {
+            "name": "Shield Dome",
+            "cooldown": 0.0,
+            "img": "Shield_Dome.png",
+            "id": 407
+        },
+        {
+            "name": "Sift Soil",
+            "cooldown": 0.0,
+            "img": "Sift_Soil.png",
+            "id": 408
+        },
+        {
+            "name": "Skeletal horror Teleport",
+            "cooldown": 0.0,
+            "img": "Skeletal_horror_Teleport.png",
+            "id": 409
+        },
+        {
+            "name": "Skeletal horror Teleport",
+            "cooldown": 0.0,
+            "img": "Skeletal_horror_Teleport.png",
+            "id": 410
+        },
+        {
+            "name": "Skeletal horror Teleport",
+            "cooldown": 0.0,
+            "img": "Skeletal_horror_Teleport.png",
+            "id": 411
+        },
+        {
+            "name": "Slayer Dart",
+            "cooldown": 0.0,
+            "img": "Slayer_Dart.png",
+            "id": 412
+        },
+        {
+            "name": "Smoke Barrage",
+            "cooldown": 0.0,
+            "img": "Smoke_Barrage.png",
+            "id": 413
+        },
+        {
+            "name": "Smoke Blitz",
+            "cooldown": 0.0,
+            "img": "Smoke_Blitz.png",
+            "id": 414
+        },
+        {
+            "name": "Smoke Burst",
+            "cooldown": 0.0,
+            "img": "Smoke_Burst.png",
+            "id": 415
+        },
+        {
+            "name": "Smoke Cloud",
+            "cooldown": 0.0,
+            "img": "Smoke_Cloud.png",
+            "id": 416
+        },
+        {
+            "name": "Smoke Rush",
+            "cooldown": 0.0,
+            "img": "Smoke_Rush.png",
+            "id": 417
+        },
+        {
+            "name": "Snare",
+            "cooldown": 0.0,
+            "img": "Snare.png",
+            "id": 418
+        },
+        {
+            "name": "South Falador Teleport",
+            "cooldown": 0.0,
+            "img": "South_Falador_Teleport.png",
+            "id": 419
+        },
+        {
+            "name": "South Feldip Hills Teleport",
+            "cooldown": 0.0,
+            "img": "South_Feldip_Hills_Teleport.png",
+            "id": 420
+        },
+        {
+            "name": "Spellbook Swap",
+            "cooldown": 0.0,
+            "img": "Spellbook_Swap.png",
+            "id": 421
+        },
+        {
+            "name": "Spellbook Swap",
+            "cooldown": 0.0,
+            "img": "Spellbook_Swap.png",
+            "id": 422
+        },
+        {
+            "name": "Spellbook Swap",
+            "cooldown": 0.0,
+            "img": "Spellbook_Swap.png",
+            "id": 423
+        },
+        {
+            "name": "Spellbook Swap",
+            "cooldown": 0.0,
+            "img": "Spellbook_Swap.png",
+            "id": 424
+        },
+        {
+            "name": "Spellbook Swap",
+            "cooldown": 0.0,
+            "img": "Spellbook_Swap.png",
+            "id": 425
+        },
+        {
+            "name": "Spellbook Swap",
+            "cooldown": 0.0,
+            "img": "Spellbook_Swap.png",
+            "id": 426
+        },
+        {
+            "name": "Spin Flax",
+            "cooldown": 0.0,
+            "img": "Spin_Flax.png",
+            "id": 427
+        },
+        {
+            "name": "Spiritual Healing",
+            "cooldown": 0.0,
+            "img": "Spiritual_Healing.png",
+            "id": 428
+        },
+        {
+            "name": "Split Soul",
+            "cooldown": 60.0,
+            "img": "Split_Soul.png",
+            "id": 429
+        },
+        {
+            "name": "Stagger",
+            "cooldown": 0.0,
+            "img": "Stagger.png",
+            "id": 430
+        },
+        {
+            "name": "Stat Spy",
+            "cooldown": 0.0,
+            "img": "Stat_Spy.png",
+            "id": 431
+        },
+        {
+            "name": "Storm of Armadyl",
+            "cooldown": 0.0,
+            "img": "Storm_of_Armadyl.png",
+            "id": 432
+        },
+        {
+            "name": "String Jewellery",
+            "cooldown": 0.0,
+            "img": "String_Jewellery.png",
+            "id": 433
+        },
+        {
+            "name": "Superglass Make",
+            "cooldown": 0.0,
+            "img": "Superglass_Make.png",
+            "id": 434
+        },
+        {
+            "name": "Superheat Item",
+            "cooldown": 0.0,
+            "img": "Superheat_Item.png",
+            "id": 435
+        },
+        {
+            "name": "Taverley Teleport",
+            "cooldown": 0.0,
+            "img": "Taverley_Teleport.png",
+            "id": 436
+        },
+        {
+            "name": "Tele-group Barbarian",
+            "cooldown": 0.0,
+            "img": "Tele-group_Barbarian.png",
+            "id": 437
+        },
+        {
+            "name": "Tele-group Catherby",
+            "cooldown": 0.0,
+            "img": "Tele-group_Catherby.png",
+            "id": 438
+        },
+        {
+            "name": "Tele-group Fishing Guild",
+            "cooldown": 0.0,
+            "img": "Tele-group_Fishing_Guild.png",
+            "id": 439
+        },
+        {
+            "name": "Tele-group Ice Plateau",
+            "cooldown": 0.0,
+            "img": "Tele-group_Ice_Plateau.png",
+            "id": 440
+        },
+        {
+            "name": "Tele-group Khazard",
+            "cooldown": 0.0,
+            "img": "Tele-group_Khazard.png",
+            "id": 441
+        },
+        {
+            "name": "Tele-group Moonclan",
+            "cooldown": 0.0,
+            "img": "Tele-group_Moonclan.png",
+            "id": 442
+        },
+        {
+            "name": "Tele-group Trollheim Farm",
+            "cooldown": 0.0,
+            "img": "Tele-group_Trollheim_Farm.png",
+            "id": 443
+        },
+        {
+            "name": "Tele-group Waterbirth",
+            "cooldown": 0.0,
+            "img": "Tele-group_Waterbirth.png",
+            "id": 444
+        },
+        {
+            "name": "Telekinetic Grab",
+            "cooldown": 0.0,
+            "img": "Telekinetic_Grab.png",
+            "id": 445
+        },
+        {
+            "name": "Telekinetic Grind",
+            "cooldown": 0.0,
+            "img": "Telekinetic_Grind.png",
+            "id": 446
+        },
+        {
+            "name": "Tele-other Camelot",
+            "cooldown": 0.0,
+            "img": "Tele-other_Camelot.png",
+            "id": 447
+        },
+        {
+            "name": "Tele-other Falador",
+            "cooldown": 0.0,
+            "img": "Tele-other_Falador.png",
+            "id": 448
+        },
+        {
+            "name": "Tele-other Lumbridge",
+            "cooldown": 0.0,
+            "img": "Tele-other_Lumbridge.png",
+            "id": 449
+        },
+        {
+            "name": "Teleport Block",
+            "cooldown": 0.0,
+            "img": "Teleport_Block.png",
+            "id": 450
+        },
+        {
+            "name": "Threads of Fate",
+            "cooldown": 45.0,
+            "img": "Threads_of_Fate.png",
+            "id": 451
+        },
+        {
+            "name": "Trap Telekinesis",
+            "cooldown": 0.0,
+            "img": "Trap_Telekinesis.png",
+            "id": 452
+        },
+        {
+            "name": "Trollheim Farm Teleport",
+            "cooldown": 0.0,
+            "img": "Trollheim_Farm_Teleport.png",
+            "id": 453
+        },
+        {
+            "name": "Trollheim Teleport",
+            "cooldown": 0.0,
+            "img": "Trollheim_Teleport.png",
+            "id": 454
+        },
+        {
+            "name": "Tune Banite Ore",
+            "cooldown": 0.0,
+            "img": "Tune_Banite_Ore.png",
+            "id": 455
+        },
+        {
+            "name": "Varrock Teleport",
+            "cooldown": 0.0,
+            "img": "Varrock_Teleport.png",
+            "id": 456
+        },
+        {
+            "name": "Vengeance Group",
+            "cooldown": 0.0,
+            "img": "Vengeance_Group.png",
+            "id": 457
+        },
+        {
+            "name": "Vengeance Other",
+            "cooldown": 0.0,
+            "img": "Vengeance_Other.png",
+            "id": 458
+        },
+        {
+            "name": "Vengeance",
+            "cooldown": 0.0,
+            "img": "Vengeance.png",
+            "id": 459
+        },
+        {
+            "name": "Vulnerability",
+            "cooldown": 0.0,
+            "img": "Vulnerability.png",
+            "id": 460
+        },
+        {
+            "name": "War's Retreat Teleport",
+            "cooldown": 0.0,
+            "img": "War's_Retreat_Teleport.png",
+            "id": 461
+        },
+        {
+            "name": "War's Retreat Teleport",
+            "cooldown": 0.0,
+            "img": "War's_Retreat_Teleport.png",
+            "id": 462
+        },
+        {
+            "name": "War's Retreat Teleport",
+            "cooldown": 0.0,
+            "img": "War's_Retreat_Teleport.png",
+            "id": 463
+        },
+        {
+            "name": "Watchtower Teleport",
+            "cooldown": 0.0,
+            "img": "Watchtower_Teleport.png",
+            "id": 464
+        },
+        {
+            "name": "Water Blast",
+            "cooldown": 0.0,
+            "img": "Water_Blast.png",
+            "id": 465
+        },
+        {
+            "name": "Water Bolt",
+            "cooldown": 0.0,
+            "img": "Water_Bolt.png",
+            "id": 466
+        },
+        {
+            "name": "Water Strike",
+            "cooldown": 0.0,
+            "img": "Water_Strike.png",
+            "id": 467
+        },
+        {
+            "name": "Water Surge",
+            "cooldown": 0.0,
+            "img": "Water_Surge.png",
+            "id": 468
+        },
+        {
+            "name": "Water Wave",
+            "cooldown": 0.0,
+            "img": "Water_Wave.png",
+            "id": 469
+        },
+        {
+            "name": "Waterbirth Teleport",
+            "cooldown": 0.0,
+            "img": "Waterbirth_Teleport.png",
+            "id": 470
+        },
+        {
+            "name": "Weaken",
+            "cooldown": 0.0,
+            "img": "Weaken.png",
+            "id": 471
+        }
+    ],
+    "surge": [
+        {
+            "name": "Import",
+            "cooldown": 0.0,
+            "img": "Surge.png",
+            "id": 472
+        }
+    ]
+}

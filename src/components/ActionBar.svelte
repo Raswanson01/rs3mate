@@ -1,15 +1,17 @@
 <script lang="ts">
+  import { draggable } from "@neodrag/svelte";
     import { activeAbility, selectedIndex } from "../barStore";
     import type { BarAbility } from "../models/abilities";
+    import { dndzone } from "svelte-dnd-action";
 
     const initAbilities = (propAbilities: BarAbility[]): BarAbility[] => {
         let defaultAbilities: BarAbility[] = [];
         for (let i = 0; i < 14; i++) {
             if (propAbilities[i] && propAbilities[i].abilityName) {
-                defaultAbilities[i] = propAbilities[i];
+                defaultAbilities[i] = {...propAbilities[i], id: i};
             }
             else {
-                defaultAbilities[i] = { keybind: null, abilityName: "None", imagePath: "empty.png" }
+                defaultAbilities[i] = { keybind: null, abilityName: "None", img: "empty.png", id: i, cooldown: 0 }
             }
         }
         return defaultAbilities;
@@ -22,6 +24,8 @@
     let keybind: string[] = [];
     let hasModifier = false;
     let shouldListen = false;
+
+    const flipDurationMs = 300;
 
     const handleKeydown  = (event: KeyboardEvent) => {
         if (!shouldListen) {
@@ -55,7 +59,6 @@
         shouldListen = true;
     }
 
-    
 </script>
 
 <h1 class="header">Action Bar {barNumber}</h1>
@@ -67,9 +70,16 @@
         tabindex={index} 
         role="button"
     >
-        <img src="ImagesOrigin/{ability.imagePath}" alt="The {ability.abilityName} ability"/>
+        <img
+            class="drop-zone"
+            src="Images/{ability.img}" 
+            alt="The {ability.abilityName} ability"
+        />
         <h7 class="text">{ability.keybind ? ability.keybind : "None"}</h7>
     </div>
+    {/each}
+    {#each abilityArray as ability}
+        <h7>{ability.img}</h7>
     {/each}
 </div>
 

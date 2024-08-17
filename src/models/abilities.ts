@@ -1,5 +1,7 @@
 export interface BarAbility {
+    id: number;
     keybind: string | null;
     abilityName: string | null;
-    imagePath: string | null;
+    img: string | null;
+    cooldown: number;
 }
