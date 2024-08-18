@@ -4,20 +4,17 @@
   	import { activeAbility, selectedIndex } from "../../barStore";
   	import ActionBar from "../../components/ActionBar.svelte";
 	import Button from "../../components/Button.svelte";
-  import type { AbilityMap } from "../../data/abilities";
+  	import type { AbilityMap } from "../../data/abilities";
 	import AbilitySelection from "./AbilitySelection.svelte";
 
-	const bar1 = [
-		{ keybind: "Q", img: "Anticipation.png", abilityName: "Anticipation", id: 0 },
-		null,
-		null,
-		{ keybind: null, img: "Assault.png", abilityName: "Assault", id: 1 }
-	]
+
 
 	let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' = 'melee';
 	export let data: any;
 	export let abilities: AbilityMap = data.abilities;
 	export let barConfig = data.barConfig;
+	$: categoryAbilities = abilities[selectedCategory];
+	console.log("Selected category: ", selectedCategory)
 </script>
 
 <div class="container">
@@ -41,7 +38,7 @@
 			<button class="type-selector" on:click={() => selectedCategory = 'melee'}>
 				<img src="AbilityCategories/Melee.png" alt="Melee abilities" />
 			</button>
-			<button class="type-selector "on:click={() => selectedCategory = 'range'}>
+			<button class="type-selector "on:click={() => {console.log("Range clicked");selectedCategory = 'range'}}>
 				<img src="AbilityCategories/Ranged.png" alt="Ranged abilities" />
 			</button>
 			<button class="type-selector" on:click={() => selectedCategory = 'magic'}>
@@ -58,7 +55,7 @@
 			</button>
 		</div>
 		<div class="ability-select">
-			<AbilitySelection on:dragend items={!!abilities ? abilities[selectedCategory] : []} />
+			<AbilitySelection on:dragend items={categoryAbilities}/>
 		</div>
 	</div>
 

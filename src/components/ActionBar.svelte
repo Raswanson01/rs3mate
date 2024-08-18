@@ -1,9 +1,12 @@
 <script lang="ts">
-    import { activeAbility, dragging, selectedIndex } from "../barStore";
+  import { dndzone, TRIGGERS } from "svelte-dnd-action";
+    import { activeAbility, defaultAbility, dragging, selectedIndex } from "../barStore";
     import type { BarAbility } from "../models/abilities";
 
     export let barNumber;
     export let items: BarAbility[];
+    let abilities = [...items];
+    const flipDurationMs = 300;
 
     let keybind: string[] = [];
     let hasModifier = false;
@@ -12,6 +15,7 @@
     let considerIndex: number;
 
     const handleKeydown  = (event: KeyboardEvent) => {
+        console.log("Keydown: ", event.key);
         if (!shouldListen) {
             return;
         }
@@ -29,8 +33,9 @@
         } else {
             keybind.push(key);
             $activeAbility.keybind = keybind.join('+');
-            items[$selectedIndex!] = $activeAbility;
+            abilities[$selectedIndex!] = $activeAbility;
             //reset state
+            $activeAbility = $defaultAbility;
             keybind = [];
             shouldListen = false;
             hasModifier = false;
@@ -43,19 +48,34 @@
         shouldListen = true;
     }
 
-    function handleDragEnd(index: number) {
-        console.log("Handling drag end")
-        const newItems = [...items];
-        newItems[index] = $dragging!
-        items = newItems;
+    function handleConsider(e: any) {
+        console.log("Considering from ActionBar", e.detail);
+        const { trigger, id } = e.detail.info;
+        if ( trigger === TRIGGERS.DRAGGED_OVER_INDEX) {
+            const newItem = e.detail.items.find((x: BarAbility) => x.id === id);
+            console.log("new item: ", newItem);
+            const idx = e.detail.items.indexOf(newItem);
+            const newAbilities = [...abilities];
+            console.log("new abilities: ", newAbilities);
+            newAbilities[idx] = newItem;
+            abilities = [...newAbilities];
+        }
+    }
+
+    function handleFinalize(e: any) {
+        console.log("Finalizing from ActionBar", e.detail);
+        abilities = e.detail.items
     }
 
 </script>
 
 <h1 class="header">Action Bar {barNumber}</h1>
-<div class="bar">
-    {#each items as ability, index}
-    <div class="image" on:dragend={() => handleDragEnd(index)}
+<div class="bar" use:dndzone={{items: abilities, flipDurationMs}}
+    on:consider={handleConsider}
+    on:finalize={handleFinalize}
+>
+    {#each abilities as ability, index}
+    <div class="image"
         on:click={() => handleClick(ability, index)} 
         on:keydown={(event) => handleKeydown(event)} 
         tabindex={index} 
