@@ -1,31 +1,15 @@
 <script lang="ts">
-  import { draggable } from "@neodrag/svelte";
-    import { activeAbility, selectedIndex } from "../barStore";
+    import { activeAbility, dragging, selectedIndex } from "../barStore";
     import type { BarAbility } from "../models/abilities";
-    import { dndzone } from "svelte-dnd-action";
-
-    const initAbilities = (propAbilities: BarAbility[]): BarAbility[] => {
-        let defaultAbilities: BarAbility[] = [];
-        for (let i = 0; i < 14; i++) {
-            if (propAbilities[i] && propAbilities[i].abilityName) {
-                defaultAbilities[i] = {...propAbilities[i], id: i};
-            }
-            else {
-                defaultAbilities[i] = { keybind: null, abilityName: "None", img: "empty.png", id: i, cooldown: 0 }
-            }
-        }
-        return defaultAbilities;
-    }
 
     export let barNumber;
-    export let abilities;
+    export let items: BarAbility[];
 
-    let abilityArray: BarAbility[] = initAbilities(abilities);
     let keybind: string[] = [];
     let hasModifier = false;
     let shouldListen = false;
-
-    const flipDurationMs = 300;
+    let itemToAdd: BarAbility;
+    let considerIndex: number;
 
     const handleKeydown  = (event: KeyboardEvent) => {
         if (!shouldListen) {
@@ -45,7 +29,7 @@
         } else {
             keybind.push(key);
             $activeAbility.keybind = keybind.join('+');
-            abilityArray[$selectedIndex!] = $activeAbility;
+            items[$selectedIndex!] = $activeAbility;
             //reset state
             keybind = [];
             shouldListen = false;
@@ -59,12 +43,19 @@
         shouldListen = true;
     }
 
+    function handleDragEnd(index: number) {
+        console.log("Handling drag end")
+        const newItems = [...items];
+        newItems[index] = $dragging!
+        items = newItems;
+    }
+
 </script>
 
 <h1 class="header">Action Bar {barNumber}</h1>
 <div class="bar">
-    {#each abilityArray as ability, index}
-    <div class="image" 
+    {#each items as ability, index}
+    <div class="image" on:dragend={() => handleDragEnd(index)}
         on:click={() => handleClick(ability, index)} 
         on:keydown={(event) => handleKeydown(event)} 
         tabindex={index} 
@@ -73,13 +64,10 @@
         <img
             class="drop-zone"
             src="Images/{ability.img}" 
-            alt="The {ability.abilityName} ability"
+            alt="The {ability.name} ability"
         />
         <h7 class="text">{ability.keybind ? ability.keybind : "None"}</h7>
     </div>
-    {/each}
-    {#each abilityArray as ability}
-        <h7>{ability.img}</h7>
     {/each}
 </div>
 

@@ -1,0 +1,399 @@
+{
+    "bar1": 
+    [
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Aggressive Stance",
+            "cooldown": 0.0,
+            "img": "Aggressive_Stance.png",
+            "id": 0,
+            "keybind": null
+        }
+    ],
+    "bar2": 
+    [
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        }
+    ],
+    "bar3": 
+    [
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Ice Asylum",
+            "cooldown": 0.0,
+            "img": "Ice_Asylum.png",
+            "id": 8
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Ice Asylum",
+            "cooldown": 0.0,
+            "img": "Ice_Asylum.png",
+            "id": 8
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Ice Asylum",
+            "cooldown": 0.0,
+            "img": "Ice_Asylum.png",
+            "id": 8
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Ice Asylum",
+            "cooldown": 0.0,
+            "img": "Ice_Asylum.png",
+            "id": 8
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Ice Asylum",
+            "cooldown": 0.0,
+            "img": "Ice_Asylum.png",
+            "id": 8
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Ice Asylum",
+            "cooldown": 0.0,
+            "img": "Ice_Asylum.png",
+            "id": 8
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": "Ice Asylum",
+            "cooldown": 0.0,
+            "img": "Ice_Asylum.png",
+            "id": 8
+        }
+    ],
+    "bar4": 
+    [
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        },
+        {
+            "name": null,
+            "cooldown": null,
+            "img": "empty.png",
+            "id": 0,
+            "keybind": null
+        }
+    ]
+}

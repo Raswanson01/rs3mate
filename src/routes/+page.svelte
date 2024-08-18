@@ -12,7 +12,7 @@
   }
 
   const handleHiButton = () => {
-    goto("/home");
+    goto("/barSetup");
   }
 </script>
 
