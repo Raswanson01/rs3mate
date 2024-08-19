@@ -1,18 +1,15 @@
 <script lang="ts">
-  import { dndzone, TRIGGERS } from "svelte-dnd-action";
-    import { activeAbility, defaultAbility, dragging, selectedIndex } from "../barStore";
+  import { dndzone, SHADOW_ITEM_MARKER_PROPERTY_NAME, TRIGGERS } from "svelte-dnd-action";
+    import { activeAbility, defaultAbility, selectedIndex } from "../barStore";
     import type { BarAbility } from "../models/abilities";
 
     export let barNumber;
     export let items: BarAbility[];
-    let abilities = [...items];
     const flipDurationMs = 300;
 
     let keybind: string[] = [];
     let hasModifier = false;
     let shouldListen = false;
-    let itemToAdd: BarAbility;
-    let considerIndex: number;
 
     const handleKeydown  = (event: KeyboardEvent) => {
         console.log("Keydown: ", event.key);
@@ -33,9 +30,9 @@
         } else {
             keybind.push(key);
             $activeAbility.keybind = keybind.join('+');
-            abilities[$selectedIndex!] = $activeAbility;
+            items[$selectedIndex!] = $activeAbility;
             //reset state
-            $activeAbility = $defaultAbility;
+            //$activeAbility = $defaultAbility;
             keybind = [];
             shouldListen = false;
             hasModifier = false;
@@ -43,6 +40,9 @@
     }
 
     const handleClick = (ability: BarAbility, index: number) => {
+        if (shouldListen)  {
+            window.addEventListener('keydown', handleKeydown);
+        }
         $activeAbility = ability;
         $selectedIndex = index;
         shouldListen = true;
@@ -55,29 +55,43 @@
             const newItem = e.detail.items.find((x: BarAbility) => x.id === id);
             console.log("new item: ", newItem);
             const idx = e.detail.items.indexOf(newItem);
-            const newAbilities = [...abilities];
+            const newAbilities = [...items];
             console.log("new abilities: ", newAbilities);
+            console.log("Index: ",idx);
             newAbilities[idx] = newItem;
-            abilities = [...newAbilities];
+            items = [...newAbilities];
+        }
+        else if ( trigger === TRIGGERS.DRAG_STARTED) {
+            console.warn(`copying ${id}`);
+            const idx = items.findIndex(item => item.id === id);
+            const newId = `${id}_copy_${Math.round(Math.random()*100000)}`;
+						// the line below was added in order to be compatible with version svelte-dnd-action 0.7.4 and above 
+					  e.detail.items = e.detail.items.filter((item: any) => !item[SHADOW_ITEM_MARKER_PROPERTY_NAME]);
+            e.detail.items.splice(idx, 0, {...items[idx], id: newId});
+            items = e.detail.items;
+            //Add a shouldIgnore state?
+        }
+        else {
+            items = [...items]
         }
     }
 
     function handleFinalize(e: any) {
         console.log("Finalizing from ActionBar", e.detail);
-        abilities = e.detail.items
+        items = e.detail.items
     }
 
 </script>
 
 <h1 class="header">Action Bar {barNumber}</h1>
-<div class="bar" use:dndzone={{items: abilities, flipDurationMs}}
+<div class="bar" use:dndzone={{items, flipDurationMs}}
     on:consider={handleConsider}
     on:finalize={handleFinalize}
 >
-    {#each abilities as ability, index}
+    {#each items as ability, index}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class="image"
         on:click={() => handleClick(ability, index)} 
-        on:keydown={(event) => handleKeydown(event)} 
         tabindex={index} 
         role="button"
     >

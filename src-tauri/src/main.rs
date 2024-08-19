@@ -1,7 +1,7 @@
 
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
-use tauri::command;
+use tauri::{api::path::{ app_local_data_dir}, command};
 use std::fs;
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[command]
@@ -9,8 +9,23 @@ fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
 }
 
-fn main() {
+fn main() { //TODO add setup to copy default bar config
     tauri::Builder::default()
+    .setup(|app| {
+        let config = app.config();
+        let resource_path = app.path_resolver()
+          .resolve_resource("defaultBarConfig.json")
+          .expect("failed to resolve resource");
+
+        let app_data_path = app_local_data_dir(&config).unwrap();
+        println!("App data directory: {:?}", app_data_path);
+        let file_path = app_data_path.join("barConfig.json");
+        println!("File path: {:?}", file_path);
+        fs::copy(resource_path, file_path).expect("Failed to copy data file");
+    
+        Ok(())
+      })
+
         .invoke_handler(tauri::generate_handler![greet])
         .invoke_handler(tauri::generate_handler![read_file])
         .run(tauri::generate_context!())

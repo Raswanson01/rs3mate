@@ -1,30 +1,46 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-  	import type { PageData } from "../$types";
+  import { writeTextFile } from "@tauri-apps/api/fs";
+  import { appLocalDataDir, join } from '@tauri-apps/api/path';
   	import { activeAbility, selectedIndex } from "../../barStore";
   	import ActionBar from "../../components/ActionBar.svelte";
 	import Button from "../../components/Button.svelte";
   	import type { AbilityMap } from "../../data/abilities";
 	import AbilitySelection from "./AbilitySelection.svelte";
-
+	import Select from "svelte-select";
 
 
 	let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' = 'melee';
 	export let data: any;
 	export let abilities: AbilityMap = data.abilities;
 	export let barConfig = data.barConfig;
+	let selectedBarConfig = barConfig[0];
+	console.log("Sel bar config: ", selectedBarConfig)
+	console.log("name: ", selectedBarConfig.name)
 	$: categoryAbilities = abilities[selectedCategory];
-	console.log("Selected category: ", selectedCategory)
+
+	async function handleSave() {
+		const appLocalDataDirPath = await appLocalDataDir();
+		console.log("Handling saving a bar");
+		const idx = barConfig.findIndex((x: any) => x.name === selectedBarConfig.name);
+		barConfig[idx] = selectedBarConfig;
+		const pathToSave = await join(appLocalDataDirPath, "barConfig.json");
+		console.log("Path to save", pathToSave);
+		console.log("bar config: ", barConfig);
+		await writeTextFile(pathToSave, JSON.stringify(barConfig));
+	}
 </script>
 
 <div class="container">
 	
 	<div class="vert">
-		<ActionBar on:dragend barNumber={1} items={barConfig.bar1} />
-		<ActionBar on:dragend barNumber={2} items={barConfig.bar2} />
-		<ActionBar on:dragend barNumber={3} items={barConfig.bar3} />
-		<ActionBar on:dragend barNumber={4} items={barConfig.bar4} />
+		<ActionBar barNumber={1} bind:items={selectedBarConfig.bars.bar1} />
+		<ActionBar barNumber={2} bind:items={selectedBarConfig.bars.bar2} />
+		<ActionBar barNumber={3} bind:items={selectedBarConfig.bars.bar3} />
+		<ActionBar barNumber={4} bind:items={selectedBarConfig.bars.bar4} />
 		<Button onClick={() => goto("/")} text="Return to landing" />
+		<Button onClick={handleSave} text="Save bar" />
+		<Select bind:value={selectedBarConfig} items={barConfig} label={"name"}/>
 		<div style="margin-left: 16px;">
 			<strong>Active Ability</strong>
 			<h1>Ability: { $activeAbility.name }</h1>
@@ -38,7 +54,7 @@
 			<button class="type-selector" on:click={() => selectedCategory = 'melee'}>
 				<img src="AbilityCategories/Melee.png" alt="Melee abilities" />
 			</button>
-			<button class="type-selector "on:click={() => {console.log("Range clicked");selectedCategory = 'range'}}>
+			<button class="type-selector "on:click={() => selectedCategory = 'range'}>
 				<img src="AbilityCategories/Ranged.png" alt="Ranged abilities" />
 			</button>
 			<button class="type-selector" on:click={() => selectedCategory = 'magic'}>
@@ -55,7 +71,7 @@
 			</button>
 		</div>
 		<div class="ability-select">
-			<AbilitySelection on:dragend items={categoryAbilities}/>
+			<AbilitySelection items={categoryAbilities}/>
 		</div>
 	</div>
 
