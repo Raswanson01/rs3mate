@@ -19,9 +19,18 @@ fn main() { //TODO add setup to copy default bar config
 
         let app_data_path = app_local_data_dir(&config).unwrap();
         println!("App data directory: {:?}", app_data_path);
-        let file_path = app_data_path.join("barConfig.json");
-        println!("File path: {:?}", file_path);
-        fs::copy(resource_path, file_path).expect("Failed to copy data file");
+        let bar_config_file_path = app_data_path.join("barConfig.json");
+        let rotations_file_path = app_data_path.join("rotations.json");
+        if !bar_config_file_path.exists() {
+          println!("File path: {:?}", bar_config_file_path);
+          fs::copy(resource_path, bar_config_file_path).expect("Failed to copy data file");
+        } else {
+          println!("Bar config path exists. Skipping copy")
+        }
+        if !rotations_file_path.exists() {
+          fs::write(rotations_file_path, "[]").expect("Could not write file");
+        }
+
     
         Ok(())
       })

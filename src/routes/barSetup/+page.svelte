@@ -9,8 +9,7 @@
 	import AbilitySelection from "./AbilitySelection.svelte";
 	import Select from "svelte-select";
 
-
-	let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' = 'melee';
+	let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' = 'melee'; 
 	export let data: any;
 	export let abilities: AbilityMap = data.abilities;
 	export let barConfig = data.barConfig;

@@ -55,10 +55,13 @@
             const newItem = e.detail.items.find((x: BarAbility) => x.id === id);
             console.log("new item: ", newItem);
             const idx = e.detail.items.indexOf(newItem);
+            const keybind = items[idx].keybind;
             const newAbilities = [...items];
             console.log("new abilities: ", newAbilities);
             console.log("Index: ",idx);
+            newItem.keybind = keybind;
             newAbilities[idx] = newItem;
+            e.detail.items[idx] = newItem;
             items = [...newAbilities];
         }
         else if ( trigger === TRIGGERS.DRAG_STARTED) {

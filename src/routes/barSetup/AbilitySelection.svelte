@@ -28,7 +28,6 @@
         items = [...items]
     }
 
-    //If I ever go back to dnd-action, I need to handle updating the list on BOTH ends!
 </script>
 
 <section class="container" use:dndzone={{items, flipDurationMs}}
