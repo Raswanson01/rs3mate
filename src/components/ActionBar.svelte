@@ -1,25 +1,35 @@
 <script lang="ts">
-  import { dndzone, SHADOW_ITEM_MARKER_PROPERTY_NAME, TRIGGERS } from "svelte-dnd-action";
-    import { activeAbility, defaultAbility, selectedIndex } from "../barStore";
+    import { activeAbility, selectedIndex } from "../barStore";
     import type { BarAbility } from "../models/abilities";
+    import { flip } from "svelte/animate";
 
     export let barNumber;
     export let items: BarAbility[];
-    const flipDurationMs = 300;
 
     let keybind: string[] = [];
     let hasModifier = false;
     let shouldListen = false;
 
     const handleKeydown  = (event: KeyboardEvent) => {
-        console.log("Keydown: ", event.key);
         if (!shouldListen) {
             return;
         }
         const key = event.key.toUpperCase();
-        console.log("Keybind: ", keybind);
         if (['ALT', 'CONTROL', 'SHIFT'].includes(key)) {
-            const keyToUse = key === 'CONTROL' ? "CTL" : key;
+            let keyToUse;
+            switch(key) 
+            {
+                case "CONTROL":
+                    keyToUse = "CTL";
+                    break;
+                case "SHIFT":
+                    keyToUse = "SFT";
+                    break;
+                default:
+                    keyToUse = key;
+                    break
+            }
+            console.log("Key to use: ", keyToUse)
             if (!hasModifier) {
                 keybind.push(keyToUse);
                 hasModifier = true;
@@ -48,53 +58,27 @@
         shouldListen = true;
     }
 
-    function handleConsider(e: any) {
-        console.log("Considering from ActionBar", e.detail);
-        const { trigger, id } = e.detail.info;
-        if ( trigger === TRIGGERS.DRAGGED_OVER_INDEX) {
-            const newItem = e.detail.items.find((x: BarAbility) => x.id === id);
-            console.log("new item: ", newItem);
-            const idx = e.detail.items.indexOf(newItem);
-            const keybind = items[idx].keybind;
-            const newAbilities = [...items];
-            console.log("new abilities: ", newAbilities);
-            console.log("Index: ",idx);
-            newItem.keybind = keybind;
-            newAbilities[idx] = newItem;
-            e.detail.items[idx] = newItem;
-            items = [...newAbilities];
-        }
-        else if ( trigger === TRIGGERS.DRAG_STARTED) {
-            console.warn(`copying ${id}`);
-            const idx = items.findIndex(item => item.id === id);
-            const newId = `${id}_copy_${Math.round(Math.random()*100000)}`;
-						// the line below was added in order to be compatible with version svelte-dnd-action 0.7.4 and above 
-					  e.detail.items = e.detail.items.filter((item: any) => !item[SHADOW_ITEM_MARKER_PROPERTY_NAME]);
-            e.detail.items.splice(idx, 0, {...items[idx], id: newId});
-            items = e.detail.items;
-            //Add a shouldIgnore state?
-        }
-        else {
-            items = [...items]
-        }
+    function handleDragover(event: DragEvent) {
+        event.preventDefault();
     }
 
-    function handleFinalize(e: any) {
-        console.log("Finalizing from ActionBar", e.detail);
-        items = e.detail.items
+    function handleDrop(event: DragEvent, index: number) {
+        const data = event.dataTransfer?.getData("text/plain");
+        const abilityToDrop = data ? JSON.parse(data) : null;
+        items[index] = abilityToDrop;
+        items = [...items];
     }
 
 </script>
 
 <h1 class="header">Action Bar {barNumber}</h1>
-<div class="bar" use:dndzone={{items, flipDurationMs}}
-    on:consider={handleConsider}
-    on:finalize={handleFinalize}
->
-    {#each items as ability, index}
+<div class="bar">
+    {#each items as ability, index (index)}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div class="image"
-        on:click={() => handleClick(ability, index)} 
+    <div class="image" animate:flip
+        on:drop={event => handleDrop(event, index)}
+        on:dragover={event => handleDragover(event)}
+        on:click|preventDefault={() => handleClick(ability, index)} 
         tabindex={index} 
         role="button"
     >

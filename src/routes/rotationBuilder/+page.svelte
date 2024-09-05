@@ -43,7 +43,12 @@
         <Select bind:value={selectedRotation} items={rotations} label={"name"}/>
     </div>
     <div class="ability-select">
-        <AbilitySelection items={categoryAbilities}/>
+        <AbilitySelection 
+            on:dragstart 
+            on:drop
+            on:dragover
+            items={categoryAbilities}
+        />
     </div>
 </div>
 

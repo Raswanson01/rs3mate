@@ -1,41 +1,25 @@
 <script lang="ts">
     import { dndzone, TRIGGERS, SHADOW_ITEM_MARKER_PROPERTY_NAME } from 'svelte-dnd-action';
     import type { BarAbility } from '../../models/abilities';
+  import { flip } from 'svelte/animate';
 
     export let items: BarAbility[];
-    const flipDurationMs = 300;
 
-    function handleConsider(e: any) {
-        const {trigger, id} = e.detail.info;
-        console.log("Considering from AbilitySelection", e.detail)
-        if (trigger === TRIGGERS.DRAG_STARTED) {
-            console.warn(`copying ${id}`);
-            let idx = items.findIndex(item => item.id === id);
-            const newId = `${id}_copy_${Math.round(Math.random()*100000)}`;
-						// the line below was added in order to be compatible with version svelte-dnd-action 0.7.4 and above 
-					  e.detail.items = e.detail.items.filter((item: any) => !item[SHADOW_ITEM_MARKER_PROPERTY_NAME]);
-            e.detail.items.splice(idx, 0, {...items[idx], id: newId});
-            items = e.detail.items;
-        }
-        else {
-            items = [...items]
-        }
-    }
-
-    function handleFinalize(e: any) {
-        const { trigger, id } = e.detail.info;
-        console.log("Finalizing from AbilitySelection", e.detail)
-        items = [...items]
+    function handleConsider(event: DragEvent, item: BarAbility) {
+        console.log("Item: ", item);
+        event.dataTransfer?.setData("text/plain", JSON.stringify(item));
+        console.log("Event: ", event);
     }
 
 </script>
 
-<section class="container" use:dndzone={{items, flipDurationMs}}
-    on:consider={handleConsider}
-    on:finalize={handleFinalize}
->
+<section class="container" draggable={true}>
     {#each items as item(item.id)}
-        <img class="item" src="Images/{item.img}"alt="The {item.name} ability"/>
+        <img
+            animate:flip
+            draggable={true}
+            on:dragstart={event => handleConsider(event, item)}
+            class="item" src="Images/{item.img}"alt="The {item.name} ability"/>
     {/each}
 </section>
 

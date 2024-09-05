@@ -33,10 +33,10 @@
 <div class="container">
 	
 	<div class="vert">
-		<ActionBar barNumber={1} bind:items={selectedBarConfig.bars.bar1} />
-		<ActionBar barNumber={2} bind:items={selectedBarConfig.bars.bar2} />
-		<ActionBar barNumber={3} bind:items={selectedBarConfig.bars.bar3} />
-		<ActionBar barNumber={4} bind:items={selectedBarConfig.bars.bar4} />
+		<ActionBar on:drop on:dragstart on:dragover barNumber={1} bind:items={selectedBarConfig.bars.bar1} />
+		<ActionBar on:drop on:dragstart on:dragover barNumber={2} bind:items={selectedBarConfig.bars.bar2} />
+		<ActionBar on:drop on:dragstart on:dragover barNumber={3} bind:items={selectedBarConfig.bars.bar3} />
+		<ActionBar on:drop on:dragstart on:dragover barNumber={4} bind:items={selectedBarConfig.bars.bar4} />
 		<Button onClick={() => goto("/")} text="Return to landing" />
 		<Button onClick={handleSave} text="Save bar" />
 		<Select bind:value={selectedBarConfig} items={barConfig} label={"name"}/>
@@ -70,7 +70,7 @@
 			</button>
 		</div>
 		<div class="ability-select">
-			<AbilitySelection items={categoryAbilities}/>
+			<AbilitySelection on:dragstart on:drop on:dragover items={categoryAbilities}/>
 		</div>
 	</div>
 
