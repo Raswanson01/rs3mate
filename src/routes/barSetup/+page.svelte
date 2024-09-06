@@ -1,26 +1,28 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-  import { writeTextFile } from "@tauri-apps/api/fs";
-  import { appLocalDataDir, join } from '@tauri-apps/api/path';
-  	import { activeAbility, selectedIndex } from "../../barStore";
+	import { writeTextFile } from "@tauri-apps/api/fs";
+	import { appLocalDataDir, join, resourceDir } from '@tauri-apps/api/path';
+	import { activeAbility, selectedIndex } from "../../barStore";
   	import ActionBar from "../../components/ActionBar.svelte";
 	import Button from "../../components/Button.svelte";
   	import type { AbilityMap } from "../../data/abilities";
 	import AbilitySelection from "./AbilitySelection.svelte";
 	import Select from "svelte-select";
+  	import { fs } from "@tauri-apps/api";
 
-	let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' = 'melee'; 
 	export let data: any;
 	export let abilities: AbilityMap = data.abilities;
 	export let barConfig = data.barConfig;
-	let selectedBarConfig = barConfig[0];
-	console.log("Sel bar config: ", selectedBarConfig)
-	console.log("name: ", selectedBarConfig.name)
+
+	let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' = 'melee';
+	let showAdd = false;
+	let newConfigName = "";
+	let barConfigState = [...barConfig];
+	let selectedBarConfig = barConfigState[0];
 	$: categoryAbilities = abilities[selectedCategory];
 
 	async function handleSave() {
 		const appLocalDataDirPath = await appLocalDataDir();
-		console.log("Handling saving a bar");
 		const idx = barConfig.findIndex((x: any) => x.name === selectedBarConfig.name);
 		barConfig[idx] = selectedBarConfig;
 		const pathToSave = await join(appLocalDataDirPath, "barConfig.json");
@@ -28,6 +30,26 @@
 		console.log("bar config: ", barConfig);
 		await writeTextFile(pathToSave, JSON.stringify(barConfig));
 	}
+
+	async function handleAddNew() {
+		const newConfigs = [...barConfigState];
+		newConfigs.push({
+			name: newConfigName,
+			bars: 
+			{
+				bar1: [],
+				bar2: [],
+				bar3: [],
+				bar4: []
+			}
+
+		})
+		const appLocalDataDirPath = await appLocalDataDir();
+		const barConfigPath = await join(appLocalDataDirPath, "barConfig.json");
+		await fs.writeTextFile(barConfigPath, JSON.stringify(newConfigs));
+		barConfigState = newConfigs;
+	}
+      
 </script>
 
 <div class="container">
@@ -39,7 +61,22 @@
 		<ActionBar on:drop on:dragstart on:dragover barNumber={4} bind:items={selectedBarConfig.bars.bar4} />
 		<Button onClick={() => goto("/")} text="Return to landing" />
 		<Button onClick={handleSave} text="Save bar" />
-		<Select bind:value={selectedBarConfig} items={barConfig} label={"name"}/>
+		<Button text="Add new " onClick={() => showAdd = true}/>
+		{#if showAdd}
+			<input class="add-new" bind:value={newConfigName} placeholder="Add new"/>
+			<Button text="Save" onClick={handleAddNew} />
+		{/if}
+		<Select 
+			containerStyles={"background: gray"}
+			items={barConfigState}
+			on:change={e => {
+				console.log("E: ", e.detail)
+				selectedBarConfig = e.detail;
+			}}
+			label="name"
+			value={selectedBarConfig}
+		>
+		</Select>
 		<div style="margin-left: 16px;">
 			<strong>Active Ability</strong>
 			<h1>Ability: { $activeAbility.name }</h1>
@@ -109,5 +146,18 @@
 	}
 	.vert {
 		flex: 7
+	}
+	.add-new {
+		width: 10em;
+		height: 2em;
+		padding: 8px;
+		color: white;
+		background-color: rgb(70, 70, 70);
+		border-color: white;
+	}
+	.selecterino {
+		color: white;
+		background: rgb(70, 70, 70);
+		border-color: white;
 	}
 </style>
