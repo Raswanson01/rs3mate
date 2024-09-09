@@ -7,15 +7,14 @@
 	import Button from "../../components/Button.svelte";
   	import type { AbilityMap } from "../../data/abilities";
 	import AbilitySelection from "./AbilitySelection.svelte";
-	import Select from "svelte-select";
   	import { fs } from "@tauri-apps/api";
+	import { defaultAbility } from "../../barStore";
 
 	export let data: any;
 	export let abilities: AbilityMap = data.abilities;
 	export let barConfig = data.barConfig;
 
 	let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' = 'melee';
-	let showAdd = false;
 	let newConfigName = "";
 	let barConfigState = [...barConfig];
 	let selectedBarConfig = barConfigState[0];
@@ -33,20 +32,20 @@
 
 	async function handleAddNew() {
 		const newConfigs = [...barConfigState];
-		newConfigs.push({
+		const configToAdd = {
 			name: newConfigName,
 			bars: 
 			{
-				bar1: [],
-				bar2: [],
-				bar3: [],
-				bar4: []
+				bar1: Array.from({ length: 14 }, () => ({ ...$defaultAbility })),
+				bar2: Array.from({ length: 14 }, () => ({ ...$defaultAbility })),
+				bar3: Array.from({ length: 14 }, () => ({ ...$defaultAbility })),
+				bar4: Array.from({ length: 14 }, () => ({ ...$defaultAbility }))
 			}
-
-		})
+		}
+		newConfigs.push(configToAdd);
 		const appLocalDataDirPath = await appLocalDataDir();
 		const barConfigPath = await join(appLocalDataDirPath, "barConfig.json");
-		await fs.writeTextFile(barConfigPath, JSON.stringify(newConfigs));
+		const writeResult = await fs.writeTextFile(barConfigPath, JSON.stringify(newConfigs));
 		barConfigState = newConfigs;
 	}
       
@@ -61,22 +60,14 @@
 		<ActionBar on:drop on:dragstart on:dragover barNumber={4} bind:items={selectedBarConfig.bars.bar4} />
 		<Button onClick={() => goto("/")} text="Return to landing" />
 		<Button onClick={handleSave} text="Save bar" />
-		<Button text="Add new " onClick={() => showAdd = true}/>
-		{#if showAdd}
-			<input class="add-new" bind:value={newConfigName} placeholder="Add new"/>
-			<Button text="Save" onClick={handleAddNew} />
-		{/if}
-		<Select 
-			containerStyles={"background: gray"}
-			items={barConfigState}
-			on:change={e => {
-				console.log("E: ", e.detail)
-				selectedBarConfig = e.detail;
-			}}
-			label="name"
-			value={selectedBarConfig}
-		>
-		</Select>
+		<select bind:value={selectedBarConfig} class="selecterino" >
+			{#each barConfigState as config}
+				<option value={config}>{config.name}</option>
+			{/each}
+		</select>
+		<input class="add-new" bind:value={newConfigName} placeholder="Add new"/>
+		<Button text="Add" onClick={handleAddNew} />
+		
 		<div style="margin-left: 16px;">
 			<strong>Active Ability</strong>
 			<h1>Ability: { $activeAbility.name }</h1>
@@ -156,6 +147,10 @@
 		border-color: white;
 	}
 	.selecterino {
+		width: 15em;
+		height: 3em;
+		padding: 12px;
+		border-radius: 15px;
 		color: white;
 		background: rgb(70, 70, 70);
 		border-color: white;

@@ -2,9 +2,9 @@ import { readable, writable } from 'svelte/store';
 import type { BarAbility } from './models/abilities';
 
 const base = {
-    name: "None", 
+    name: null, 
     keybind: null, 
-    img: "favicon.png",
+    img: "empty.png",
     cooldown: 0
 }
 export const defaultAbility = readable<BarAbility>({ id: Math.random()* 1000000, ...base})
