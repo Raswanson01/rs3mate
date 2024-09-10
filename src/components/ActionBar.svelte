@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { activeAbility, selectedIndex } from "../barStore";
+    import { activeAbility, selectedIndex, shiftedKeyMap } from "../barStore";
     import type { BarAbility } from "../models/abilities";
     import { flip } from "svelte/animate";
 
@@ -29,7 +29,6 @@
                     keyToUse = key;
                     break
             }
-            console.log("Key to use: ", keyToUse)
             if (!hasModifier) {
                 keybind.push(keyToUse);
                 hasModifier = true;
@@ -39,7 +38,11 @@
             }
         } else {
             keybind.push(key);
+            if (keybind[0] === "SFT" && keybind.length === 2) {
+                keybind[1] = $shiftedKeyMap.get(key)!;
+            }
             $activeAbility.keybind = keybind.join('+');
+            
             items[$selectedIndex!] = $activeAbility;
             //reset state
             //$activeAbility = $defaultAbility;
