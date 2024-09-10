@@ -68,7 +68,9 @@
     function handleDrop(event: DragEvent, index: number) {
         const data = event.dataTransfer?.getData("text/plain");
         const abilityToDrop = data ? JSON.parse(data) : null;
-        items[index] = abilityToDrop;
+        const currentKeybind = items[index].keybind;
+        items[index] = {...abilityToDrop, keybind: currentKeybind};
+
         items = [...items];
     }
 
