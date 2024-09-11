@@ -6,7 +6,7 @@
   	import ActionBar from "../../components/ActionBar.svelte";
 	import Button from "../../components/Button.svelte";
   	import type { AbilityMap } from "../../data/abilities";
-	import AbilitySelection from "./AbilitySelection.svelte";
+	import AbilitySelection from "../../components/AbilitySelection.svelte";
   	import { fs } from "@tauri-apps/api";
 	import { defaultAbility } from "../../barStore";
 
@@ -14,11 +14,9 @@
 	export let abilities: AbilityMap = data.abilities;
 	export let barConfig = data.barConfig;
 
-	let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' = 'melee';
 	let newConfigName = "";
 	let barConfigState = [...barConfig];
 	let selectedBarConfig = barConfigState[0];
-	$: categoryAbilities = abilities[selectedCategory];
 
 	async function handleSave() {
 		const appLocalDataDirPath = await appLocalDataDir();
@@ -77,28 +75,9 @@
 	</div>
 	
 	<div class="box">
-		<div class="column">
-			<button class="type-selector" on:click={() => selectedCategory = 'melee'}>
-				<img src="AbilityCategories/Melee.png" alt="Melee abilities" />
-			</button>
-			<button class="type-selector "on:click={() => selectedCategory = 'range'}>
-				<img src="AbilityCategories/Ranged.png" alt="Ranged abilities" />
-			</button>
-			<button class="type-selector" on:click={() => selectedCategory = 'magic'}>
-				<img src="AbilityCategories/Magic.png" alt="Ranged abilities" />
-			</button>
-			<button class="type-selector" on:click={() => selectedCategory = 'necromancy'}>
-				<img src="AbilityCategories/Necromancy.png" alt="Necromancy abilities" />
-			</button>
-			<button class="type-selector" on:click={() => selectedCategory = 'defense'}>
-				<img src="AbilityCategories/Defence.png" alt="Defensive abilities" />
-			</button>
-			<button class="type-selector" on:click={() => selectedCategory = 'constitution'}>
-				<img src="AbilityCategories/Constitution.png" alt="Constitution abilities" />
-			</button>
-		</div>
+		
 		<div class="ability-select">
-			<AbilitySelection on:dragstart on:drop on:dragover items={categoryAbilities}/>
+			<AbilitySelection on:dragstart on:drop on:dragover abilityMap={abilities}/>
 		</div>
 	</div>
 
@@ -121,16 +100,7 @@
 		margin-left: 15px;
 		margin-right: 15px;
 	}
-	.type-selector {
-		border-style: solid;
-		border-radius: 5px;
-		border-color: rgb(70, 70, 70);
-		border-width: 1px;
-		margin-top: 10px;
-		width: 50px;
-		height: 50px;
-		padding: 4px;
-	}
+
 	.ability-select {
 		flex: 2;
 		margin-top: 30px;

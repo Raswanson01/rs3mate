@@ -1,17 +1,16 @@
 <script lang="ts">
   import { dndzone } from "svelte-dnd-action";
   import type { BarAbility, Rotation } from "../../models/abilities";
-  import AbilitySelection from "../barSetup/AbilitySelection.svelte";
+  import AbilitySelection from "../../components/AbilitySelection.svelte";
   import type { AbilityMap } from "../../data/abilities";
   import Select from "svelte-select";
+  import DndAbilitySelection from "../../components/DndAbilitySelection.svelte";
 
-    let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' = 'melee'; 
     export let data: any;
     export let abilities: AbilityMap = data.abilities;
     export let rotations = data.rotations;
 
     let selectedRotation: Rotation;
-    $: categoryAbilities = abilities[selectedCategory];
     let items: BarAbility[] = []
     console.log("ItemS: ", items);
 
@@ -27,40 +26,42 @@
 </script>
 
 <div class="container">
-    <div style="flex: 5;" class="column">
+    <div class="left">
         <h1>Rotation Builder</h1>
-        <div class="rotation-zone" use:dndzone={{items, flipDurationMs: 300}}
-            on:consider={handleConsider}
-            on:finalize={handleFinalize}
-        >
-        <div style="display: flex; flex-direction: row;">
-            {#each items as item}
-                <img class="image" src="Images/{item.img}" alt="The {item.name} ability"/>
-            {/each}
+        <div class="rotation-zone">
+            
+            <div class="w-5 h-20" use:dndzone={{items, flipDurationMs: 300}}
+                on:consider={handleConsider}
+                on:finalize={handleFinalize}
+            >
+                <div>
+                    {#each items as item}
+                        <img src="Images/{item.img}" alt="The {item.name} ability"/>
+                    {/each}
+                </div>
+            </div>
+            
         </div>
-
+        <div class="select">
+            <Select  bind:value={selectedRotation} items={rotations} label={"name"}/>
+                
         </div>
-        <Select bind:value={selectedRotation} items={rotations} label={"name"}/>
     </div>
-    <div class="ability-select">
-        <AbilitySelection 
-            on:dragstart 
-            on:drop
-            on:dragover
-            items={categoryAbilities}
-        />
-    </div>
+    
+    <DndAbilitySelection abilityMap={abilities}/>
 </div>
 
 <style>
     .container {
         display: flex;
+
     }
     .rotation-zone {
         display: flex;
         border-width: 2px;
         min-height: 500px;
         flex-wrap: wrap;
+        flex: 5;
         flex-direction: row;
     }
     .image {
@@ -78,5 +79,15 @@
     }
     .ability-select {
         flex: 1;
+    }
+    .left {
+        flex: 5;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+    .select {
+        margin-top: 10px;
+        max-height: 200px;
     }
 </style>
