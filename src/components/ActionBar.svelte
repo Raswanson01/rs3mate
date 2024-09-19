@@ -1,6 +1,7 @@
 <script lang="ts">
-    import { activeAbility, dragging, selectedIndex } from "../barStore";
+    import { activeAbility, selectedIndex, shiftedKeyMap } from "../barStore";
     import type { BarAbility } from "../models/abilities";
+    import { flip } from "svelte/animate";
 
     export let barNumber;
     export let items: BarAbility[];
@@ -8,17 +9,26 @@
     let keybind: string[] = [];
     let hasModifier = false;
     let shouldListen = false;
-    let itemToAdd: BarAbility;
-    let considerIndex: number;
 
     const handleKeydown  = (event: KeyboardEvent) => {
         if (!shouldListen) {
             return;
         }
         const key = event.key.toUpperCase();
-        console.log("Keybind: ", keybind);
         if (['ALT', 'CONTROL', 'SHIFT'].includes(key)) {
-            const keyToUse = key === 'CONTROL' ? "CTL" : key;
+            let keyToUse;
+            switch(key) 
+            {
+                case "CONTROL":
+                    keyToUse = "CTL";
+                    break;
+                case "SHIFT":
+                    keyToUse = "SFT";
+                    break;
+                default:
+                    keyToUse = key;
+                    break
+            }
             if (!hasModifier) {
                 keybind.push(keyToUse);
                 hasModifier = true;
@@ -28,9 +38,14 @@
             }
         } else {
             keybind.push(key);
+            if (keybind[0] === "SFT" && keybind.length === 2) {
+                keybind[1] = $shiftedKeyMap.get(key)!;
+            }
             $activeAbility.keybind = keybind.join('+');
+            
             items[$selectedIndex!] = $activeAbility;
             //reset state
+            //$activeAbility = $defaultAbility;
             keybind = [];
             shouldListen = false;
             hasModifier = false;
@@ -38,26 +53,37 @@
     }
 
     const handleClick = (ability: BarAbility, index: number) => {
+        if (!shouldListen)  {
+            window.addEventListener('keydown', handleKeydown);
+        }
         $activeAbility = ability;
         $selectedIndex = index;
         shouldListen = true;
     }
 
-    function handleDragEnd(index: number) {
-        console.log("Handling drag end")
-        const newItems = [...items];
-        newItems[index] = $dragging!
-        items = newItems;
+    function handleDragover(event: DragEvent) {
+        event.preventDefault();
+    }
+
+    function handleDrop(event: DragEvent, index: number) {
+        const data = event.dataTransfer?.getData("text/plain");
+        const abilityToDrop = data ? JSON.parse(data) : null;
+        const currentKeybind = items[index].keybind;
+        items[index] = {...abilityToDrop, keybind: currentKeybind};
+
+        items = [...items];
     }
 
 </script>
 
 <h1 class="header">Action Bar {barNumber}</h1>
 <div class="bar">
-    {#each items as ability, index}
-    <div class="image" on:dragend={() => handleDragEnd(index)}
-        on:click={() => handleClick(ability, index)} 
-        on:keydown={(event) => handleKeydown(event)} 
+    {#each items as ability, index (index)}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="image" animate:flip
+        on:drop={event => handleDrop(event, index)}
+        on:dragover={event => handleDragover(event)}
+        on:click|preventDefault={() => handleClick(ability, index)} 
         tabindex={index} 
         role="button"
     >

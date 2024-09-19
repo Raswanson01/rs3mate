@@ -5,3 +5,8 @@ export interface BarAbility {
     img: string | null;
     cooldown: number;
 }
+
+export interface Rotation {
+    name: string;
+    abilities: BarAbility[];
+}

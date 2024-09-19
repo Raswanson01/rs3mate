@@ -9,27 +9,25 @@ export const load: PageLoad = async () => {
     const resourcePath = await resourceDir();
     const localPath = await appLocalDataDir();
     const allAbilitiesPath = await join(resourcePath, "categorizedAbilities.json");
-    const barConfigPath = await join(localPath, "barConfig.json");
+    const rotationPath = await join(localPath, "rotations.json");
     try {
         console.log("Beginning to read file")
         // Call the Tauri command to read the file
         const abilityData = await readTextFile(allAbilitiesPath);
-        const actionBarData = await readTextFile(barConfigPath);
+        const rotationData = await readTextFile(rotationPath);
         // Parse the JSON data
         const abilities: AbilityMap = JSON.parse(abilityData);
-        const barConfig = JSON.parse(actionBarData);
+        const rotations = JSON.parse(rotationData);
 
-        // Return the JSON data to the page
-        console.log("Json data: ", abilities)
-        console.log("Bar config: ", barConfig);
         return {
             abilities,
-            barConfig
+            rotations
         };
     } catch (error) {
         console.error('Failed to load JSON file:', error);
         return {
-            abilities: {} as AbilityMap
+            abilities: {} as AbilityMap,
+            rotations: []
         };
     }
 };

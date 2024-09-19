@@ -37,7 +37,8 @@
     <input id="greet-input" placeholder="Enter a name..." bind:value={name} />
     <button type="submit">Greet</button>
   </form>
-  <Button onClick={() => handleHiButton()} text="Go Home"/>
+  <Button onClick={() => goto("/barSetup")} text="Bar Setup"/>
+  <Button onClick={() => goto("/rotationBuilder")} text="Rotation Builder"/>
 
   <p>{greetMsg}</p>
 </div>

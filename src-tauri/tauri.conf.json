@@ -13,28 +13,38 @@
     "allowlist": {
       "all": false,
       "fs": {
-        "all": false,
-        "copyFile": true,
-        "createDir": true,
-        "exists": true,
-        "readDir": true,
-        "readFile": true,
-        "removeDir": false,
-        "removeFile": false,
-        "renameFile": false,
-        "scope": [],
-        "writeFile": true
+        "scope": [
+          "*",
+          "$RESOURCE/*",
+          "$APPDATA/*",
+          "$APPLOCALDATA/*",
+          "$HOME/.local/share/*", 
+          "$HOME/Library/Application Support/*"
+        ],
+        "all": true
+      },
+      "path": {
+        "all": true
       },
       "shell": {
         "all": false,
         "open": true
+      },
+      "dialog": {
+        "all": false,
+        "ask": false,
+        "confirm": false,
+        "message": false,
+        "open": true,
+        "save": true
       }
     },
     "windows": [
       {
         "title": "rs3mate",
-        "width": 800,
-        "height": 600
+        "fileDropEnabled": false,
+        "width": 1600,
+        "height": 800
       }
     ],
     "security": {
@@ -44,6 +54,10 @@
       "active": true,
       "targets": "all",
       "identifier": "com.rs3mate",
+      "resources": [
+        "categorizedAbilities.json",
+        "defaultBarConfig.json"
+      ],
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
