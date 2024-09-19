@@ -53,7 +53,7 @@
     }
 
     const handleClick = (ability: BarAbility, index: number) => {
-        if (shouldListen)  {
+        if (!shouldListen)  {
             window.addEventListener('keydown', handleKeydown);
         }
         $activeAbility = ability;

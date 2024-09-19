@@ -14,11 +14,12 @@
       "all": false,
       "fs": {
         "scope": [
+          "*",
           "$RESOURCE/*",
           "$APPDATA/*",
           "$APPLOCALDATA/*",
           "$HOME/.local/share/*", 
-          "$HOME/Library/Application Support/*" 
+          "$HOME/Library/Application Support/*"
         ],
         "all": true
       },
@@ -28,6 +29,14 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "dialog": {
+        "all": false,
+        "ask": false,
+        "confirm": false,
+        "message": false,
+        "open": true,
+        "save": true
       }
     },
     "windows": [

@@ -1,45 +1,16 @@
 <script lang="ts">
     import type { AbilityMap } from '../data/abilities';
-    import type { BarAbility } from '../models/abilities';
     import { flip } from 'svelte/animate';
-    import { dndzone, TRIGGERS, SHADOW_ITEM_MARKER_PROPERTY_NAME } from 'svelte-dnd-action';
+    import { rotationItems } from '../routes/rotationBuilder/rotationStore';
+  import type { BarAbility } from '../models/abilities';
   
     export let abilityMap: AbilityMap;
 
     let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' = 'melee';
     $: items = abilityMap[selectedCategory];
-    let shouldIgnoreDndEvents = false;
 
-    function handleConsider(e: any) {
-        console.warn(`got consider ${JSON.stringify(e.detail, null, 2)}`);
-        const {trigger, id} = e.detail.info;
-        if (trigger === TRIGGERS.DRAG_STARTED) {
-            console.warn(`copying ${id}`);
-            const idx = items.findIndex(item => item.id === id);
-            const newId = `${id}_copy_${Math.round(Math.random()*100000)}`;
-						// the line below was added in order to be compatible with version svelte-dnd-action 0.7.4 and above 
-					  e.detail.items = e.detail.items.filter((item: any) => !item[SHADOW_ITEM_MARKER_PROPERTY_NAME]);
-            e.detail.items.splice(idx, 0, {...items[idx], id: newId});
-            items = e.detail.items;
-            shouldIgnoreDndEvents = true;
-        }
-        else if (!shouldIgnoreDndEvents) {
-            items = e.detail.items;
-        }
-        else {
-            items = [...items];
-        }
-    }
-
-    function handleFinalize(e: any) {
-        console.warn(`got finalize ${JSON.stringify(e.detail, null, 2)}`);
-        if (!shouldIgnoreDndEvents) {
-            items = e.detail.items;
-        }
-        else {
-            items = [...items];
-            shouldIgnoreDndEvents = false;
-        }
+    function handleClick(item: BarAbility) {
+        $rotationItems = [...$rotationItems, item];
     }
   
   </script>
@@ -65,15 +36,15 @@
         </button>
     </div>
     <section
-          class="flex flex-wrap flex-row" 
-          use:dndzone={{items, flipDurationMs: 300}} 
-          on:consider={handleConsider}
-          on:finalize={handleFinalize}
+          class="flex flex-wrap flex-row"
     >
         {#each items as item(item.id)}
-            <img
-                animate:flip              
-                class="item" src="Images/{item.img}"alt="The {item.name} ability"/>
+        <button>
+            <img on:click={() => handleClick(item)}
+                class="item" src="Images/{item.img}"alt="The {item.name} ability"
+            />
+        </button>
+  
         {/each}
     </section>
   </div>

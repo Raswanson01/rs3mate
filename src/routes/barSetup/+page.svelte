@@ -63,7 +63,7 @@
 				<option value={config}>{config.name}</option>
 			{/each}
 		</select>
-		<input class="add-new" bind:value={newConfigName} placeholder="Add new"/>
+		<input class="p-3 bg-[rgb(70,70,70)] rounded-lg mx-3" bind:value={newConfigName} placeholder="Add new"/>
 		<Button text="Add" onClick={handleAddNew} />
 		
 		<div style="margin-left: 16px;">
@@ -75,7 +75,6 @@
 	</div>
 	
 	<div class="box">
-		
 		<div class="ability-select">
 			<AbilitySelection on:dragstart on:drop on:dragover abilityMap={abilities}/>
 		</div>
