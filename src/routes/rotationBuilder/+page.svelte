@@ -147,9 +147,9 @@
             <input placeholder="Enter new name" class="bg-[rgb(70,70,70)] p-3 rounded-lg" bind:value={newRotation} />
             <Button text="Add" onClick={handleAddNew} />
         </div>
+        <Button onClick={() => goto("/")} text="Return to landing" />
         <Button text="Import Rotation" onClick={handleImport}/>
         <Button text="Export Rotation" onClick={handleExport}/>
-        <Button onClick={() => goto("/")} text="Return to landing" />
     </div>
     <div class="w-[30%] ">
         <DndAbilitySelection abilityMap={abilities}/>
