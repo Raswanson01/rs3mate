@@ -1,28 +1,6 @@
 <script lang="ts">
-  import { invoke } from "@tauri-apps/api/tauri";
   import Button from "../components/Button.svelte";
   import { goto } from "$app/navigation";
-  import { WebviewWindow } from '@tauri-apps/api/window';
-
-  let name = "";
-  let greetMsg = "";
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    greetMsg = await invoke("greet", { name });
-  }
-
-  function createTrackerWindow() {
-    console.log("Function reached");
-    const newWindow = new WebviewWindow('Tracker', {
-      url: '/rotationTracker',
-      alwaysOnTop: true,
-      title: "Tracker",
-      width: 1000,
-      height: 300
-    });
-    newWindow.once('tauri://created', () => console.log("Created"))
-  }
 </script>
 
 <div class="container">
@@ -30,9 +8,8 @@
 
   <Button onClick={() => goto("/barSetup")} text="Bar Setup"/>
   <Button onClick={() => goto("/rotationBuilder")} text="Rotation Builder"/>
-  <Button onClick={() => createTrackerWindow()} text="Start Tracker"/>
+  <Button onClick={() => goto("/trackerSetup")} text="Tracker Setup"/>
 
-  <p>{greetMsg}</p>
 </div>
 
 <style>
