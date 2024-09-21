@@ -40,6 +40,8 @@
     >
         {#each items as item(item.id)}
         <button>
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
             <img on:click={() => handleClick(item)}
                 class="item" src="Images/{item.img}"alt="The {item.name} ability"
             />

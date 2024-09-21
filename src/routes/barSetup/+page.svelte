@@ -92,13 +92,6 @@
 		flex: 2;
 		flex-direction: column;
 	}
-	.column {
-		display: flex;
-		flex-direction: row;
-		margin-top: 20px;
-		margin-left: 15px;
-		margin-right: 15px;
-	}
 
 	.ability-select {
 		flex: 2;
@@ -106,14 +99,6 @@
 	}
 	.vert {
 		flex: 7
-	}
-	.add-new {
-		width: 10em;
-		height: 2em;
-		padding: 8px;
-		color: white;
-		background-color: rgb(70, 70, 70);
-		border-color: white;
 	}
 	.selecterino {
 		width: 15em;

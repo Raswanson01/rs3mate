@@ -1,10 +1,8 @@
 <script lang="ts">
-  import { listen, type UnlistenFn } from "@tauri-apps/api/event";
     import type { BarAbility } from "../../models/abilities";
-  import { onMount } from "svelte";
   import Button from "../../components/Button.svelte";
   import { appLocalDataDir, join } from "@tauri-apps/api/path";
-  import { exists, readTextFile } from "@tauri-apps/api/fs";
+  import {  readTextFile } from "@tauri-apps/api/fs";
   import { shiftedKeyMap } from "../../barStore";
 
     console.log("Shifted key map: ", $shiftedKeyMap);

@@ -157,17 +157,6 @@
 </div>
 
 <style>
-    .container {
-        display: flex;
-    }
-    .rotation-zone {
-        display: grid;
-        border-width: 2px;
-        min-height: 500px;
-        flex-wrap: wrap;
-        flex: 5;
-        flex-direction: row;
-    }
     .image {
         position: relative;
         display: flex;
@@ -180,18 +169,5 @@
         border-color: rgb(70, 70, 70);
         margin-left: 10px;
         margin-top: 8px;
-    }
-    .ability-select {
-        flex: 1;
-    }
-    .left {
-        flex: 5;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-top: 10px;
-    }
-    .select {
-        margin-top: 10px;
-        max-height: 200px;
     }
 </style>
