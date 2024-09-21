@@ -4,12 +4,12 @@
   import { rotationItems } from "./rotationStore";
   import type { Rotation } from "../../models/abilities";
   import Button from "../../components/Button.svelte";
-  import { appLocalDataDir, join } from "@tauri-apps/api/path";
   import { writeTextFile } from "@tauri-apps/api/fs";
   import { fs } from "@tauri-apps/api";
   import { open, save } from "@tauri-apps/api/dialog";
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
+  import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
 
     export let data: any;
     export let abilities: AbilityMap = data.abilities;

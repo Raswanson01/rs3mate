@@ -1,11 +1,10 @@
 <script lang="ts">
+  import { appLocalDataDir, join } from "$lib/tauri-wrapper";
   import Button from "../../components/Button.svelte";
   import type { Rotation } from "../../models/abilities";
   import { rotationItems } from "../rotationBuilder/rotationStore";
-  import { appLocalDataDir, join } from "@tauri-apps/api/path";
   import { writeTextFile } from "@tauri-apps/api/fs";
-  import { browser } from "$app/environment";
-  import { onMount } from "svelte";
+  import { WebviewWindow } from "@tauri-apps/api/window";
 
   export let data: any;
   let rotations = data.rotations;
@@ -13,12 +12,6 @@
   let selectedRotation: Rotation;
   let selectedBarConfig: any;
 
-
-  let window: any;
-
-  onMount(async () => {
-    window = await import('@tauri-apps/api/window');
-  })
 
   async function createTrackerWindow() {
 
@@ -30,7 +23,7 @@
     }
     await writeTextFile(outFile, JSON.stringify(outObject));
 
-    const newWindow = new window.WebviewWindow('Tracker', {
+    const newWindow = new WebviewWindow('Tracker', {
       url: '/rotationTracker',
       alwaysOnTop: true,
       title: "Tracker",
