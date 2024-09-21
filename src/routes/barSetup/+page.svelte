@@ -50,7 +50,6 @@
 </script>
 
 <div class="container">
-	
 	<div class="vert">
 		<ActionBar on:drop on:dragstart on:dragover barNumber={1} bind:items={selectedBarConfig.bars.bar1} />
 		<ActionBar on:drop on:dragstart on:dragover barNumber={2} bind:items={selectedBarConfig.bars.bar2} />
