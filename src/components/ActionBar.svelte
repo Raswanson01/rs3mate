@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { browser } from "$app/environment";
     import { activeAbility, selectedIndex, shiftedKeyMap } from "../barStore";
     import type { BarAbility } from "../models/abilities";
     import { flip } from "svelte/animate";
@@ -53,7 +54,7 @@
     }
 
     const handleClick = (ability: BarAbility, index: number) => {
-        if (!shouldListen)  {
+        if (!shouldListen && browser)  {
             window.addEventListener('keydown', handleKeydown);
         }
         $activeAbility = ability;
