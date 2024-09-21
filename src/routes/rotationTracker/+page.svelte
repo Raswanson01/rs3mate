@@ -5,7 +5,9 @@
   import Button from "../../components/Button.svelte";
   import { appLocalDataDir, join } from "@tauri-apps/api/path";
   import { exists, readTextFile } from "@tauri-apps/api/fs";
+  import { shiftedKeyMap } from "../../barStore";
 
+    console.log("Shifted key map: ", $shiftedKeyMap);
 
     //export let data;
     //console.log("Data: ", data);
@@ -17,35 +19,87 @@
 
     let lastAbility: BarAbility | null = null;
     let configMap: Map<string, BarAbility>;
+
+    let keybind: string[] = [];
+    let hasModifier = false;
     let feederQueue: any[] = [];
     let currentQueue: BarAbility[] = [];
 
     let started = false;
     function handleKeydown(event: any) {
-        const pressedAbility = configMap.get(event.key);
-        console.log("Pressed abil: ", pressedAbility)
-        if (!pressedAbility) {
+        const key = event.key.toUpperCase();
+        if (!['ALT', 'CONTROL', 'SHIFT'].includes(key)) {
+            addKey(key);
             return;
         }
+
+        console.log("Included mod key")
+        let keyToUse;
+        switch(key) 
+        {
+            case "CONTROL":
+                keyToUse = "CTL";
+                break;
+            case "SHIFT":
+                keyToUse = "SFT";
+                break;
+            default:
+                keyToUse = key;
+                break;
+        }
+        console.log("Key to use: ", keyToUse);
+        if (!hasModifier && keybind.length === 0) {
+            keybind.push(keyToUse);
+            hasModifier = true;
+            return;
+        }
+    }
+
+    function addKey(key: string) {
+        keybind.push(key);
+        const shouldGetShiftedKey = keybind[0] === "SFT" && keybind.length === 2;
+        if (shouldGetShiftedKey) {
+            console.log("was shiftyed key")
+            keybind[1] = $shiftedKeyMap.get(key)!;
+        }
+    
+        const joinedKeybind = keybind.join("+");
+        const pressedAbility = configMap.get(joinedKeybind);
+        if (!pressedAbility) {
+            keybind = [];
+            return;
+        }
+
+        console.log("Pressed ability: ", pressedAbility);
+        console.log("Last ability: ", lastAbility);
+
+        if (lastAbility !== pressedAbility || lastAbility.name === "Necromancy Basic Attack") {
+            pressedAbility.id = pressedAbility.id + new Date().getMilliseconds();
+            modifyQueues(pressedAbility);
+            hasModifier = false;
+        }
+        keybind = [];
+
+    }
+
+    function modifyQueues(pressedAbility: BarAbility) {
         if (currentQueue.length > 10) {
-            currentQueue.shift();
+            currentQueue.pop();
             currentQueue = [...currentQueue];
         }
         if (feederQueue.length > 11) {
-            feederQueue.shift();
+            feederQueue.pop();
             feederQueue = [...feederQueue];
         }
-        //TODO update to use same massaging logic to match shift, control, etc
-        if (lastAbility !== pressedAbility || lastAbility?.name === "Necromany Basic Attack") {
-            const newQueue = [...currentQueue];
-            newQueue.push(pressedAbility);
-            currentQueue = newQueue;
-            lastAbility = pressedAbility;
-            index = index + 1;
-            
-        }
+        
+        const newQueue = [...currentQueue];
+        newQueue.unshift(pressedAbility);
+        currentQueue = newQueue;
+        lastAbility = pressedAbility;
+        index = index + 1;
+        
         if (fullRotation[index]) {
-            feederQueue.push(fullRotation[index]);
+            feederQueue.unshift(fullRotation[index]);
             feederQueue = [...feederQueue];
         }
     }
