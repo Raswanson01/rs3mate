@@ -5,7 +5,7 @@
     import { shiftedKeyMap } from "../../barStore";
     import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
     import { scale } from "svelte/transition";
-  import { flip } from "svelte/animate";
+    import { flip } from "svelte/animate";
 
     console.log("Shifted key map: ", $shiftedKeyMap);
 

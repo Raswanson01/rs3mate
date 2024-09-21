@@ -11,7 +11,7 @@
   import { goto } from "$app/navigation";
   import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
   import { flip } from "svelte/animate";
-  import { fade, fly, slide } from "svelte/transition";
+  import { fly } from "svelte/transition";
 
     export let data: any;
     export let abilities: AbilityMap = data.abilities;

@@ -8,7 +8,7 @@
 	import AbilitySelection from "../../components/AbilitySelection.svelte";
   	import { fs } from "@tauri-apps/api";
 	import { defaultAbility } from "../../barStore";
-  import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
+  	import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
 
 	export let data: any;
 	export let abilities: AbilityMap = data.abilities;
