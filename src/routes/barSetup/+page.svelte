@@ -8,7 +8,7 @@
 	import AbilitySelection from "../../components/AbilitySelection.svelte";
   	import { fs } from "@tauri-apps/api";
 	import { defaultAbility } from "../../barStore";
-  import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
+  	import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
 
 	export let data: any;
 	export let abilities: AbilityMap = data.abilities;
@@ -50,7 +50,6 @@
 </script>
 
 <div class="container">
-	
 	<div class="vert">
 		<ActionBar on:drop on:dragstart on:dragover barNumber={1} bind:items={selectedBarConfig.bars.bar1} />
 		<ActionBar on:drop on:dragstart on:dragover barNumber={2} bind:items={selectedBarConfig.bars.bar2} />

@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { browser } from "$app/environment";
+    import { browser } from "$app/environment";
     import { activeAbility, selectedIndex, shiftedKeyMap } from "../barStore";
     import type { BarAbility } from "../models/abilities";
-    import { flip } from "svelte/animate";
 
     export let barNumber;
     export let items: BarAbility[];
@@ -81,20 +80,21 @@
 <div class="bar">
     {#each items as ability, index (index)}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div class="image" animate:flip
-        on:drop={event => handleDrop(event, index)}
-        on:dragover={event => handleDragover(event)}
-        on:click|preventDefault={() => handleClick(ability, index)} 
-        tabindex={index} 
-        role="button"
-    >
-        <img
-            class="drop-zone"
-            src="Images/{ability.img}" 
-            alt="The {ability.name} ability"
-        />
-        <h7 class="text">{ability.keybind ? ability.keybind : "None"}</h7>
-    </div>
+        <!-- svelte-ignore missing-declaration -->
+        <div class="image"
+            on:drop={event => handleDrop(event, index)}
+            on:dragover={event => handleDragover(event)}
+            on:click|preventDefault={() => handleClick(ability, index)} 
+            tabindex={index}
+            role="button"
+        >
+            <img
+                class="drop-zone"
+                src="Images/{ability.img}" 
+                alt="The {ability.name} ability"
+            />
+            <h7 class="text">{ability.keybind ? ability.keybind : "None"}</h7>
+        </div>
     {/each}
 </div>
 

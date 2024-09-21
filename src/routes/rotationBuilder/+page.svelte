@@ -10,6 +10,8 @@
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
   import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
+  import { flip } from "svelte/animate";
+  import { fly } from "svelte/transition";
 
     export let data: any;
     export let abilities: AbilityMap = data.abilities;
@@ -117,10 +119,11 @@
             
             <div class="">
                 <div class="flex flex-row flex-wrap">
-                    {#each $rotationItems as item, index}
+                    {#each $rotationItems as item, index (`${item.id} + ${index}`)}
                         <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-                         <div>
+                        <div animate:flip>
                             <img
+                                transition:fly={{ x: 50, duration: 200 }}
                                 on:click={() => handleClick(index)}
                                 on:keydown={(event) => handleKeydown(event)} 
                                 class="image hover:brightness-110 active:brightness-50"
