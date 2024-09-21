@@ -1,46 +1,15 @@
 <script lang="ts">
-  import { invoke } from "@tauri-apps/api/tauri";
   import Button from "../components/Button.svelte";
   import { goto } from "$app/navigation";
-
-  let name = "";
-  let greetMsg = "";
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    greetMsg = await invoke("greet", { name });
-  }
-
-  const handleHiButton = () => {
-    goto("/barSetup");
-  }
 </script>
 
 <div class="container">
-  <h1>Welcome to Tauri!</h1>
+  <h1>Welcome to Rs3Mate!</h1>
 
-  <div class="row">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo vite" alt="Vite Logo" />
-    </a>
-    <a href="https://tauri.app" target="_blank">
-      <img src="/tauri.svg" class="logo tauri" alt="Tauri Logo" />
-    </a>
-    <a href="https://kit.svelte.dev" target="_blank">
-      <img src="/svelte.svg" class="logo svelte-kit" alt="SvelteKit Logo" />
-    </a>
-  </div>
-
-  <p>Click on the Tauri, Vite, and SvelteKit logos to learn more.</p>
-
-  <form class="row" on:submit|preventDefault={greet}>
-    <input id="greet-input" placeholder="Enter a name..." bind:value={name} />
-    <button type="submit">Greet</button>
-  </form>
   <Button onClick={() => goto("/barSetup")} text="Bar Setup"/>
   <Button onClick={() => goto("/rotationBuilder")} text="Rotation Builder"/>
+  <Button onClick={() => goto("/trackerSetup")} text="Tracker Setup"/>
 
-  <p>{greetMsg}</p>
 </div>
 
 <style>

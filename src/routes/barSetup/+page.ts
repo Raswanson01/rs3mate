@@ -29,7 +29,8 @@ export const load: PageLoad = async () => {
     } catch (error) {
         console.error('Failed to load JSON file:', error);
         return {
-            abilities: {} as AbilityMap
+            abilities: {} as AbilityMap,
+            barConfig: []
         };
     }
 };
