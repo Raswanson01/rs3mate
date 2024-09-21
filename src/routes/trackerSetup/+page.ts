@@ -1,7 +1,6 @@
-import type { AbilityMap } from '../../data/abilities';
-import { join, appLocalDataDir } from '@tauri-apps/api/path';
 import { readTextFile } from '@tauri-apps/api/fs';
 import type { PageLoad } from './$types';
+import { appLocalDataDir, join } from '$lib/tauri-wrapper';
 
 export const load: PageLoad = async () => {
 

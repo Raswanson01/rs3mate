@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import { writeTextFile } from "@tauri-apps/api/fs";
-	import { appLocalDataDir, join, resourceDir } from '@tauri-apps/api/path';
 	import { activeAbility, selectedIndex } from "../../barStore";
   	import ActionBar from "../../components/ActionBar.svelte";
 	import Button from "../../components/Button.svelte";
@@ -9,6 +8,7 @@
 	import AbilitySelection from "../../components/AbilitySelection.svelte";
   	import { fs } from "@tauri-apps/api";
 	import { defaultAbility } from "../../barStore";
+  import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
 
 	export let data: any;
 	export let abilities: AbilityMap = data.abilities;
