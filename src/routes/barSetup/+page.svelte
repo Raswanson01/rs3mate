@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import { writeTextFile } from "@tauri-apps/api/fs";
-	import { appLocalDataDir, join, resourceDir } from '@tauri-apps/api/path';
 	import { activeAbility, selectedIndex } from "../../barStore";
   	import ActionBar from "../../components/ActionBar.svelte";
 	import Button from "../../components/Button.svelte";
@@ -9,6 +8,7 @@
 	import AbilitySelection from "../../components/AbilitySelection.svelte";
   	import { fs } from "@tauri-apps/api";
 	import { defaultAbility } from "../../barStore";
+  	import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
 
 	export let data: any;
 	export let abilities: AbilityMap = data.abilities;
@@ -50,7 +50,6 @@
 </script>
 
 <div class="container">
-	
 	<div class="vert">
 		<ActionBar on:drop on:dragstart on:dragover barNumber={1} bind:items={selectedBarConfig.bars.bar1} />
 		<ActionBar on:drop on:dragstart on:dragover barNumber={2} bind:items={selectedBarConfig.bars.bar2} />
@@ -92,13 +91,6 @@
 		flex: 2;
 		flex-direction: column;
 	}
-	.column {
-		display: flex;
-		flex-direction: row;
-		margin-top: 20px;
-		margin-left: 15px;
-		margin-right: 15px;
-	}
 
 	.ability-select {
 		flex: 2;
@@ -106,14 +98,6 @@
 	}
 	.vert {
 		flex: 7
-	}
-	.add-new {
-		width: 10em;
-		height: 2em;
-		padding: 8px;
-		color: white;
-		background-color: rgb(70, 70, 70);
-		border-color: white;
 	}
 	.selecterino {
 		width: 15em;

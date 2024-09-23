@@ -1,5 +1,5 @@
 export interface BarAbility {
-    id: number;
+    id: string;
     keybind: string | null;
     name: string | null;
     img: string | null;

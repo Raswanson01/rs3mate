@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { listen, type UnlistenFn } from "@tauri-apps/api/event";
     import type { BarAbility } from "../../models/abilities";
-  import { onMount } from "svelte";
-  import Button from "../../components/Button.svelte";
-  import { appLocalDataDir, join } from "@tauri-apps/api/path";
-  import { exists, readTextFile } from "@tauri-apps/api/fs";
-  import { shiftedKeyMap } from "../../barStore";
+    import Button from "../../components/Button.svelte";
+    import {  readTextFile } from "@tauri-apps/api/fs";
+    import { shiftedKeyMap } from "../../barStore";
+    import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
+    import { scale } from "svelte/transition";
+    import { flip } from "svelte/animate";
 
     console.log("Shifted key map: ", $shiftedKeyMap);
 
@@ -74,7 +74,6 @@
         console.log("Last ability: ", lastAbility);
 
         if (lastAbility !== pressedAbility || lastAbility.name === "Necromancy Basic Attack") {
-            pressedAbility.id = pressedAbility.id + new Date().getMilliseconds();
             modifyQueues(pressedAbility);
             hasModifier = false;
         }
@@ -93,12 +92,17 @@
         }
         
         const newQueue = [...currentQueue];
-        newQueue.unshift(pressedAbility);
+        const newId = `${pressedAbility.id}_copy_${Math.round(Math.random()*100000)}`;
+        const newAbility: BarAbility = { ...pressedAbility, id: newId }
+        
+        newQueue.unshift(newAbility);
         currentQueue = newQueue;
         lastAbility = pressedAbility;
         index = index + 1;
         
-        if (fullRotation[index]) {
+        const itemToFeed = fullRotation[index];
+        if (itemToFeed) {
+            itemToFeed.id = itemToFeed.id + (Math.random() * 10000) + new Date().getMilliseconds();
             feederQueue.unshift(fullRotation[index]);
             feederQueue = [...feederQueue];
         }
@@ -136,7 +140,10 @@
         feederQueue = [fullRotation[0]];
     }
     
-
+    const transition = {
+        x: 50,
+        duration: 500,
+    }
 </script>
 
 <svelte:window on:keydown={handleKeydown}/>
@@ -145,14 +152,24 @@
 {#if started}
 <div class="bg-slate-600">
     <div class="flex flex-row">
-        {#each feederQueue as item}
-            <img class="m-1" src="Images/{item.img}" alt="The {item.name} ability"/>
+        {#each feederQueue as item (item.id)}
+            <img 
+                transition:scale={transition}
+                animate:flip
+                class="m-1" 
+                src="Images/{item.img}"
+                alt="The {item.name} ability"
+            />
         {/each}
         
     </div>
     <div class="flex flex-row">
-        {#each currentQueue as item}
-            <img class="m-1" src="Images/{item.img}" alt="The {item.name} ability"/>
+        {#each currentQueue as item (item.id)}
+            <img 
+                transition:scale={transition}
+                animate:flip
+                class="m-1"
+                src="Images/{item.img}" alt="The {item.name} ability"/>
         {/each}
     </div>
 </div>

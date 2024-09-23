@@ -4,12 +4,14 @@
   import { rotationItems } from "./rotationStore";
   import type { Rotation } from "../../models/abilities";
   import Button from "../../components/Button.svelte";
-  import { appLocalDataDir, join } from "@tauri-apps/api/path";
   import { writeTextFile } from "@tauri-apps/api/fs";
   import { fs } from "@tauri-apps/api";
   import { open, save } from "@tauri-apps/api/dialog";
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
+  import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
+  import { flip } from "svelte/animate";
+  import { fly } from "svelte/transition";
 
     export let data: any;
     export let abilities: AbilityMap = data.abilities;
@@ -117,10 +119,11 @@
             
             <div class="">
                 <div class="flex flex-row flex-wrap">
-                    {#each $rotationItems as item, index}
+                    {#each $rotationItems as item, index (`${item.id} + ${index}`)}
                         <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-                         <div>
+                        <div animate:flip>
                             <img
+                                transition:fly={{ x: 50, duration: 200 }}
                                 on:click={() => handleClick(index)}
                                 on:keydown={(event) => handleKeydown(event)} 
                                 class="image hover:brightness-110 active:brightness-50"
@@ -157,17 +160,6 @@
 </div>
 
 <style>
-    .container {
-        display: flex;
-    }
-    .rotation-zone {
-        display: grid;
-        border-width: 2px;
-        min-height: 500px;
-        flex-wrap: wrap;
-        flex: 5;
-        flex-direction: row;
-    }
     .image {
         position: relative;
         display: flex;
@@ -180,18 +172,5 @@
         border-color: rgb(70, 70, 70);
         margin-left: 10px;
         margin-top: 8px;
-    }
-    .ability-select {
-        flex: 1;
-    }
-    .left {
-        flex: 5;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-top: 10px;
-    }
-    .select {
-        margin-top: 10px;
-        max-height: 200px;
     }
 </style>
