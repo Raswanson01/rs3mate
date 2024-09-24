@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import { appLocalDataDir, join } from "$lib/tauri-wrapper";
   import Button from "../../components/Button.svelte";
   import type { Rotation } from "../../models/abilities";
@@ -55,9 +56,8 @@
             <option value={rotation}>{rotation.name}</option>
         {/each}
     </select>
-    <div class="w-[50%]">
+    <div class="w-[50%] flex flex-row">
+        <Button onClick={() => goto("/")} text="Return to landing"/>
         <Button onClick={() => createTrackerWindow()} text="Start Tracker"/>
     </div>
-
 </div>
-

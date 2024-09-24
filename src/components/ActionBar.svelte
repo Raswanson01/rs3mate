@@ -39,7 +39,8 @@
         } else {
             keybind.push(key);
             if (keybind[0] === "SFT" && keybind.length === 2) {
-                keybind[1] = $shiftedKeyMap.get(key)!;
+                const unshiftedKey = $shiftedKeyMap.get(key)
+                keybind[1] = !!unshiftedKey ? unshiftedKey : key;
             }
             $activeAbility.keybind = keybind.join('+');
             
