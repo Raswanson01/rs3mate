@@ -56,7 +56,7 @@
     "updater": {
       "active": true,
       "dialog": true,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IHJzaWduIGVuY3J5cHRlZCBzZWNyZXQga2V5ClJXUlRZMEl5ZFZ5Y0lvNkc0UC9LSEg1NlVyTFRmdU1mUVZCcWZVM01oMkd5ZDc5R0daVUFBQkFBQUFBQUFBQUFBQUlBQUFBQVFmbHN2M0V3dFNjYnErRmNHYnN1T0IyWDdTazI4bENnRTVFenlvYUIwRGVEb3Z2UW9BTGY3K0xhbUJNQXZoMGdzZy9zMWpwd01DRGsyYXNqVzVoeUJpa2h4NnhDZDhBV3V4bGhDd2Z1d0x5bDNPanBMdThVcnZQY2ZkSGtYRnlXL1FQRXB5N212ZTA9Cg==",
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEREN0Q2RDVDMzQyNDE2Q0EKUldUS0ZpUTBYRzE5M1c4bFBFNUQ4SzRsVHdmSFhDc01nNDBkck4vVEU0VlppUU9aRDJ0Z3IzTXcK",
       "endpoints": [
         "https://github.com/Raswanson01/rs3mate/releases/download/Release/{{target}}/{{arch}}/{{current_version}}"
       ],
