@@ -10,8 +10,8 @@
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
   import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
+  import { dndzone } from "svelte-dnd-action";
   import { flip } from "svelte/animate";
-  import { fly } from "svelte/transition";
 
     export let data: any;
     export let abilities: AbilityMap = data.abilities;
@@ -110,6 +110,14 @@
         await writeTextFile(filePath, jsonOutput);
     }
 
+    function handleConsider(e: any) {
+        $rotationItems = e.detail.items;
+    }
+
+    function handleFinalize(e: any) {
+        $rotationItems = e.detail.items;
+    }
+
 </script>
 
 <div class="flex flex-row">
@@ -118,18 +126,20 @@
         <div class="border-2 p-2 ">
             
             <div class="">
-                <div class="flex flex-row flex-wrap">
+                <div use:dndzone={{items: $rotationItems, flipDurationMs: 300}} 
+                    class="flex flex-row flex-wrap"
+                    on:consider={handleConsider}
+                    on:finalize={handleFinalize}
+                >
                     {#each $rotationItems as item, index (`${item.id} + ${index}`)}
                         <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-                        <div animate:flip>
                             <img
-                                transition:fly={{ x: 50, duration: 200 }}
+                                animate:flip={{duration: 300}}
                                 on:click={() => handleClick(index)}
                                 on:keydown={(event) => handleKeydown(event)} 
                                 class="image hover:brightness-110 active:brightness-50"
                                 src="Images/{item.img}" alt="The {item.name} ability"
                             />
-                         </div>
                         
                     {/each}
                 </div>

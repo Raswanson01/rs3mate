@@ -10,7 +10,9 @@
     $: items = abilityMap[selectedCategory];
 
     function handleClick(item: BarAbility) {
-        $rotationItems = [...$rotationItems, item];
+        const newId = `${item.id}_copy_${Math.round(Math.random()*100000)}`
+        const newItem = { ...item, id: newId }
+        $rotationItems = [...$rotationItems, newItem];
     }
   
   </script>
@@ -38,7 +40,7 @@
     <section
           class="flex flex-wrap flex-row"
     >
-        {#each items as item(item.id)}
+        {#each items as item, index (`${item.id} + ${index}`)}
         <button>
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->

@@ -6,6 +6,7 @@
     import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
     import { scale } from "svelte/transition";
     import { flip } from "svelte/animate";
+  import { getCurrent } from "@tauri-apps/api/window";
 
     console.log("Shifted key map: ", $shiftedKeyMap);
 
@@ -24,6 +25,7 @@
     let hasModifier = false;
     let feederQueue: any[] = [];
     let currentQueue: BarAbility[] = [];
+    let nextAbility: BarAbility;
 
     let started = false;
     function handleKeydown(event: any) {
@@ -86,7 +88,7 @@
             currentQueue.pop();
             currentQueue = [...currentQueue];
         }
-        if (feederQueue.length > 11) {
+        if (feederQueue.length > 10) {
             feederQueue.pop();
             feederQueue = [...feederQueue];
         }
@@ -100,10 +102,11 @@
         lastAbility = pressedAbility;
         index = index + 1;
         
-        const itemToFeed = fullRotation[index];
-        if (itemToFeed) {
-            itemToFeed.id = itemToFeed.id + (Math.random() * 10000) + new Date().getMilliseconds();
-            feederQueue.unshift(fullRotation[index]);
+        nextAbility = fullRotation[index];
+
+        if (nextAbility) {
+            nextAbility.id = nextAbility.id + (Math.random() * 10000) + new Date().getMilliseconds();
+            feederQueue.unshift(fullRotation[index - 1]);
             feederQueue = [...feederQueue];
         }
     }
@@ -137,43 +140,82 @@
 
         console.log("Full rot: ", fullRotation);
         console.log("Config: ", config)
-        feederQueue = [fullRotation[0]];
+        nextAbility = fullRotation[0];
     }
     
     const transition = {
         x: 50,
         duration: 500,
     }
+
+    async function closeWindow() {
+    const currentWindow = getCurrent();
+    currentWindow.close();
+  }
 </script>
 
 <svelte:window on:keydown={handleKeydown}/>
 
 
 {#if started}
-<div class="bg-slate-600">
-    <div class="flex flex-row">
-        {#each feederQueue as item (item.id)}
-            <img 
-                transition:scale={transition}
-                animate:flip
-                class="m-1" 
-                src="Images/{item.img}"
-                alt="The {item.name} ability"
-            />
-        {/each}
-        
+
+<div class="bg-slate-600 w-screen h-screen flex items-center flex-row">
+    <div>
+        <img
+            class="mx-5 border-solid border-2 border-yellow-500"
+            transition:scale={transition} 
+            src="Images/{nextAbility?.img}"
+            alt="The {nextAbility?.name} ability"
+        />
     </div>
-    <div class="flex flex-row">
-        {#each currentQueue as item (item.id)}
-            <img 
-                transition:scale={transition}
-                animate:flip
-                class="m-1"
-                src="Images/{item.img}" alt="The {item.name} ability"/>
-        {/each}
+
+    <div class="flex-col">
+        <div class="flex flex-row">
+            {#each feederQueue as item (item.id)}
+                <img 
+                    transition:scale={transition}
+                    animate:flip
+                    class="m-1" 
+                    src="Images/{item.img}"
+                    alt="The {item.name} ability"
+                />
+            {/each}
+            
+        </div>
+        <div class="flex flex-row">
+            {#each currentQueue as item (item.id)}
+                <img 
+                    transition:scale={transition}
+                    animate:flip
+                    class="m-1"
+                    src="Images/{item.img}" alt="The {item.name} ability"/>
+            {/each}
+        </div>
+
     </div>
+    <div class="flex flex-col ml-auto">
+        <h1 class="drag-zone size-20">X+</h1>
+        <button class="w-15
+         bg-red-600 p-2  mr-10 text-white hover:bg-red-700 active:red-800 
+         transition-colors rounded-lg shadow-mm duration-150" 
+         on:click={closeWindow}
+         >Close</button>
+    </div>
+    
+
 </div>
 {:else}
     <Button text="Start" onClick={loadData}/>
 {/if}
+
+<style>
+    .drag-zone {
+        -webkit-app-region: drag;
+        width: 50%;  /* Full width zone */
+        height: 30px; /* Example height */
+        background-color: #333; /* Just for visibility */
+        cursor: move; /* Show drag cursor */
+    }
+    
+</style>
 

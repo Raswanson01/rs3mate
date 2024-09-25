@@ -28,8 +28,9 @@
       url: '/rotationTracker',
       alwaysOnTop: true,
       title: "Tracker",
+      decorations: false,
       width: 1000,
-      height: 300,
+      height: 150,
     });
     newWindow.once('tauri://created', () => console.log("New window created"));
   }
