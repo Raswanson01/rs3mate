@@ -1,13 +1,12 @@
 <script>
     export let text;
     export let onClick;
-    export let color = "blue";
 </script>
 
 <button class="
     rounded-lg
     shadow-md 
-    bg-{color}-500 
+    bg-blue-500 
     text-white 
     px-4 
     py-2

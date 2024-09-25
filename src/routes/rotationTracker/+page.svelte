@@ -6,7 +6,8 @@
     import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
     import { scale } from "svelte/transition";
     import { flip } from "svelte/animate";
-  import { getCurrent } from "@tauri-apps/api/window";
+    import { getCurrent } from "@tauri-apps/api/window";
+    import { PhysicalPosition } from '@tauri-apps/api/window';
 
     console.log("Shifted key map: ", $shiftedKeyMap);
 
@@ -149,9 +150,39 @@
     }
 
     async function closeWindow() {
-    const currentWindow = getCurrent();
-    currentWindow.close();
-  }
+        const currentWindow = getCurrent();
+        currentWindow.close();
+    }
+
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
+
+    async function onMouseDowne(event: MouseEvent) {
+        const currentWindow = getCurrent();
+        dragging = true;
+        const { x, y } = await currentWindow.outerPosition(); // Get current window position
+        startX = event.screenX - x;
+        startY = event.screenY - y;
+    }
+
+    async function onMouseMove(event: MouseEvent) {
+        const currentWindow = getCurrent();
+        if (dragging) {
+            const newX = event.screenX - startX;
+            const newY = event.screenY - startY;
+            const newPosition: PhysicalPosition = new PhysicalPosition(newX, newY)
+            await currentWindow.setPosition(newPosition); // Set new position
+        }
+    }
+
+    function onMouseUp() {
+        dragging = false;
+    }
+
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+  
 </script>
 
 <svelte:window on:keydown={handleKeydown}/>
@@ -194,7 +225,9 @@
 
     </div>
     <div class="flex flex-col ml-auto">
-        <h1 class="drag-zone size-20">X+</h1>
+        <!-- svelte-ignore missing-declaration -->
+        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+        <h1 on:mousedown={(event) => onMouseDowne(event)} class="drag-zone size-20">X+</h1>
         <button class="w-15
          bg-red-600 p-2  mr-10 text-white hover:bg-red-700 active:red-800 
          transition-colors rounded-lg shadow-mm duration-150" 

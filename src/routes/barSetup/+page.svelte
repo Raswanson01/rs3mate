@@ -9,6 +9,8 @@
   	import { fs } from "@tauri-apps/api";
 	import { defaultAbility } from "../../barStore";
   	import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
+  	import { Tooltip } from "@svelte-plugins/tooltips";
+	import HelpIcon from '~icons/mdi/help-circle-outline';
 
 	export let data: any;
 	export let abilities: AbilityMap = data.abilities;
@@ -17,6 +19,10 @@
 	let newConfigName = "";
 	let barConfigState = [...barConfig];
 	let selectedBarConfig = barConfigState[0];
+
+	const helpCopy = "Click and drag abilities to action bar slots to set them in their slot. "
+	+ "Click on an ability slot and press your desired keybind (e.g. Shift and 3) to configure the tracker to "
+	+ "correlate that ability with that keybind."
 
 	async function handleSave() {
 		const appLocalDataDirPath = await appLocalDataDir();
@@ -49,21 +55,37 @@
       
 </script>
 
-<div class="container">
-	<div class="vert">
+<div class="flex flex-row">
+
+	<div class="flex flex-col mr-5 w-[70%]">
+		<div class="text-xl self-center mt-3">
+			<Tooltip
+				animation="fade"
+				position={"bottom"}
+				content={helpCopy}
+			>
+				<div class="flex flex-row items-center">
+					<p class="mx-2">Action bar setup</p>
+					<HelpIcon />
+				</div>
+			</Tooltip>
+		</div>
 		<ActionBar on:drop on:dragstart on:dragover barNumber={1} bind:items={selectedBarConfig.bars.bar1} />
 		<ActionBar on:drop on:dragstart on:dragover barNumber={2} bind:items={selectedBarConfig.bars.bar2} />
 		<ActionBar on:drop on:dragstart on:dragover barNumber={3} bind:items={selectedBarConfig.bars.bar3} />
 		<ActionBar on:drop on:dragstart on:dragover barNumber={4} bind:items={selectedBarConfig.bars.bar4} />
-		<Button onClick={() => goto("/")} text="Return to landing" />
-		<Button onClick={handleSave} text="Save bar" />
-		<select bind:value={selectedBarConfig} class="selecterino" >
-			{#each barConfigState as config}
-				<option value={config}>{config.name}</option>
-			{/each}
-		</select>
-		<input class="p-3 bg-[rgb(70,70,70)] rounded-lg mx-3" bind:value={newConfigName} placeholder="Add new"/>
-		<Button text="Add" onClick={handleAddNew} />
+		<div class="flex flex-row h-20 items-center">
+			<Button onClick={() => goto("/")} text="Return to landing" />
+			<select bind:value={selectedBarConfig} class="selecterino" >
+				{#each barConfigState as config}
+					<option value={config}>{config.name}</option>
+				{/each}
+			</select>
+			<input class="p-3 bg-[rgb(70,70,70)] rounded-lg mx-3" bind:value={newConfigName} placeholder="Add new"/>
+			<Button text="Add New" onClick={handleAddNew} />
+			<Button onClick={handleSave} text="Save bar" />
+		</div>
+
 		
 		<div style="margin-left: 16px;">
 			<strong>Active Ability</strong>
@@ -73,8 +95,8 @@
 		</div>
 	</div>
 	
-	<div class="box">
-		<div class="ability-select">
+	<div class="w-[25%]">
+		<div>
 			<AbilitySelection on:dragstart on:drop on:dragover abilityMap={abilities}/>
 		</div>
 	</div>
@@ -82,23 +104,6 @@
 </div>
 
 <style>
-	.container {
-		display: flex;
-		flex-direction: row;
-	}
-	.box {
-		display: flex;
-		flex: 2;
-		flex-direction: column;
-	}
-
-	.ability-select {
-		flex: 2;
-		margin-top: 30px;
-	}
-	.vert {
-		flex: 7
-	}
 	.selecterino {
 		width: 15em;
 		height: 3em;

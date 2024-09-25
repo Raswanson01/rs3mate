@@ -12,6 +12,8 @@
   import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
   import { dndzone } from "svelte-dnd-action";
   import { flip } from "svelte/animate";
+  import { Tooltip } from "@svelte-plugins/tooltips";
+  import HelpIcon from '~icons/mdi/help-circle-outline';
 
     export let data: any;
     export let abilities: AbilityMap = data.abilities;
@@ -122,9 +124,20 @@
 
 <div class="flex flex-row">
     <div class="w-[70%] h-[75%] mx-3 my-1 min-h-[600px]">
-        <h1>Rotation </h1>
+        <div class="text-xl mt-3">
+			<Tooltip
+				animation="fade"
+				position={"bottom"}
+				content="Click on abilities in the palette to add them to the rotation. Click on an ability and press delete
+                to remove it. You can drag and drop within the rotation to sort abilities."
+			>
+				<div class="flex flex-row items-center">
+					<p class="mx-2">Rotation Builder</p>
+					<HelpIcon />
+				</div>
+			</Tooltip>
+		</div>
         <div class="border-2 p-2 ">
-            
             <div class="">
                 <div use:dndzone={{items: $rotationItems, flipDurationMs: 300}} 
                     class="flex flex-row flex-wrap"
