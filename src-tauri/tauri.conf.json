@@ -56,9 +56,9 @@
     "updater": {
       "active": true,
       "dialog": true,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEREN0Q2RDVDMzQyNDE2Q0EKUldUS0ZpUTBYRzE5M1c4bFBFNUQ4SzRsVHdmSFhDc01nNDBkck4vVEU0VlppUU9aRDJ0Z3IzTXcK",
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDQ4QTNCNDczMDYzRENFMDMKUldRRHpqMEdjN1NqU04zdndncVlzK2EyY0kxd05vdUtsbm95eCszQjI5NFQ5VFkzb0NOQmZWT1gK",
       "endpoints": [
-        "https://github.com/Raswanson01/rs3mate/releases/download/Release/{{target}}/{{arch}}/{{current_version}}"
+        "https://github.com/Raswanson01/rs3mate/releases/download/{{target}}/{{arch}}/{{current_version}}"
       ],
       "windows": {
         "installMode": "basicUi"
