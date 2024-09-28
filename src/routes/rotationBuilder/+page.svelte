@@ -9,7 +9,7 @@
   import { open, save } from "@tauri-apps/api/dialog";
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
-  import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
+  import { appLocalDataDir, basename, join } from "../../lib/tauri-wrapper";
   import { dndzone } from "svelte-dnd-action";
   import { flip } from "svelte/animate";
   import { Tooltip } from "@svelte-plugins/tooltips";
@@ -19,7 +19,7 @@
     export let abilities: AbilityMap = data.abilities;
     export let rotations = data.rotations;
 
-    let rotationsState = rotations;
+    let rotationsState: Rotation[] = rotations;
     let selectedRotation: Rotation = rotationsState[0];
     let selectedIndex: number;
     let shouldListen = false;
@@ -83,9 +83,13 @@
         if (!selected || typeof selected !== 'string') {
             return;
         }
+        const baseName = await basename(selected);
 
+        const fileName = baseName.split('.').slice(0, -1).join('.');
         const fileContent = await fs.readTextFile(selected);
         const rotationToAdd = JSON.parse(fileContent);
+        rotationToAdd.name = fileName;
+        
         rotationsState.push(rotationToAdd);
         const appLocalDataDirPath = await appLocalDataDir();
 		const rotationsPath = await join(appLocalDataDirPath, "rotations.json");
@@ -118,6 +122,19 @@
 
     function handleFinalize(e: any) {
         $rotationItems = e.detail.items;
+    }
+
+    async function handleDelete() {
+        if (rotationsState.length <= 1) {
+			alert("Cannot delete last rotation");
+			return;
+		}
+        const rotationToDelete = rotationsState.findIndex((x: Rotation) => x === selectedRotation);
+        rotationsState.splice(rotationToDelete, 1);
+        rotationsState = [...rotationsState];
+        const localPath = await appLocalDataDir();
+        const rotationsPath = await join(localPath, "rotations.json");
+		await fs.writeTextFile(rotationsPath, JSON.stringify(rotationsState));
     }
 
 </script>
@@ -160,7 +177,7 @@
             
         </div>
         <div class="flex-row m-4">
-            <select class="p-3 w-[50%] bg-[rgb(70,70,70)] rounded-lg" 
+            <select class="p-3 w-[40%] bg-[rgb(70,70,70)] rounded-lg" 
                 placeholder="Select rotation" 
                 bind:value={selectedRotation}
                 on:change={() => $rotationItems = selectedRotation.abilities}
@@ -172,6 +189,7 @@
             <Button text="Save Rotation" onClick={handleSave}/>
             <input placeholder="Enter new name" class="bg-[rgb(70,70,70)] p-3 rounded-lg" bind:value={newRotation} />
             <Button text="Add" onClick={handleAddNew} />
+            <Button text="Delete" onClick={handleDelete} color="red" />
         </div>
         <Button onClick={() => goto("/")} text="Return to landing" />
         <Button text="Import Rotation" onClick={handleImport}/>
