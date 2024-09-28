@@ -52,6 +52,19 @@
 		const writeResult = await fs.writeTextFile(barConfigPath, JSON.stringify(newConfigs));
 		barConfigState = newConfigs;
 	}
+
+	async function handleDelete() {
+		if (barConfigState.length <= 1) {
+			alert("Cannot delete last bar config");
+			return;
+		}
+        const barToDelete = barConfigState.findIndex((x: any) => x === selectedBarConfig);
+        barConfigState.splice(barToDelete, 1);
+        barConfigState = [...barConfigState];
+        const localPath = await appLocalDataDir();
+        const rotationsPath = await join(localPath, "barConfig.json");
+		await fs.writeTextFile(rotationsPath, JSON.stringify(barConfigState));
+    }
       
 </script>
 
@@ -84,6 +97,7 @@
 			<input class="p-3 bg-[rgb(70,70,70)] rounded-lg mx-3" bind:value={newConfigName} placeholder="Add new"/>
 			<Button text="Add New" onClick={handleAddNew} />
 			<Button onClick={handleSave} text="Save bar" />
+			<Button onClick={handleDelete} color="red" text="Delete" />
 		</div>
 
 		

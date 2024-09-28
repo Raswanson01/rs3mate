@@ -5,7 +5,8 @@
 
     export let abilityMap: AbilityMap;
 
-	let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' = 'melee';
+	let selectedCategory: 'melee' | 'range' | 'magic' | 'necromancy' | 'defense' | 'constitution' | 
+    'spells' = 'melee';
 	$: categoryAbilities = abilityMap[selectedCategory];
 
     function handleConsider(event: DragEvent, item: BarAbility) {
@@ -34,6 +35,9 @@
     </button>
     <button class="type-selector" on:click={() => selectedCategory = 'constitution'}>
         <img src="AbilityCategories/Constitution.png" alt="Constitution abilities" />
+    </button>
+    <button class="type-selector" on:click={() => selectedCategory = 'spells'}>
+        <img src="Images/Air_Wave.png" alt="Spells" />
     </button>
 </div>
 <section class="container" draggable={true}>
