@@ -193,7 +193,7 @@
 <div class="bg-slate-600 w-screen h-screen flex items-center flex-row">
     <div>
         <img
-            class="mx-5 border-solid border-2 border-yellow-500"
+            class="mx-5 border-solid border-2 border-yellow-500 size-14"
             transition:scale={transition} 
             src="Images/{nextAbility?.img}"
             alt="The {nextAbility?.name} ability"
@@ -206,7 +206,7 @@
                 <img 
                     transition:scale={transition}
                     animate:flip
-                    class="m-1" 
+                    class="m-1 size-12" 
                     src="Images/{item.img}"
                     alt="The {item.name} ability"
                 />
@@ -218,7 +218,7 @@
                 <img 
                     transition:scale={transition}
                     animate:flip
-                    class="m-1"
+                    class="m-1 size-12"
                     src="Images/{item.img}" alt="The {item.name} ability"/>
             {/each}
         </div>
