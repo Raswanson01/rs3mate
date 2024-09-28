@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { BarAbility } from "../../models/abilities";
     import Button from "../../components/Button.svelte";
-    import {  readTextFile } from "@tauri-apps/api/fs";
+    import { readTextFile, writeTextFile } from "@tauri-apps/api/fs";
     import { shiftedKeyMap } from "../../barStore";
     import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
     import { scale } from "svelte/transition";
@@ -27,6 +27,10 @@
     let feederQueue: any[] = [];
     let currentQueue: BarAbility[] = [];
     let nextAbility: BarAbility;
+
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
 
     let started = false;
     function handleKeydown(event: any) {
@@ -133,14 +137,19 @@
         const localPath = await appLocalDataDir();
         const trackerConfigPath = await join(localPath, "trackerConfig.json");
         const trackerData = await readTextFile(trackerConfigPath);
-        const { barConfig, rotation } = JSON.parse(trackerData);
-        config = barConfig;
-        fullRotation = rotation.abilities;
+        const parsedData = JSON.parse(trackerData);
+        config = parsedData.barConfig;
+        fullRotation = parsedData.rotation.abilities;
         configMap = createConfigMap();
-        started = true;
 
-        console.log("Full rot: ", fullRotation);
-        console.log("Config: ", config)
+        const position = parsedData.position;
+        startX = position ? position.x : 0;
+        startY = position ? position.y : 0;
+        const currentWindow = await getCurrent();
+        const initialPosition = new PhysicalPosition(startX, startY);
+        currentWindow.setPosition(initialPosition);
+
+        started = true;
         nextAbility = fullRotation[0];
     }
     
@@ -151,12 +160,20 @@
 
     async function closeWindow() {
         const currentWindow = getCurrent();
+        const position = await currentWindow.outerPosition();
+
+        const localPath = await appLocalDataDir();
+        const trackerConfigPath = await join(localPath, "trackerConfig.json");
+        const trackerData = await readTextFile(trackerConfigPath);
+        const parsedTrackerConfig = JSON.parse(trackerData);
+        parsedTrackerConfig.position = { x: position.x, y: position.y}
+
+        await writeTextFile(trackerConfigPath, JSON.stringify(parsedTrackerConfig));
+
         currentWindow.close();
     }
 
-    let dragging = false;
-    let startX = 0;
-    let startY = 0;
+
 
     async function onMouseDowne(event: MouseEvent) {
         const currentWindow = getCurrent();
@@ -231,7 +248,7 @@
         <button class="w-15
          bg-red-600 p-2  mr-10 text-white hover:bg-red-700 active:red-800 
          transition-colors rounded-lg shadow-mm duration-150" 
-         on:click={closeWindow}
+         on:click|preventDefault={closeWindow}
          >Close</button>
     </div>
     
