@@ -3,6 +3,8 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 use tauri::{api::path::{ app_local_data_dir}, command};
 use std::fs;
+use reqwest;
+use scraper::{Html, Selector};
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[command]
 fn greet(name: &str) -> String {
@@ -44,4 +46,15 @@ fn main() { //TODO add setup to copy default bar config
 #[command]
 fn read_file(path: String) -> Result<String, String> {
     fs::read_to_string(path).map_err(|e| e.to_string())
+}
+
+async fn scrape_wiki() -> Result<(), Box<dyn std::error::Error>> {
+  let res = reqwest::get("https://example.com").await?.text().await?;
+  let document = Html::parse_document(&res);
+  let selector = Selector::parse("selector").unwrap();
+
+  for element in document.select(&selector) {
+      println!("{}", element.inner_html());
+  }
+  Ok(())
 }
