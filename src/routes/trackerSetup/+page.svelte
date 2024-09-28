@@ -4,7 +4,7 @@
   import Button from "../../components/Button.svelte";
   import type { Rotation } from "../../models/abilities";
   import { rotationItems } from "../rotationBuilder/rotationStore";
-  import { writeTextFile } from "@tauri-apps/api/fs";
+  import { exists, readTextFile, writeTextFile } from "@tauri-apps/api/fs";
   import { WebviewWindow } from "@tauri-apps/api/window";
 
   export let data: any;
@@ -18,10 +18,23 @@
 
     const localPath = await appLocalDataDir();
     const outFile = await join(localPath, "trackerConfig.json");
-    const outObject = {
-        rotation: selectedRotation,
-        barConfig: selectedBarConfig
+    let position = { x: 0, y: 0 };
+    if (await exists(outFile)) {
+        const data = await readTextFile(outFile);
+        const parsedData = JSON.parse(data);
+        const prevPosition = parsedData.position;
+        position = {
+            x: prevPosition ? prevPosition.x : 0,
+            y: prevPosition ? prevPosition.y : 0
+        }
     }
+
+    let outObject = {
+        rotation: selectedRotation,
+        barConfig: selectedBarConfig,
+        position: position
+    };
+    
     await writeTextFile(outFile, JSON.stringify(outObject));
 
     const newWindow = new WebviewWindow('Tracker', {
