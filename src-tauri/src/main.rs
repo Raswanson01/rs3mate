@@ -2,6 +2,7 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 use tauri::{api::path::{ app_local_data_dir}, command};
+use tauri_plugin_sql::{Migration, MigrationKind};
 use std::fs;
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[command]
@@ -10,6 +11,17 @@ fn greet(name: &str) -> String {
 }
 
 fn main() { //TODO add setup to copy default bar config
+
+    let migrations = vec![
+      Migration {
+        version: 1,
+        description: "create_initial_tables",
+        sql: "
+          CREATE TABLE rotations (id INTEGER PRIMARY KEY, name TEXT);
+          CREATE TABLE barConfigs (id INTEGER PRIMARY KEY, name TEXT);",
+        kind: MigrationKind::Up,
+      }
+    ];
     tauri::Builder::default()
     .setup(|app| {
         let config = app.config();
@@ -34,7 +46,7 @@ fn main() { //TODO add setup to copy default bar config
     
         Ok(())
       })
-
+        .plugin(tauri_plugin_sql::Builder::default().build())
         .invoke_handler(tauri::generate_handler![greet])
         .invoke_handler(tauri::generate_handler![read_file])
         .run(tauri::generate_context!())
