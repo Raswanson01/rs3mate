@@ -13,6 +13,8 @@
   let selectedRotation: Rotation;
   let selectedBarConfig: any;
 
+  let queueSize: number = 10;
+  let animationEnabled: boolean = true;
 
   async function createTrackerWindow() {
 
@@ -32,7 +34,9 @@
     let outObject = {
         rotation: selectedRotation,
         barConfig: selectedBarConfig,
-        position: position
+        position: position,
+        queueSize: queueSize,
+        animationEnabled: animationEnabled
     };
     
     await writeTextFile(outFile, JSON.stringify(outObject));
@@ -42,7 +46,7 @@
       alwaysOnTop: true,
       title: "Tracker",
       decorations: false,
-      width: 1000,
+      width: 100 + 75 * queueSize,
       height: 150,
     });
     newWindow.once('tauri://created', () => console.log("New window created"));
@@ -70,6 +74,14 @@
             <option value={rotation}>{rotation.name}</option>
         {/each}
     </select>
+    <label>
+        <input class="mx-5 mt-5" type="checkbox" bind:checked={animationEnabled}/>
+            Animation enabled (Doesn't actually do anything atm)
+        </label>
+    <label class="mx-5 mt-5">
+        Queue size: <input class="p-1 bg-blue-300 text-black" type="number" bind:value={queueSize} min=0 max=15 />
+        <input type="range" bind:value={queueSize} min=0 max=15>
+    </label>
     <div class="w-[50%] flex flex-row">
         <Button onClick={() => goto("/")} text="Return to landing"/>
         <Button onClick={() => createTrackerWindow()} text="Start Tracker"/>

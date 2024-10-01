@@ -32,6 +32,9 @@
     let startX = 0;
     let startY = 0;
 
+    let queueSize = 10;
+    let animationEnabled = true;
+
     let started = false;
     function handleKeydown(event: any) {
         const key = event.key.toUpperCase();
@@ -89,11 +92,11 @@
     }
 
     function modifyQueues(pressedAbility: BarAbility) {
-        if (currentQueue.length > 10) {
+        if (currentQueue.length > queueSize) {
             currentQueue.pop();
             currentQueue = [...currentQueue];
         }
-        if (feederQueue.length > 10) {
+        if (feederQueue.length > queueSize) {
             feederQueue.pop();
             feederQueue = [...feederQueue];
         }
@@ -140,6 +143,8 @@
         const parsedData = JSON.parse(trackerData);
         config = parsedData.barConfig;
         fullRotation = parsedData.rotation.abilities;
+        queueSize = parsedData.queueSize;
+        animationEnabled = parsedData.animationEnabled;
         configMap = createConfigMap();
 
         const position = parsedData.position;
