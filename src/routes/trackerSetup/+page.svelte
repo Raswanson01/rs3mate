@@ -4,8 +4,8 @@
   import Button from "../../components/Button.svelte";
   import type { Rotation } from "../../models/abilities";
   import { rotationItems } from "../rotationBuilder/rotationStore";
-  import { exists, readTextFile, writeTextFile } from "@tauri-apps/api/fs";
-  import { WebviewWindow } from "@tauri-apps/api/window";
+  import { exists, readTextFile, writeTextFile } from "@tauri-apps/plugin-fs";
+  import { WebviewWindow } from "@tauri-apps/api/webviewWindow";
 
   export let data: any;
   let rotations = data.rotations;

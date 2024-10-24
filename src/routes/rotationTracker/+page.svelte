@@ -1,12 +1,12 @@
 <script lang="ts">
     import type { BarAbility } from "../../models/abilities";
     import Button from "../../components/Button.svelte";
-    import { readTextFile, writeTextFile } from "@tauri-apps/api/fs";
+    import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs";
     import { shiftedKeyMap } from "../../barStore";
     import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
     import { scale } from "svelte/transition";
     import { flip } from "svelte/animate";
-    import { getCurrent } from "@tauri-apps/api/window";
+    import { getCurrentWindow } from '@tauri-apps/api/window';
     import { PhysicalPosition } from '@tauri-apps/api/window';
 
     console.log("Shifted key map: ", $shiftedKeyMap);
@@ -150,7 +150,7 @@
         const position = parsedData.position;
         startX = position ? position.x : 0;
         startY = position ? position.y : 0;
-        const currentWindow = await getCurrent();
+        const currentWindow = getCurrentWindow();
         const initialPosition = new PhysicalPosition(startX, startY);
         currentWindow.setPosition(initialPosition);
 
@@ -164,7 +164,7 @@
     }
 
     async function closeWindow() {
-        const currentWindow = getCurrent();
+        const currentWindow = getCurrentWindow();
         const position = await currentWindow.outerPosition();
 
         const localPath = await appLocalDataDir();
@@ -181,7 +181,7 @@
 
 
     async function onMouseDowne(event: MouseEvent) {
-        const currentWindow = getCurrent();
+        const currentWindow = getCurrentWindow();
         dragging = true;
         const { x, y } = await currentWindow.outerPosition(); // Get current window position
         startX = event.screenX - x;
@@ -189,7 +189,7 @@
     }
 
     async function onMouseMove(event: MouseEvent) {
-        const currentWindow = getCurrent();
+        const currentWindow = getCurrentWindow();
         if (dragging) {
             const newX = event.screenX - startX;
             const newY = event.screenY - startY;

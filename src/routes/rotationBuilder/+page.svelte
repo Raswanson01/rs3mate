@@ -4,9 +4,8 @@
   import { rotationItems } from "./rotationStore";
   import type { Rotation } from "../../models/abilities";
   import Button from "../../components/Button.svelte";
-  import { writeTextFile } from "@tauri-apps/api/fs";
-  import { fs } from "@tauri-apps/api";
-  import { open, save } from "@tauri-apps/api/dialog";
+  import { writeTextFile, readTextFile } from "@tauri-apps/plugin-fs";
+  import { open, save } from "@tauri-apps/plugin-dialog";
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
   import { appLocalDataDir, basename, join } from "../../lib/tauri-wrapper";
@@ -69,7 +68,7 @@
         newRotations.push(rotationToAdd);
         const appLocalDataDirPath = await appLocalDataDir();
 		const rotationsPath = await join(appLocalDataDirPath, "rotations.json");
-		await fs.writeTextFile(rotationsPath, JSON.stringify(newRotations));
+		await writeTextFile(rotationsPath, JSON.stringify(newRotations));
         rotationsState = [...newRotations];
     }
 
@@ -86,14 +85,14 @@
         const baseName = await basename(selected);
 
         const fileName = baseName.split('.').slice(0, -1).join('.');
-        const fileContent = await fs.readTextFile(selected);
+        const fileContent = await readTextFile(selected);
         const rotationToAdd = JSON.parse(fileContent);
         rotationToAdd.name = fileName;
         
         rotationsState.push(rotationToAdd);
         const appLocalDataDirPath = await appLocalDataDir();
 		const rotationsPath = await join(appLocalDataDirPath, "rotations.json");
-		await fs.writeTextFile(rotationsPath, JSON.stringify(rotationsState));
+		await writeTextFile(rotationsPath, JSON.stringify(rotationsState));
         rotationsState = [...rotationsState]
     }
 
@@ -134,7 +133,7 @@
         rotationsState = [...rotationsState];
         const localPath = await appLocalDataDir();
         const rotationsPath = await join(localPath, "rotations.json");
-		await fs.writeTextFile(rotationsPath, JSON.stringify(rotationsState));
+		await writeTextFile(rotationsPath, JSON.stringify(rotationsState));
     }
 
 </script>

@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-	import { writeTextFile } from "@tauri-apps/api/fs";
+	import { writeTextFile } from "@tauri-apps/plugin-fs";
 	import { activeAbility, selectedIndex } from "../../barStore";
   	import ActionBar from "../../components/ActionBar.svelte";
 	import Button from "../../components/Button.svelte";
   	import type { AbilityMap } from "../../data/abilities";
 	import AbilitySelection from "../../components/AbilitySelection.svelte";
-  	import { fs } from "@tauri-apps/api";
 	import { defaultAbility } from "../../barStore";
   	import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
   	import { Tooltip } from "@svelte-plugins/tooltips";
@@ -49,7 +48,7 @@
 		newConfigs.push(configToAdd);
 		const appLocalDataDirPath = await appLocalDataDir();
 		const barConfigPath = await join(appLocalDataDirPath, "barConfig.json");
-		const writeResult = await fs.writeTextFile(barConfigPath, JSON.stringify(newConfigs));
+		const writeResult = await writeTextFile(barConfigPath, JSON.stringify(newConfigs));
 		barConfigState = newConfigs;
 	}
 
@@ -63,7 +62,7 @@
         barConfigState = [...barConfigState];
         const localPath = await appLocalDataDir();
         const rotationsPath = await join(localPath, "barConfig.json");
-		await fs.writeTextFile(rotationsPath, JSON.stringify(barConfigState));
+		await writeTextFile(rotationsPath, JSON.stringify(barConfigState));
     }
       
 </script>

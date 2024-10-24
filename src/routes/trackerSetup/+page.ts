@@ -1,4 +1,4 @@
-import { readTextFile } from '@tauri-apps/api/fs';
+import { readTextFile } from '@tauri-apps/plugin-fs';
 import type { PageLoad } from './$types';
 import { appLocalDataDir, join } from '$lib/tauri-wrapper';
 
