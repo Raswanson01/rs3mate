@@ -26,6 +26,9 @@
   "version": "0.0.9",
   "identifier": "com.rs3mate",
   "plugins": {
+    "sql": {
+      "preload": ["sqlite:rs3_mate_db.db"]
+    },
     "updater": {
       "endpoints": [
         "https://gist.github.com/Raswanson01/aff791af5f354a23cb3412bd54f3612b"

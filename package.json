@@ -16,6 +16,7 @@
     "@neodrag/svelte": "^2.0.6",
     "@svelte-plugins/tooltips": "^3.0.1",
     "@tauri-apps/api": "^1",
+    "@tauri-apps/plugin-sql": "^2.2.0",
     "autoprefixer": "^10.4.20",
     "bun": "^1.1.21",
     "postcss": "^8.4.40",
