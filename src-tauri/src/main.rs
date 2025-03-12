@@ -50,26 +50,30 @@ fn main() {
                 CONSTRAINT rotations_abilities_abilities_FK FOREIGN KEY (abilityId) REFERENCES abilities(id),
                 CONSTRAINT rotations_abilities_rotations_FK FOREIGN KEY (rotationId) REFERENCES rotations(id)
             );
+            CREATE TABLE barSetups
+            (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                barNumber INTEGER NOT NULL,
+                barPosition INTEGER NOT NULL,
+                keybind TEXT
+            );
             CREATE TABLE barConfigs 
             (
                 id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL
-            );
-            CREATE TABLE barConfigs_keybinds 
-            (
-                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                barConfigId INTEGER NOT NULL,
-                keybind INTEGER,
-                position INTEGER NOT NULL
+                name TEXT NOT NULL,
+                mainBarSetupId INTEGER,
+                barSetup1Id INTEGER,
+                barSetup2Id INTEGER,
+                barSetup3Id INTEGER,
+                barSetup4Id INTEGER,
+                CONSTRAINT main_bar_setup_FK FOREIGN KEY (mainBarSetupId) REFERENCES barSetups(id),
+                CONSTRAINT bar_setup_1_FK FOREIGN KEY (barSetup1Id) REFERENCES barSetups(id),
+                CONSTRAINT bar_setup_2_FK FOREIGN KEY (barSetup2Id) REFERENCES barSetups(id),
+                CONSTRAINT bar_setup_3_FK FOREIGN KEY (barSetup3Id) REFERENCES barSetups(id),
+                CONSTRAINT bar_setup_4_FK FOREIGN KEY (barSetup4Id) REFERENCES barSetups(id)
             );
             ",
             kind: MigrationKind::Up,
-        },
-        Migration {
-            version: 2,
-            description: "create_test_data",
-            sql: "INSERT INTO abilities VALUES (1, \"Greater Concentrated Blast\", 3.6, \"gconc.png\");",
-            kind: MigrationKind::Up
         }
     ];
     tauri::Builder::default()
