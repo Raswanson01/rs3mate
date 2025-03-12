@@ -2,83 +2,52 @@
   "build": {
     "beforeDevCommand": "bun run dev",
     "beforeBuildCommand": "bun run build",
-    "devPath": "http://localhost:1420",
-    "distDir": "../build"
+    "frontendDist": "../build",
+    "devUrl": "http://localhost:1420"
   },
-  "package": {
-    "productName": "rs3mate",
-    "version": "0.0.9"
-  },
-  "tauri": {
-    "allowlist": {
-      "all": false,
-      "fs": {
-        "scope": [
-          "*",
-          "$RESOURCE/*",
-          "$APPDATA/*",
-          "$APPLOCALDATA/*",
-          "$HOME/.local/share/*", 
-          "$HOME/Library/Application Support/*"
-        ],
-        "all": true
-      },
-      "path": {
-        "all": true
-      },
-      "shell": {
-        "all": false,
-        "open": true
-      },
-      "dialog": {
-        "all": false,
-        "ask": true,
-        "confirm": false,
-        "message": true,
-        "open": true,
-        "save": true
-      },
-      "window": {
-        "all": true
-      }
-    },
-    "windows": [
-      {
-        "title": "rs3mate",
-        "fileDropEnabled": false,
-        "width": 1600,
-        "height": 800
-      }
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
     ],
-    "security": {
-      "csp": null
-    },
+    "resources": [
+      "categorizedAbilities.json",
+      "defaultBarConfig.json"
+    ],
+    "createUpdaterArtifacts": "v1Compatible"
+  },
+  "productName": "rs3mate",
+  "mainBinaryName": "rs3mate",
+  "version": "0.0.9",
+  "identifier": "com.rs3mate",
+  "plugins": {
     "updater": {
-      "active": true,
-      "dialog": true,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDQ4QTNCNDczMDYzRENFMDMKUldRRHpqMEdjN1NqU04zdndncVlzK2EyY0kxd05vdUtsbm95eCszQjI5NFQ5VFkzb0NOQmZWT1gK",
       "endpoints": [
         "https://gist.github.com/Raswanson01/aff791af5f354a23cb3412bd54f3612b"
       ],
       "windows": {
         "installMode": "basicUi"
-      }
-    },
-    "bundle": {
-      "active": true,
-      "targets": "all",
-      "identifier": "com.rs3mate",
-      "resources": [
-        "categorizedAbilities.json",
-        "defaultBarConfig.json"
-      ],
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ]
+      },
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDQ4QTNCNDczMDYzRENFMDMKUldRRHpqMEdjN1NqU04zdndncVlzK2EyY0kxd05vdUtsbm95eCszQjI5NFQ5VFkzb0NOQmZWT1gK"
     }
+  },
+  "app": {
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "title": "rs3mate",
+        "dragDropEnabled": false,
+        "width": 1600,
+        "height": 800,
+        "useHttpsScheme": true
+      }
+    ]
   }
 }

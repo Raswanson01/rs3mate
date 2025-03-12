@@ -1,13 +1,13 @@
 <script lang="ts">
     import type { BarAbility } from "../../models/abilities";
     import Button from "../../components/Button.svelte";
-    import { readTextFile, writeTextFile } from "@tauri-apps/api/fs";
+    import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs";
     import { shiftedKeyMap } from "../../barStore";
     import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
     import { scale } from "svelte/transition";
     import { flip } from "svelte/animate";
-    import { getCurrent } from "@tauri-apps/api/window";
-    import { PhysicalPosition } from '@tauri-apps/api/window';
+    import { getCurrent } from "@tauri-apps/api/webviewWindow";
+    import { PhysicalPosition } from '@tauri-apps/api/webviewWindow';
 
     console.log("Shifted key map: ", $shiftedKeyMap);
 

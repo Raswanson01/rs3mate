@@ -1,16 +1,17 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-	import { writeTextFile } from "@tauri-apps/api/fs";
+	import { writeTextFile } from "@tauri-apps/plugin-fs";
 	import { activeAbility, selectedIndex } from "../../barStore";
   	import ActionBar from "../../components/ActionBar.svelte";
 	import Button from "../../components/Button.svelte";
   	import type { AbilityMap } from "../../data/abilities";
 	import AbilitySelection from "../../components/AbilitySelection.svelte";
-  	import { fs } from "@tauri-apps/api";
+  	import {  } from "@tauri-apps/api";
 	import { defaultAbility } from "../../barStore";
   	import { appLocalDataDir, join } from "../../lib/tauri-wrapper";
   	import { Tooltip } from "@svelte-plugins/tooltips";
 	import HelpIcon from '~icons/mdi/help-circle-outline';
+import * as fs from "@tauri-apps/plugin-fs"
 
 	export let data: any;
 	export let abilities: AbilityMap = data.abilities;
