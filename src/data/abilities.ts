@@ -10,3 +10,13 @@ export interface AbilityMap {
     prayer: BarAbility[];
     spells: BarAbility[]
 }
+
+export type BarConfig = {
+    id: number;
+    name: string;
+    mainBarSetupId: number;
+    barSetup1Id: number;
+    barSetup2Id: number;
+    barSetup3Id: number;
+    barSetup4Id: number;
+}

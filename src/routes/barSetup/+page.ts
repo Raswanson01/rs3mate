@@ -1,31 +1,17 @@
-import type { AbilityMap } from '../../data/abilities';
+import Database from '@tauri-apps/plugin-sql';
+import type { AbilityMap, BarConfig } from '../../data/abilities';
 import { appLocalDataDir, join, resourceDir } from '../../lib/tauri-wrapper';
 import type { PageLoad } from './$types';
 import { readTextFile } from '@tauri-apps/plugin-fs';
 
 export const load: PageLoad = async () => {
-    // Specify the path to the JSON file you want to load
-    //const filePath = '/categorizedAbilities.json';
-    const resourcePath = await resourceDir();
-    const localPath = await appLocalDataDir();
-    const allAbilitiesPath = await join(resourcePath, "categorizedAbilities.json");
-    const barConfigPath = await join(localPath, "barConfig.json");
+    const db = await Database.load("sqlite:rs3_mate_db.db");
+    const bars: BarConfig[] = await db.select("SELECT * from barConfigs");
     try {
-        console.log("Beginning to read file")
-        // Call the Tauri command to read the file
-        const abilityData = await readTextFile(allAbilitiesPath);
-        const actionBarData = await readTextFile(barConfigPath);
-        // Parse the JSON data
-        const abilities: AbilityMap = JSON.parse(abilityData);
-        const barConfig = JSON.parse(actionBarData);
+        if (bars && bars.length > 0) {
 
-        // Return the JSON data to the page
-        console.log("Json data: ", abilities)
-        console.log("Bar config: ", barConfig);
-        return {
-            abilities,
-            barConfig
-        };
+        }
+        
     } catch (error) {
         console.error('Failed to load JSON file:', error);
         return {

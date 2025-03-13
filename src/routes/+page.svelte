@@ -6,6 +6,7 @@
 <div class="container">
   <h1>Welcome to Rs3Mate!</h1>
 
+  <Button onClick={() => goto("/barConfigSetup")} text="Bar Config Setup"/>
   <Button onClick={() => goto("/barSetup")} text="Bar Setup"/>
   <Button onClick={() => goto("/rotationBuilder")} text="Rotation Builder"/>
   <Button onClick={() => goto("/trackerSetup")} text="Tracker Setup"/>

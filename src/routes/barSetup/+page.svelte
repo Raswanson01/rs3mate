@@ -21,9 +21,9 @@ import * as fs from "@tauri-apps/plugin-fs"
 	let barConfigState = [...barConfig];
 	let selectedBarConfig = barConfigState[0];
 
-	const helpCopy = "Click and drag abilities to action bar slots to set them in their slot. "
-	+ "Click on an ability slot and press your desired keybind (e.g. Shift and 3) to configure the tracker to "
-	+ "correlate that ability with that keybind."
+	const helpCopy = `Click and drag abilities to action bar slots to set them in their slot.
+	Click on an ability slot and press your desired keybind (e.g. Shift and 3) to configure the tracker to
+	correlate that ability with that keybind.`
 
 	async function handleSave() {
 		const appLocalDataDirPath = await appLocalDataDir();
